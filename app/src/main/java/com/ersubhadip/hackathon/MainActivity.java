@@ -19,8 +19,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+         getSupportActionBar().hide();
         animatedBottomBar = findViewById(R.id.animatedBottomBar);
-
+        if (savedInstanceState == null) {
+            animatedBottomBar.selectTabById(R.id.home, true);
+            fragmentManager = getSupportFragmentManager();
+            fragment_home homeFragment = new fragment_home();
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, homeFragment)
+                    .commit();
+        }
 
         animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override
