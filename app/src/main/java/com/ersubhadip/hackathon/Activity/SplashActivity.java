@@ -35,6 +35,8 @@ public class SplashActivity extends AppCompatActivity {
         });
 
         //todo:status bar color and physical key functions
+        //todo:force light theme
+        //todo:No Internet handling
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
