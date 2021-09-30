@@ -9,9 +9,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ersubhadip.hackathon.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignUpActivity extends AppCompatActivity {
     private TextView loginPage;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

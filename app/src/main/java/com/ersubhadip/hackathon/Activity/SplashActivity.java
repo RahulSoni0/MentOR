@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
 
                 Intent it=new Intent(SplashActivity.this,SignUpActivity.class);
                 startActivity(it);
-                finish();
+
 
 
 
@@ -41,7 +41,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it=new Intent(SplashActivity.this,LoginActivity.class);
                 startActivity(it);
-                finish();
+
 
 
 
