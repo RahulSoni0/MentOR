@@ -81,12 +81,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="32dp"
-
         android:orientation="horizontal"
         android:paddingStart="8dp"
         android:layout_marginLeft="38dp"
         android:layout_marginRight="38dp"
-
         >
 
         <TextView
