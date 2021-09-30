@@ -20,6 +20,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         signUp=findViewById(R.id.SplashSignUpBtn);
+        login=findViewById(R.id.SplashLogIn);
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
