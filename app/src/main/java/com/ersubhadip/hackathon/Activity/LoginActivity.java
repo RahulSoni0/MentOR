@@ -6,11 +6,14 @@ import android.os.Bundle;
 
 import com.ersubhadip.hackathon.R;
 
-public class AuthActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth);
+        setContentView(R.layout.activity_login);
+
+
+
     }
 }
