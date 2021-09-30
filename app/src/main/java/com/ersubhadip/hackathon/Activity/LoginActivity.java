@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailEt,password;
     FirebaseAuth auth;
 
+    //todo:Google Login Support
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
