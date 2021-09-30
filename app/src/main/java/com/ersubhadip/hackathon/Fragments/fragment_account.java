@@ -8,13 +8,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.ersubhadip.hackathon.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.Nullable;
 
 
 public class fragment_account extends Fragment {
+    private TextView logout;
 
 
     public fragment_account() {
@@ -33,6 +36,9 @@ public class fragment_account extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
+        //initialisation
+        logout=view.findViewById(R.id.logout);
+        //end
         return view;
     }
     
@@ -40,6 +46,15 @@ public class fragment_account extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         
         super.onViewCreated(view, savedInstanceState);
+
+         FirebaseAuth auth =FirebaseAuth.getInstance();
+         logout.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+
+                 auth.signOut();
+             }
+         });
         
     }
 }

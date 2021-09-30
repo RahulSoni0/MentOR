@@ -163,6 +163,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 finish();
                                             }else{
 
+                                                d.dismiss();
                                                 Toast.makeText(SignUpActivity.this, "Some Error Occurred"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                 signUp.setEnabled(true);
                                             }

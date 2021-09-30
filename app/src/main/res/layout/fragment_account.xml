@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFAB91"
-
     tools:context=".Fragments.fragment_account">
 
-    <!-- TODO: Update blank fragment layout -->
+<!--   Junk Code-For testing-->
     <TextView
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Account"
-        android:textColor="#fff"
+        android:text="LogOut"
+        android:textColor="#ffffff"
         android:textSize="26sp" />
 
 </RelativeLayout>
