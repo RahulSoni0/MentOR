@@ -68,7 +68,7 @@
         android:paddingEnd="10dp"
         android:drawablePadding="12dp"
         android:background="@drawable/custom_et"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
 
         />
     <EditText
