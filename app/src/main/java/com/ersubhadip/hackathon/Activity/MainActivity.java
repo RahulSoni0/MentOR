@@ -3,8 +3,10 @@ package com.ersubhadip.hackathon.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 import com.ersubhadip.hackathon.R;
 import com.ersubhadip.hackathon.Fragments.fragment_account;
@@ -17,21 +19,23 @@ import org.jetbrains.annotations.Nullable;
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class MainActivity extends AppCompatActivity {
-    AnimatedBottomBar animatedBottomBar;
-    FragmentManager fragmentManager;
+    private AnimatedBottomBar animatedBottomBar;
+    private FrameLayout frameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-         getSupportActionBar().hide();
+        //initialisation
+        frameLayout=findViewById(R.id.fragment_container);
         animatedBottomBar = findViewById(R.id.animatedBottomBar);
+         //end
+
+
+        //setting default Fragment
         if (savedInstanceState == null) {
             animatedBottomBar.selectTabById(R.id.home, true);
-            fragmentManager = getSupportFragmentManager();
-            fragment_home homeFragment = new fragment_home();
-            fragmentManager.beginTransaction().replace(R.id.fragment_container, homeFragment)
-                    .commit();
+            defaultFragment(new fragment_home());
+
         }
 
         //click listeners on bottom navigation items
@@ -39,34 +43,42 @@ public class MainActivity extends AppCompatActivity {
         animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override
             public void onTabSelected(int lastIndex, @Nullable AnimatedBottomBar.Tab lastTab, int newIndex, @NotNull AnimatedBottomBar.Tab newTab) {
-                Fragment fragment = null;
+
                 switch (newTab.getId()) {
                     case R.id.home:
-                        fragment = new fragment_home();
+                        changeFragments(new fragment_home());
                         break;
-                    case R.id.book:
-                        fragment = new fragment_book();
+                    case R.id.courses:
+                        changeFragments(new fragment_book());
                         break;
                     case R.id.account:
-                        fragment = new fragment_account();
+                        changeFragments(new fragment_account());
                         break;
                 }
                 //end
 
-                //Fragment transaction manager
 
-                if (fragment != null) {
-                    fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
-                            .commit();
-                }
-
-                //end
             }
         });
 
 
 
+
+    }
+    //Fragment transaction manager
+    private void defaultFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in,R.anim.slide_out);
+        fragmentTransaction.replace(frameLayout.getId(),fragment);
+        fragmentTransaction.commit();
+
+    }
+
+    private void changeFragments(Fragment fragment){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in,R.anim.slide_out);
+        fragmentTransaction.replace(frameLayout.getId(),fragment);
+        fragmentTransaction.commit();
 
     }
 }

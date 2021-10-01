@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         //end
 
         //Setting click listeners
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

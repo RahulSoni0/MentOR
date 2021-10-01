@@ -6,13 +6,14 @@
     android:background="#F48FB1"
     tools:context=".Fragments.fragment_book">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Book"
-        android:textColor="#fff"
+        android:text="Sahi me mast lag rha bhai dekh"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/noto_sans"
         android:textSize="26sp" />
 
 </RelativeLayout>
