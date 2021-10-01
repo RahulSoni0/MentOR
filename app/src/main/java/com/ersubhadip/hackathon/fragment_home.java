@@ -64,15 +64,21 @@ public class fragment_home extends Fragment {
          homeRvList.add(new HomeRvModel("Cengage","BM Sharma",R.drawable.temp3));
          homeRvList.add(new HomeRvModel("Dhanpat Rai","Premchand",R.drawable.temp3));
 
-
-         //poora copy paste:-----
          HomeRvAdapter adapter = new HomeRvAdapter(homeRvList);
-         LinearLayoutManager manager = new LinearLayoutManager(getContext());
-         manager.setOrientation(RecyclerView.HORIZONTAL);
-         homeRv.setLayoutManager(manager);
+         //LinearLayoutManager  poora copy paste:-----
+//
+//         LinearLayoutManager manager = new LinearLayoutManager(getContext());
+//         manager.setOrientation(RecyclerView.HORIZONTAL);
+//         homeRv.setLayoutManager(manager);
+//         homeRv.setAdapter(adapter);
+//         adapter.notifyDataSetChanged();
+
+         //Humko Grid banana hai
+         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
+         homeRv.setLayoutManager(gridLayoutManager);
          homeRv.setAdapter(adapter);
-         adapter.notifyDataSetChanged();
-        //operational statements
+         homeRv.hasFixedSize();//pata nahi kya karti hai ye line
+
         
     }
 }
