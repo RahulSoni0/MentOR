@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //click listeners on bottom navigation items
-
         animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override
             public void onTabSelected(int lastIndex, @Nullable AnimatedBottomBar.Tab lastTab, int newIndex, @NotNull AnimatedBottomBar.Tab newTab) {
@@ -55,11 +54,12 @@ public class MainActivity extends AppCompatActivity {
                         changeFragments(new fragment_account());
                         break;
                 }
-                //end
+
 
 
             }
         });
+        //end
 
 
 
