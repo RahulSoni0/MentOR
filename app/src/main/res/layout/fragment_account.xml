@@ -1,21 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFAB91"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".Fragments.fragment_account">
 
-<!--   Junk Code-For testing-->
-    <TextView
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Bhai animation\nbhi hai dekh!"
-        android:fontFamily="@font/noto_sans"
-        android:textColor="#ffffff"
-        android:textAlignment="center"
-        android:textSize="26sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@color/primary"
 
-</RelativeLayout>
+            />
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="32dp"
+            android:text="ACCOUNT"
+            android:textColor="@color/dark_grey_primary"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:fontFamily="@font/noto_sans"
+            android:textSize="28sp"
+            android:id="@+id/text"
+            />
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="60dp"
+            android:translationZ="20dp"
+            app:layout_constraintTop_toBottomOf="@id/text"
+            android:src="@drawable/dp"
+            android:id="@+id/dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            app:layout_constraintTop_toBottomOf="@id/dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/small_corner_bg"
+            android:elevation="10dp"
+            android:orientation="vertical"
+            android:gravity="center"
+
+            >
+
+                <TextView
+                    android:id="@+id/userAcctName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NAME-user user"
+                    android:textColor="@color/dark_grey_primary"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+
+
+                    />
+                <TextView
+                    android:id="@+id/userAcctEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EMAIL-user@gmail.com"
+                    android:textColor="@color/dark_grey_primary"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+
+
+                    />
+
+
+
+
+        </LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/linear1"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:layout_marginTop="32dp"
+    android:layout_marginLeft="32dp"
+    android:layout_margin="32dp"
+    android:padding="16dp"
+    android:orientation="vertical"
+
+    >
+
+        <LinearLayout
+            android:id="@+id/AccountLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/small_corner_bg"
+            android:elevation="10dp"
+            android:padding="10dp"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true"
+
+            >
+
+                <TextView
+                    android:id="@+id/acctSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account Settings"
+                    android:textColor="@color/grey_primary"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/settings"
+                    android:drawablePadding="10dp"
+
+
+                    />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/shareLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/small_corner_bg"
+            android:elevation="10dp"
+            android:padding="10dp"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            >
+
+                <TextView
+                    android:id="@+id/share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share this App"
+                    android:textColor="@color/grey_primary"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/share"
+                    android:drawablePadding="10dp"
+
+
+
+                    />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/aboutLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/small_corner_bg"
+            android:elevation="10dp"
+            android:padding="10dp"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true"
+
+            >
+
+                <TextView
+                    android:id="@+id/About"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About Us"
+                    android:textColor="@color/grey_primary"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/about"
+                    android:drawablePadding="10dp"
+
+
+                    />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/logoutLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/small_corner_bg"
+            android:elevation="10dp"
+            android:padding="10dp"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="20dp"
+
+            >
+
+                <TextView
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:textColor="@color/grey_primary"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/logout"
+                    android:drawablePadding="10dp"
+
+
+                    />
+
+
+
+        </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
