@@ -25,12 +25,26 @@
 
 # About The Application - to be done 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 # Screenshots Space (to be done after completion)
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
-# Under Development
+
 
 
 
@@ -38,6 +52,11 @@
 
 
 Credits - https://github.com/Droppers/AnimatedBottomBar
+
+<br>
+<br>
+<br>
+<br>
 
 
 <div align="center">
