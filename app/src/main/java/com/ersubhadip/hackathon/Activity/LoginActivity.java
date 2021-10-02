@@ -22,12 +22,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    private TextView forget;
+    private TextView forget,signUp;
     private AppCompatButton login;
     private EditText emailEt,password;
     FirebaseAuth auth;
 
-    //todo:Google Login Support
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         login=findViewById(R.id.LoginBtn);
         emailEt=findViewById(R.id.emailEt);
         password=findViewById(R.id.passwordEt);
+        signUp=findViewById(R.id.signUpTv);
         auth=FirebaseAuth.getInstance();
         //end
 
@@ -102,6 +103,19 @@ public class LoginActivity extends AppCompatActivity {
 
                 Intent it=new Intent(LoginActivity.this,ForgetPasswordActivity.class);
                 startActivity(it);
+
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent sign=new Intent(LoginActivity.this,SignUpActivity.class);
+                startActivity(sign);
+
+
 
             }
         });

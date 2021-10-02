@@ -21,12 +21,17 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         signUp=findViewById(R.id.SplashSignUpBtn);
         login=findViewById(R.id.SplashLogIn);
+
+
+
+        //Click Listeners
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent it=new Intent(SplashActivity.this,SignUpActivity.class);
                 startActivity(it);
+                finish();
 
 
 
@@ -43,6 +48,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent it=new Intent(SplashActivity.this,LoginActivity.class);
                 startActivity(it);
+                finish();
 
 
 

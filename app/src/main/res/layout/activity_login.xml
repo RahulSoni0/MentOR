@@ -183,7 +183,7 @@
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="LOGIN WITH"
+           android:text="NEW HERE ?"
            android:textColor="@color/dark_grey_primary"
            android:textSize="18sp"
            android:textStyle="bold"
@@ -193,14 +193,23 @@
 
            />
 
-       <ImageView
-           android:id="@+id/loginGoogle"
-           android:layout_width="40dp"
-           android:layout_height="40dp"
-           android:src="@drawable/google"
-           android:layout_marginLeft="16dp"
-           android:clickable="true"
-           />
+      <TextView
+          android:id="@+id/signUpTv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="SIGN UP"
+          android:textColor="@color/primary"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          android:layout_gravity="center_vertical"
+          android:fontFamily="@font/noto_sans"
+          android:layout_marginLeft="4dp"
+          />
+
+
+
+
+
    </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
