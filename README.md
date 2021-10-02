@@ -34,6 +34,14 @@
 Credits - https://github.com/Droppers/AnimatedBottomBar
 
 
+<div align="center">
+<h6>Copyright 2021 - All Rights Reserved </h6>
+</div>
+
+
+
+
+
 
 
 
