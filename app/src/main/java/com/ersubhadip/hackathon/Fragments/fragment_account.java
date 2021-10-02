@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ersubhadip.hackathon.Activity.AccountSettingActivity;
+import com.ersubhadip.hackathon.Activity.SplashActivity;
 import com.ersubhadip.hackathon.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -93,6 +94,9 @@ public class fragment_account extends Fragment {
              public void onClick(View view) {
 
                  FirebaseAuth.getInstance().signOut();
+                 Intent it=new Intent(getContext(), SplashActivity.class);
+                 startActivity(it);
+                 getActivity().finish();
              }
          });
          //End
