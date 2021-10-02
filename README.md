@@ -1,4 +1,8 @@
-# MentOR - android app (Hackathon project)
+
+
+<div align="center">
+<h2>MentOR - android app (Hackathon project)</h2>
+</div>
 
 <div align="center">
 <img width="300px" height = "300px" src="https://user-images.githubusercontent.com/89024718/135733646-fccb6edd-50a2-4bff-8ec1-6468a609a040.png" alt="cover" />
