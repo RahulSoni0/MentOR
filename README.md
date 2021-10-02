@@ -7,7 +7,7 @@
 
 
 
-### TEAM MEMBERS
+# TEAM MEMBERS
 
 - <a href="https://github.com/Subhadiptech" title="Click here" style="background-color:#FFFFFF;color:#000000;text-decoration:none">Subhadip Das</a>
  
@@ -16,7 +16,7 @@
 - <a href="https://github.com/Joaquin144" title="Click here" style="background-color:#FFFFFF;color:#000000;text-decoration:none">Vibhu Pandey</a>
 
 
-### Screenshots Space (to be done after completion)
+# Screenshots Space (to be done after completion)
 
 
 
@@ -27,7 +27,7 @@
 
 
 
-## Credits - https://github.com/Droppers/AnimatedBottomBar
+Credits - https://github.com/Droppers/AnimatedBottomBar
 
 
 
