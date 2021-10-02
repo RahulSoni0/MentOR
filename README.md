@@ -13,7 +13,7 @@
 
 
 
-# TEAM MEMBERS
+# TEAM MEMBERS:
 
 - <a href="https://github.com/Subhadiptech" title="Click here" style="background-color:#FFFFFF;color:#000000;text-decoration:none">Subhadip Das</a>
  
@@ -51,7 +51,8 @@
 
 
 
-Credits - https://github.com/Droppers/AnimatedBottomBar
+# Credits:
+<h5>BottomNavigationLayout - https://github.com/Droppers/AnimatedBottomBar</h5>
 
 <br>
 <br>
