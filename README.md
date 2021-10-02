@@ -24,7 +24,10 @@
 
 
 # About The Application - to be done 
-
+<br>
+<div align="center">
+<h6>To Be Done Later</h6>
+</div>
 <br>
 <br>
 <br>
@@ -33,6 +36,11 @@
 
 
 # Screenshots Space (to be done after completion)
+<br>
+<div align="center">
+<h6>To Be Uploaded</h6>
+</div>
+
 
 <br>
 <br>
