@@ -23,11 +23,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignUpActivity extends AppCompatActivity {
     private TextView loginPage;
     private EditText name,email,password,confirmPassword;
     private FirebaseAuth auth;
     private AppCompatButton signUp;
+    private FirebaseFirestore firebaseFirestore;
     String emailPattern= "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
 
@@ -45,6 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
         confirmPassword=findViewById(R.id.confirmPasswordEt);
         signUp=findViewById(R.id.SignUpBtn);
         auth=FirebaseAuth.getInstance();
+        firebaseFirestore=FirebaseFirestore.getInstance();
         //end
 
         //TextWatchers
@@ -156,11 +161,22 @@ public class SignUpActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             if(task.isSuccessful()){
+
+                                                //sending userData to fireStore
+                                                String userName=name.getText().toString().trim();
+                                                Map<String,Object> userData=new HashMap<>();
+                                                userData.put("name",userName);
+                                                userData.put("email",emailData);
+                                                firebaseFirestore.collection("users").document(auth.getUid()).set(userData);
+                                                //end
+
                                                 d.dismiss();     //Removing loading dialog after online process Completes
+
                                                 Toast.makeText(SignUpActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
                                                 Intent in = new Intent(SignUpActivity.this,MainActivity.class);
                                                 startActivity(in);
                                                 finish();
+
                                             }else{
 
                                                 d.dismiss();
@@ -172,6 +188,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                 }
                                 else{
+                                    d.dismiss();
                                     Toast.makeText(SignUpActivity.this, "Some Error Occurred"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     signUp.setEnabled(true);
                                 }
@@ -181,7 +198,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                     }else{
-
+                        d.dismiss();
                         confirmPassword.setError("Please Enter Same Password");
                         signUp.setEnabled(true);
 
@@ -189,7 +206,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 }else{
-
+                    d.dismiss();
                     email.setError("Please Enter Valid Email");
                     signUp.setEnabled(true);
 
