@@ -69,7 +69,7 @@
 
 
 <div align="center">
-<h6>Copyright 2021 - All Rights Reserved </h6>
+<h6>Copyright Free </h6>
 </div>
 
 
