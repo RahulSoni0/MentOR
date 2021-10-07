@@ -2,8 +2,10 @@ package com.ersubhadip.hackathon.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -134,13 +136,14 @@ public class SignUpActivity extends AppCompatActivity {
         //Click Listener with Auth
 
         signUp.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("UseCompatLoadingForDrawables")
             @Override
             public void onClick(View view) {
                 signUp.setEnabled(false);
                 //Loading Dialog Creation
                 Dialog d=new Dialog(SignUpActivity.this);
                 d.setContentView(R.layout.loading_dialogs);
-                d.getWindow().setBackgroundDrawable(getDrawable(R.drawable.round_bg));
+                d.getWindow().setBackgroundDrawable(getDrawable(R.drawable.round_bg)); //todo:remove suppressLint function not applied for bg
                 d.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
                 d.setCancelable(false);
                 //end
