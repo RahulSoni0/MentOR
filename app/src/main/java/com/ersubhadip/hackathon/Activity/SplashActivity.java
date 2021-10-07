@@ -10,10 +10,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ersubhadip.hackathon.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
     private AppCompatButton signUp;
     private TextView login;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         signUp=findViewById(R.id.SplashSignUpBtn);
         login=findViewById(R.id.SplashLogIn);
+        firebaseAuth=FirebaseAuth.getInstance();
 
 
 
@@ -46,9 +49,22 @@ public class SplashActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it=new Intent(SplashActivity.this,LoginActivity.class);
-                startActivity(it);
-                finish();
+
+                if(firebaseAuth.getCurrentUser()!=null){
+                    Intent it=new Intent(SplashActivity.this,MainActivity.class);
+                    startActivity(it);
+                    finish();
+
+                }else{
+
+                    Intent it=new Intent(SplashActivity.this,LoginActivity.class);
+                    startActivity(it);
+                    finish();
+
+
+                }
+
+
 
 
 
