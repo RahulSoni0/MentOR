@@ -23,10 +23,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignUpActivity extends AppCompatActivity {
     private TextView loginPage;
     private EditText name,email,password,confirmPassword;
     private FirebaseAuth auth;
+    private FirebaseFirestore firestore;//yah dalal hai jo data set karega resective usid document mein
     private AppCompatButton signUp;
     String emailPattern= "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
@@ -45,6 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
         confirmPassword=findViewById(R.id.confirmPasswordEt);
         signUp=findViewById(R.id.SignUpBtn);
         auth=FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
         //end
 
         //TextWatchers
@@ -156,6 +161,15 @@ public class SignUpActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             if(task.isSuccessful()){
+                                                //############     To do : Humko user ka sara data apne firebase ke "users" collection ke corresponding "usid" document mein store karna hai
+                                                String sname=name.getText().toString().trim();//name String
+                                                //String sinterest=  #######-------->> interest ka input abhi liya hi nahi hai humne
+                                                Map<String,Object> meraData=new HashMap<>();
+                                                meraData.put("name",sname);
+                                                meraData.put("email",emailData);
+                                                firestore.collection("users").document(auth.getUid()).set(meraData);
+                                                //firestore.collection("users").add(meraData);
+
                                                 d.dismiss();     //Removing loading dialog after online process Completes
                                                 Toast.makeText(SignUpActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
                                                 Intent in = new Intent(SignUpActivity.this,MainActivity.class);

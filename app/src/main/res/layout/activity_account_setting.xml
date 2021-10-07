@@ -71,9 +71,10 @@
                 android:inputType="text"
 
                 />
-            <EditText
+            <TextView
                 android:id="@+id/emailEt"
                 android:layout_width="0dp"
+                android:gravity="center|start"
                 android:layout_height="56dp"
                 app:layout_constraintTop_toBottomOf="@id/nameEt"
                 app:layout_constraintLeft_toLeftOf="parent"
