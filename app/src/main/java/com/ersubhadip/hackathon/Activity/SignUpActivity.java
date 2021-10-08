@@ -152,7 +152,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                 //final checks
                 if(email.getText().toString().trim().matches(emailPattern)){
-                    if(password.getText().toString().trim().equals(confirmPassword.getText().toString().trim())){
+                    if(password.getText().toString().trim().equals(confirmPassword.getText().toString().trim()) && password.getText().toString().trim().length()>=6){
 
                         String emailData=email.getText().toString();
                         String passwordData=password.getText().toString();
