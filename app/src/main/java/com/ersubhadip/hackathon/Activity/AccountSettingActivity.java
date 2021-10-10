@@ -54,7 +54,6 @@ public class AccountSettingActivity extends AppCompatActivity {
 
 
         //statements
-
         firestore.collection("users").document(auth.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
 
             @Override
@@ -84,12 +83,13 @@ public class AccountSettingActivity extends AppCompatActivity {
                 dialog.setCancelable(false);
                 dialog.show();
 
-                if (passwordEt.getText().toString().equals("")) {
+                if (passwordEt.getText().toString().equals("") || oldPasswordEt.getText().toString().equals("") || confirmPasswordEt.getText().toString().equals("")  ) {
 
                     //to update only name
                     Map<String, Object> basicUpdate = new HashMap<>();
                     String newName = nameEt.getText().toString().trim();
                     basicUpdate.put("name", newName);
+                    basicUpdate.put("email",email);
                     firestore.collection("users").document(auth.getUid()).update(basicUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -101,7 +101,7 @@ public class AccountSettingActivity extends AppCompatActivity {
 
 
                             } else {
-                                Toast.makeText(AccountSettingActivity.this, "Some error Occurred :(, Try Again", Toast.LENGTH_LONG).show();
+                                Toast.makeText(AccountSettingActivity.this, "Some error Occurred :(, Try Again"+task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                             }
 
