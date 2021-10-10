@@ -211,13 +211,13 @@
                     android:id="@+id/About"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="About Us"
+                    android:text="Contact Us"
                     android:textColor="#292637"
                     android:textStyle="bold"
                     android:textAlignment="center"
                     android:fontFamily="@font/noto_sans"
                     android:textSize="16sp"
-                    android:drawableStart="@drawable/about"
+                    android:drawableStart="@drawable/contact"
                     android:drawablePadding="10dp"
 
 
