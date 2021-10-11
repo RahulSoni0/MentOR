@@ -3,7 +3,7 @@
 2. Clone the forked Repository in your local System.
 
 
-   ```git clone https://github.com/your_user_name/hackathon_BottomNav```
+   ```git clone https://github.com/your_user_name/practicerepo```
 
 
 3. Create a new Branch:
