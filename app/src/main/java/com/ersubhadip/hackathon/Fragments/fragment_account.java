@@ -11,12 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ersubhadip.hackathon.Activity.AccountSettingActivity;
 import com.ersubhadip.hackathon.Activity.LoginActivity;
 import com.ersubhadip.hackathon.Activity.SplashActivity;
 import com.ersubhadip.hackathon.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -24,6 +29,8 @@ import org.jetbrains.annotations.Nullable;
 public class fragment_account extends Fragment {
 
     private LinearLayout acctSettings,share,about,logout;
+    private FirebaseFirestore firebaseFirestore;
+    private TextView name,email;
 
 
 
@@ -48,6 +55,8 @@ public class fragment_account extends Fragment {
         share=view.findViewById(R.id.shareLinear);
         about=view.findViewById(R.id.aboutLinear);
         logout=view.findViewById(R.id.logoutLinear);
+        name=view.findViewById(R.id.userAcctName);
+        email=view.findViewById(R.id.userAcctEmail);
         //end
         return view;
     }
@@ -56,6 +65,22 @@ public class fragment_account extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         
         super.onViewCreated(view, savedInstanceState);
+        //setting texts on name and email
+         firebaseFirestore.collection("users").document(FirebaseAuth.getInstance().getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+             @Override
+             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                 if(task.isSuccessful()){
+
+                     DocumentSnapshot snap=task.getResult();
+                     name.setText((String)snap.get("name"));
+                     email.setText((String)snap.get("email"));
+
+                 }else{
+                     Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                 }
+             }
+         });
+         //end
 
          //Click Listeners
          acctSettings.setOnClickListener(new View.OnClickListener() {
