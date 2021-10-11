@@ -218,6 +218,7 @@
                     android:textAlignment="center"
                     android:fontFamily="@font/noto_sans"
                     android:textSize="16sp"
+                    android:drawableTint="@color/dark_grey_primary"
                     android:drawableStart="@drawable/contact"
                     android:drawablePadding="10dp"
 
