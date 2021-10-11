@@ -32,4 +32,4 @@
 
 7. Create a PR.
 
-# NOTE-Currently we are not accepting any contribution other than our team members as it is a hackathon project on which we are working. After the hackathon ends people are free to make their PR's.  
+### NOTE-Currently we are not accepting any contribution other than our team members as it is a hackathon project on which we are working. After the hackathon ends people are free to make their PR's.  
