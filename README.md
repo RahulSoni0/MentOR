@@ -23,7 +23,7 @@
 
 <br><br>
 
-# About The Application - to be done 
+# What's the purpose of this application ?
 <br>
 <div align="center">
 <h6>
