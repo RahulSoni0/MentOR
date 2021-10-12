@@ -36,15 +36,15 @@ Our team will design a mobile application, that will contain a proper guidance i
 <br>
 
 <div align="center">
-<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136952740-a7e43107-62ba-492f-a328-f211e836641c.jpg" alt="cover" />
+<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136954159-cae54535-2c2b-4fa8-b16d-1a4de58706cc.jpg" alt="cover" />
 </div>
 <br>
 <div align="center">
-<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136952804-cb8c168f-8aa6-4fe1-b918-d349c48cef36.jpg" alt="cover" />
+<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136954209-c96df317-eab8-42fb-a7c8-2e0f4aac9d05.jpg" alt="cover" />
 </div>
 <br>
 <div align="center">
-<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136952847-467ac621-53ee-4249-9e16-6db3a4222393.jpg" alt="cover" />
+<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136954267-3cb04b20-4a31-4d45-a37c-4e1e6c6aea34.jpg" alt="cover" />
 </div>
 
 
