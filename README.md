@@ -35,7 +35,7 @@
 <br>
 
 
-# Screenshots Space (to be done after completion)
+# Application Overview
 <br>
 <div align="center">
 <img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136952740-a7e43107-62ba-492f-a328-f211e836641c.jpg" alt="cover" />
