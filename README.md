@@ -54,6 +54,8 @@ Our team will design a mobile application, that will contain a proper guidance i
 
 # Credits:
 <h5>BottomNavigationLayout - https://github.com/Droppers/AnimatedBottomBar</h5>
+<h5>Glide Library - https://github.com/bumptech/glide</h5>
+<h5>Lottie Library - https://github.com/airbnb/lottie-android</h5>
 
 <br>
 <br>
