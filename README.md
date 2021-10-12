@@ -38,25 +38,20 @@
 # Screenshots Space (to be done after completion)
 <br>
 <div align="center">
-<h6>To Be Uploaded</h6>
+<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136952740-a7e43107-62ba-492f-a328-f211e836641c.jpg" alt="cover" />
+</div>
+<br>
+<div align="center">
+<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136952804-cb8c168f-8aa6-4fe1-b918-d349c48cef36.jpg" alt="cover" />
+</div>
+<br>
+<div align="center">
+<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136952847-467ac621-53ee-4249-9e16-6db3a4222393.jpg" alt="cover" />
 </div>
 
 
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
-
-
 
 
 # Credits:
