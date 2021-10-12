@@ -30,8 +30,11 @@
 Our team will design a mobile application, that will contain a proper guidance in form of structured courses which are trending worldwide and has opportunities at its peak. We will also include all the possible (copywrite free content present on internet) course e-books and the best part of our idea is that, Students can easily download the e-books and save on their local system to access when there is no internet. Moreover, we are including best video lectures which students can follow for hands-on guide. Moreover there will be a bot to guide the students for basic navigation and contact support.</h6>
 </div>
 <br><br>
+
 # Application Overview
+
 <br>
+
 <div align="center">
 <img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136952740-a7e43107-62ba-492f-a328-f211e836641c.jpg" alt="cover" />
 </div>
