@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ersubhadip.hackathon">
 
@@ -12,10 +11,10 @@
         android:roundIcon="@mipmap/new_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hackathon">
-        <activity android:name=".Activity.AccountSettingActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+        <activity android:name=".Activity.TabedActivity"></activity>
+        <activity
+            android:name=".Activity.AccountSettingActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Activity.ForgetPasswordActivity"
             android:screenOrientation="portrait" />
@@ -35,9 +34,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.MainActivity" android:screenOrientation="portrait">
-
-        </activity>
+            android:name=".Activity.MainActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

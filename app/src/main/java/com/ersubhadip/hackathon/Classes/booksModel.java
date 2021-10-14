@@ -3,12 +3,18 @@ package com.ersubhadip.hackathon.Classes;
 public class booksModel {
 
     private String title,caption;
-    private int imageAddress;
 
-    public booksModel(String title, String caption, int imageAddress) {
+
+
+
+
+
+
+    public booksModel(String title, String caption) {
         this.title = title;
         this.caption = caption;
-        this.imageAddress = imageAddress;
+
+
     }
 
     public String getTitle() {
@@ -27,12 +33,6 @@ public class booksModel {
         this.caption = caption;
     }
 
-    public int getImageAddress() {
-        return imageAddress;
-    }
 
-    public void setImageAddress(int imageAddress) {
-        this.imageAddress = imageAddress;
-    }
 }
 

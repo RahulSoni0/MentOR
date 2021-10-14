@@ -3,6 +3,7 @@ package com.ersubhadip.hackathon.Fragments;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,12 +22,16 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class fragment_book extends Fragment {
 
     private ArrayList<booksModel> list= new ArrayList<>();
     private RecyclerView booksRV;
     private booksRvAdapter booksAdapter;
+
+
+
 
    
     public fragment_book() {
@@ -60,23 +65,25 @@ public class fragment_book extends Fragment {
 
 
 
+
+
          //todo:Fetch data from firebase
          //JUNK CODE
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
+         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
          //JUNK CODE ENDS
 
          booksAdapter=new booksRvAdapter(list);
