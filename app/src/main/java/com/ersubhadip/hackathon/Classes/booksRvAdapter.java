@@ -54,6 +54,7 @@ public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHol
             booksImage=itemView.findViewById(R.id.bookImg);
             titleTv=itemView.findViewById(R.id.bookTitle);
             captionTv=itemView.findViewById(R.id.bookCaption);
+
         }
 
         public void setData(String title, String caption, int imageAddress) {
@@ -64,5 +65,7 @@ public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHol
             booksImage.setImageDrawable(itemView.getResources().getDrawable(imageAddress));
 
         }
+
+
     }
 }

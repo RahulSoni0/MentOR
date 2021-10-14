@@ -57,6 +57,7 @@ public class fragment_account extends Fragment {
         logout=view.findViewById(R.id.logoutLinear);
         name=view.findViewById(R.id.userAcctName);
         email=view.findViewById(R.id.userAcctEmail);
+        firebaseFirestore=FirebaseFirestore.getInstance();
         //end
         return view;
     }

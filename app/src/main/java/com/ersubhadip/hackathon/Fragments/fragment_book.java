@@ -62,35 +62,28 @@ public class fragment_book extends Fragment {
 
          //todo:Fetch data from firebase
          //JUNK CODE
-         list.add(new booksModel("Arihant","DC Pandey",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Cengage","BM Sharma",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Concise","S chand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Polity","Laxmikant",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Canberra","Vibhu Pandey",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Cengage","BM Sharma",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Cengage","BM Sharma",R.drawable.ic_launcher_background));
-         list.add(new booksModel("Dhanpat Rai","Premchand",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
+         list.add(new booksModel("Concise","This is the course description",R.drawable.ic_launcher_background));
          //JUNK CODE ENDS
 
          booksAdapter=new booksRvAdapter(list);
 
 
          //setting up adapter and Gridlayout
-         GridLayoutManager manager=new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
+         GridLayoutManager manager=new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
          manager.setOrientation(RecyclerView.VERTICAL);
          booksRV.setLayoutManager(manager);
          booksRV.setAdapter(booksAdapter);
