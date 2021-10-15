@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.ersubhadip.hackathon.Classes.ViewpagerAdapter;
+import com.ersubhadip.hackathon.Fragments.ebooksFragment;
+import com.ersubhadip.hackathon.Fragments.overViewFragment;
+import com.ersubhadip.hackathon.Fragments.videoFragment;
 import com.ersubhadip.hackathon.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -25,6 +28,12 @@ public class TabedActivity extends AppCompatActivity {
         tab=findViewById(R.id.tabMain);
         viewPager=findViewById(R.id.vp2);
         adapter=new ViewpagerAdapter(getSupportFragmentManager(),getLifecycle());
+
+        //adding fragments to adapter
+        adapter.addFragments(new overViewFragment(),"Course OverView");
+        adapter.addFragments(new ebooksFragment(),"E-Books");
+        adapter.addFragments(new videoFragment(),"Video Tutorials");
+        //end
 
         //setting Action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
