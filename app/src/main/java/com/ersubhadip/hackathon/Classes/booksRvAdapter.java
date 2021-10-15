@@ -56,8 +56,6 @@ public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHol
         colors.add("#13C0E5");
         colors.add("#DE1B85");
         colors.add("#F6404F");
-
-
         //end
 
         //Random Class Calling
@@ -103,7 +101,7 @@ public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHol
                 public void onClick(View view) {
 
                     Intent course=new Intent(itemView.getContext(), TabedActivity.class);
-                    //todo:to pass req datas
+                    //todo:to pass required data's
                     itemView.getContext().startActivity(course);
 
 
