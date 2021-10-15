@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/new_logo"
+        android:icon="@mipmap/latest_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/new_logo_round"
+        android:roundIcon="@mipmap/latest_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hackathon">
         <activity android:name=".Activity.TabedActivity" android:screenOrientation="portrait"
