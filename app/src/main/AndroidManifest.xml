@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/new_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hackathon">
-        <activity android:name=".Activity.TabedActivity" android:screenOrientation="portrait">
+        <activity android:name=".Activity.TabedActivity" android:screenOrientation="portrait"
+            android:theme="@style/tab"
+            >
 
         </activity>
         <activity
