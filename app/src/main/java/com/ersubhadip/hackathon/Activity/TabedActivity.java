@@ -55,7 +55,7 @@ public class TabedActivity extends AppCompatActivity {
         //end
 
         //setting tabLayout
-        TabLayoutMediator mediator=new TabLayoutMediator(tab, viewPager, true,true, new TabLayoutMediator.TabConfigurationStrategy() {
+        TabLayoutMediator mediator=new TabLayoutMediator(tab, viewPager, true,true,new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 tab.setText(ViewpagerAdapter.tabTitleList.get(position));
