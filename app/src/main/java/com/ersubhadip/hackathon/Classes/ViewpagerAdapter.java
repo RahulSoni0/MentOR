@@ -21,12 +21,12 @@ public class ViewpagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return null;
+        return tabFragmentList.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return tabFragmentList.size();
     }
 
     public void addFragments(Fragment fragment,String name){
