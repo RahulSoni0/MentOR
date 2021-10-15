@@ -14,12 +14,15 @@
         <entry key="app/src/main/res/drawable/share.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/drawable/small_corner_bg.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/drawable/user.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/layout/activity_account_setting.xml" value="0.15307971014492755" />
         <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.11952191235059761" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1793478260869565" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="2.654960826088542" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.13632246376811594" />
         <entry key="app/src/main/res/layout/activity_signin.xml" value="0.1403985507246377" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.17980072463768115" />
+        <entry key="app/src/main/res/layout/activity_tabed.xml" value="0.16077898550724637" />
+        <entry key="app/src/main/res/layout/books_rv.xml" value="0.16077898550724637" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.2616822429906542" />
         <entry key="app/src/main/res/layout/fragment_book.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11854103343465046" />

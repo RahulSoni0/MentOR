@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     //Fragment transaction manager
     private void defaultFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.slide_in,R.anim.slide_out);
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in,R.anim.fade_out);
         //todo:Change Animation
         fragmentTransaction.replace(frameLayout.getId(),fragment);
         fragmentTransaction.commit();
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeFragments(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.slide_in,R.anim.slide_out);
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in,R.anim.fade_out);
         //todo:Change Animation
         fragmentTransaction.replace(frameLayout.getId(),fragment);
         fragmentTransaction.commit();

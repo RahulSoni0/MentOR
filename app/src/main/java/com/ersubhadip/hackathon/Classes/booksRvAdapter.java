@@ -47,6 +47,16 @@ public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHol
         colors.add("#662EC3");
         colors.add("#FC407D");
         colors.add("#4185F4");
+        colors.add("#A1DD70");
+        colors.add("#A3D0EB");
+        colors.add("#FB7F64");
+        colors.add("#ADDCCA");
+        colors.add("#7DC9E7");
+        colors.add("#EFADE4");
+        colors.add("#13C0E5");
+        colors.add("#DE1B85");
+        colors.add("#F6404F");
+
 
         //end
 

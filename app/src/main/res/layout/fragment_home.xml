@@ -15,7 +15,7 @@
         android:fontFamily="@font/noto_sans"
         android:textColor="#fff"
         android:textSize="26sp"
-
+      
         />
 
 </RelativeLayout>
