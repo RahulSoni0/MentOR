@@ -228,41 +228,41 @@
 
 
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/logoutLinear"
-            android:layout_width="match_parent"
+
+    <LinearLayout
+        android:id="@+id/logoutLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rectangle_2"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:padding="10dp"
+
+        >
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_2"
-            android:elevation="10dp"
-            android:padding="10dp"
-            android:layout_margin="8dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginBottom="20dp"
-
-            >
-
-                <TextView
-                    android:id="@+id/logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Logout"
-                    android:textColor="#292637"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/noto_sans"
-                    android:textSize="16sp"
-                    android:drawableStart="@drawable/logout"
-                    android:drawablePadding="10dp"
+            android:drawableStart="@drawable/logout"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/noto_sans"
+            android:text="Logout"
+            android:textAlignment="center"
+            android:textColor="#292637"
+            android:textSize="16sp"
+            android:textStyle="bold"
 
 
-                    />
+            />
 
 
+    </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+    <LinearLayout
             android:layout_marginTop="24dp"
             android:layout_width="match_parent"
             android:layout_height="36dp"
