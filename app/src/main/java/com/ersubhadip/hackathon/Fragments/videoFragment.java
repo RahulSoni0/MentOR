@@ -65,7 +65,7 @@ public class videoFragment extends Fragment {
 
         videoList.clear(); //to avoid duplicate items
 
-        //todo:fetch data from db
+        //todo:fetch data from db and link setting
         //junk code
         videoList.add("Introduction to Open Source");
         videoList.add("Introduction to Open Source");
