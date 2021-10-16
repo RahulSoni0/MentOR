@@ -3,7 +3,6 @@ package com.ersubhadip.hackathon.Fragments;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,22 +10,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 
-import com.ersubhadip.hackathon.Classes.booksModel;
 import com.ersubhadip.hackathon.Classes.booksRvAdapter;
 import com.ersubhadip.hackathon.R;
 
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class fragment_book extends Fragment {
 
-    private ArrayList<booksModel> list= new ArrayList<>();
+    private ArrayList<String> bannerList= new ArrayList<>();
     private RecyclerView booksRV;
     private booksRvAdapter booksAdapter;
 
@@ -61,7 +55,7 @@ public class fragment_book extends Fragment {
         
         super.onViewCreated(view, savedInstanceState);
        //operational statements
-         list.clear();   //to avoid duplicate elements due to multiple clicks
+         bannerList.clear();   //to avoid duplicate elements due to multiple clicks
 
 
 
@@ -69,24 +63,24 @@ public class fragment_book extends Fragment {
 
          //todo:Fetch data from firebase
          //JUNK CODE
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         list.add(new booksModel("Concise","This is the course description and here you will get all the best available courses over the interenet so be  focused and learn the skills which are really trending in the world to geta  high payable job"));
-         //JUNK CODE ENDS
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
+         //JUNK CODE END"
 
-         booksAdapter=new booksRvAdapter(list);
+         booksAdapter=new booksRvAdapter(bannerList);
 
 
          //setting up adapter and Gridlayout
