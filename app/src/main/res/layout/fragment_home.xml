@@ -22,12 +22,16 @@
             android:layout_height="match_parent">
 
             <!--For upper top section-->
+
+
+            <!--For upper bottom section-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="#FD907E"
+                android:background="@color/primary"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -92,10 +96,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="HardcodedText" />
 
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-            <!--For upper bottom section-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
                 android:layout_width="match_parent"
@@ -103,7 +106,7 @@
                 android:layout_marginTop="-50dp"
                 android:background="@drawable/rec3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -142,14 +145,14 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
-                    app:cardBackgroundColor="#FD907E"
+                    app:cardBackgroundColor="@color/primary"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="8dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#FD907E"
+                        android:background="@color/primary"
                         android:gravity="center">
 
                         <TextView
@@ -166,14 +169,14 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="16dp"
-                    app:cardBackgroundColor="#FD907E"
+                    app:cardBackgroundColor="@color/primary"
                     app:cardCornerRadius="18dp"
                     app:cardElevation="8dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#FD907E"
+                        android:background="@color/primary"
                         android:gravity="center">
 
                         <TextView

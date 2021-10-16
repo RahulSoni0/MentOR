@@ -1,5 +1,6 @@
 package com.ersubhadip.hackathon.Fragments;
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,19 +11,33 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.ersubhadip.hackathon.Activity.SignUpActivity;
 import com.ersubhadip.hackathon.Classes.booksRvAdapter;
 import com.ersubhadip.hackathon.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class fragment_book extends Fragment {
 
-    private ArrayList<String> bannerList= new ArrayList<>();
+    ArrayList<String> bannerList= new ArrayList<>();
     private RecyclerView booksRV;
     private booksRvAdapter booksAdapter;
+    private FirebaseFirestore firebaseFirestore;
+    public  static String CourseTitle,CourseDescription,InstructorName,InstructorBio,BannerUrl;
+    public static ArrayList<String> ebookTitle = new ArrayList<>();
+    public static ArrayList<String> videoTitle = new ArrayList<>();
+    public static ArrayList<String> ebookUrl = new ArrayList<>();
+    public static ArrayList<String> videoUrl = new ArrayList<>();
 
 
 
@@ -47,6 +62,7 @@ public class fragment_book extends Fragment {
         View view = inflater.inflate(R.layout.fragment_book, container, false);
         //initialisation
         booksRV=view.findViewById(R.id.booksRecyclerView);
+        firebaseFirestore=FirebaseFirestore.getInstance();
         //end
         return view;
     }
@@ -61,34 +77,66 @@ public class fragment_book extends Fragment {
 
 
 
-         //todo:Fetch data from firebase
-         //JUNK CODE
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         bannerList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fopen_source.png?alt=media&token=d95c1304-b64c-4663-bb46-a8970a4d0c8d");
-         //JUNK CODE END"
+         //Loading Dialog Creation
+         Dialog d1=new Dialog(getContext());
+         d1.setContentView(R.layout.loading_dialogs);
+         d1.getWindow().setBackgroundDrawable(getContext().getDrawable(R.drawable.round_bg)); //todo:remove suppressLint function not applied for bg
+         d1.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+         d1.setCancelable(false);
+         //end
+         d1.show();
 
-         booksAdapter=new booksRvAdapter(bannerList);
+         //fetch Starts
+         firebaseFirestore.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+             @Override
+             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                 if(task.isSuccessful()){
+                     //to fetch banners and other keys and adding banner url to bannerList
+                     for (DocumentSnapshot snap : task.getResult()){
+                         BannerUrl=(String)snap.get("imageUrl");
+                         bannerList.add(BannerUrl);
+
+//                         CourseTitle=(String)snap.get("name");
+
+//                         CourseDescription=(String)snap.get("description");
+//                         InstructorName=(String)snap.get("InstructorName");
+//                         InstructorBio=(String)snap.get("InstructorBio");
+//                         ebookTitle=(List)snap.get("ebookTitle");
+//                         videoTitle=(List)snap.get("videoTitle");
+//                         ebookUrl=(List)snap.get("ebookTitle");
+//                         videoUrl=(List)snap.get("ebookTitle");
+                         //todo:fetch urls
+                     }
+                     //end
+                     //setting up adapter and Gridlayout
+                     booksAdapter=new booksRvAdapter(bannerList);
+                     GridLayoutManager manager=new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
+                     manager.setOrientation(RecyclerView.VERTICAL);
+                     booksRV.setLayoutManager(manager);
+                     booksRV.setAdapter(booksAdapter);
+                     booksAdapter.notifyDataSetChanged();
+                     d1.dismiss(); //dismissing dialog
 
 
-         //setting up adapter and Gridlayout
-         GridLayoutManager manager=new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
-         manager.setOrientation(RecyclerView.VERTICAL);
-         booksRV.setLayoutManager(manager);
-         booksRV.setAdapter(booksAdapter);
-         booksAdapter.notifyDataSetChanged();
+                 }else{
+                     d1.dismiss();
+                     Toast.makeText(getContext(), "Something Went Wrong! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                 }
+
+
+
+
+             }
+         });
+
+
+
+
+
+
+
 
 
 
