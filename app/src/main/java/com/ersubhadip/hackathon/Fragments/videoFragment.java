@@ -11,9 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.ersubhadip.hackathon.Classes.VideoAdapter;
+import com.ersubhadip.hackathon.Classes.booksRvAdapter;
+import com.ersubhadip.hackathon.Classes.ebooksAdapter;
 import com.ersubhadip.hackathon.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +34,9 @@ public class videoFragment extends Fragment {
     private List<String> VideoUrlList = new ArrayList<>();
     private RecyclerView VideoRv;
     private VideoAdapter videoAdapter;
+    private ImageView courseBanner;
+    FirebaseFirestore store;
+    int t;
 
 
 
@@ -40,9 +52,7 @@ public class videoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
 
-        }
     }
 
     @Override
@@ -53,7 +63,8 @@ public class videoFragment extends Fragment {
 
         //initialisation
         VideoRv=view.findViewById(R.id.VideoTabRecyclerView);
-
+        courseBanner=view.findViewById(R.id.courseImage);
+        t=booksRvAdapter.type;
         //end
 
         return view;
@@ -65,33 +76,46 @@ public class videoFragment extends Fragment {
 
         videoList.clear(); //to avoid duplicate items
 
-        //todo:fetch data from db and link setting
-        //junk code
-        videoList.add("Introduction to Open Source");
-        videoList.add("Introduction to Open Source");
-        videoList.add("Introduction to Open Source");
-        videoList.add("Introduction to Open Source");
-        videoList.add("Introduction to Open Source");
-        videoList.add("Introduction to Open Source");
-        videoList.add("Introduction to Open Source");
-        videoList.add("Introduction to Open Source");
-        videoList.add("Introduction to Open Source");
-        //end of junk code
+        //todo:link setting
+        store=FirebaseFirestore.getInstance();
 
-        //setting LinearLayoutManager
-        LinearLayoutManager manager=new LinearLayoutManager(getContext());
-        manager.setOrientation(RecyclerView.VERTICAL);
-        VideoRv.setLayoutManager(manager);
+        store.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-        //end
+                for(DocumentSnapshot snapshot:task.getResult()){
 
-        //setting the adapter
-        videoAdapter=new VideoAdapter(VideoUrlList,videoList);
-        VideoRv.setAdapter(videoAdapter);
-        videoAdapter.notifyDataSetChanged();
-        //end
+                    if((Long)snapshot.get("orderNumber")==Long.valueOf(t+1)){
+
+                        videoList=(ArrayList<String>)snapshot.get("videoTitle");
+                        String url=(String)snapshot.get("imageUrl");
+                        Glide.with(getContext()).load(url).into(courseBanner);
+
+                        if(videoList.get(0).equals("")){
+
+                            videoList.clear();
+
+                        }
 
 
+                        //setting LinearLayoutManager
+                        LinearLayoutManager manager=new LinearLayoutManager(getContext());
+                        manager.setOrientation(RecyclerView.VERTICAL);
+                        VideoRv.setLayoutManager(manager);
+
+                        //end
+
+                        //setting the adapter
+                        videoAdapter=new VideoAdapter(VideoUrlList,videoList);
+                        VideoRv.setAdapter(videoAdapter);
+                        videoAdapter.notifyDataSetChanged();
+                        //end
+
+                    }
+
+                }
+            }
+        });
 
     }
 }
