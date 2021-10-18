@@ -12,10 +12,14 @@ import android.widget.TextView;
 import com.ersubhadip.hackathon.R;
 import com.google.firebase.auth.FirebaseAuth;
 
+import in.codeshuffle.typewriterview.TypeWriterListener;
+import in.codeshuffle.typewriterview.TypeWriterView;
+
 public class SplashActivity extends AppCompatActivity {
     private AppCompatButton signUp;
     private TextView login;
     FirebaseAuth firebaseAuth;
+    private TypeWriterView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,16 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         signUp=findViewById(R.id.SplashSignUpBtn);
         login=findViewById(R.id.SplashLogIn);
+        text=findViewById(R.id.Splashtitle);
         firebaseAuth=FirebaseAuth.getInstance();
+
+
+
+        //setting up typeWriterText
+        text.setDelay(2);
+        text.setWithMusic(true);
+        text.animateText("Want to learn new Skill?");
+        //end
 
 
 
@@ -71,6 +84,8 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
+
+
 
     }
 }

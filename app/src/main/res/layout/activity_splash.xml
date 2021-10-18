@@ -39,23 +39,22 @@
         app:lottie_loop="true"
         />
 
-    <TextView
-        android:id="@+id/Splashtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Want to learn new Skill ?"
-        android:textAlignment="center"
-        android:textColor="@color/dark_grey_primary"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lottieSplash"
-        android:fontFamily="@font/noto_sans"
-        />
+            <in.codeshuffle.typewriterview.TypeWriterView
+                android:id="@+id/Splashtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_grey_primary"
+                android:textAlignment="center"
+                android:fontFamily="@font/noto_sans"
+                android:layout_marginTop="32dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lottieSplash"
+                />
 
-    <TextView
+            <TextView
         android:id="@+id/SplashSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
