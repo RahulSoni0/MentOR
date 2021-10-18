@@ -30,12 +30,15 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import nl.joery.animatedbottombar.AnimatedBottomBar;
+
 
 public class fragment_home extends Fragment {
 
     private FrameLayout ParentFrameLayout;
     private TextView explore;
     private homeAdapter homeAdapter;
+    private AnimatedBottomBar BottomBar;
     private RecyclerView homeRv;
     private ViewPager slider;
     ArrayList<String> homeCourseTitle=new ArrayList<>();
@@ -80,6 +83,7 @@ public class fragment_home extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //initialising the main Activity Frame
          ParentFrameLayout=getActivity().findViewById(R.id.fragment_container);
+         BottomBar=getActivity().findViewById(R.id.animatedBottomBar);
 
 
          //text sliding implementation
@@ -111,11 +115,11 @@ public class fragment_home extends Fragment {
          homeCourseTitle.add("Introduction to HTML5 and CSS3");
          //end Junk Code
 
-         //Junk Code
+         //hardcoded url's for sliders
          homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/Sliders%2Ffirst.jpg?alt=media&token=2dd49e53-e09a-49d3-8023-718c875abfdc");
          homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/Sliders%2Fsecond.jpg?alt=media&token=629caf42-d2f3-43f2-a025-f7469fe29be8");
          homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/Sliders%2Fthird.jpg?alt=media&token=69c350dd-58d7-47b3-ae72-ac583288ded2");
-         //end Junk Code
+         //end
 
          setPosters(homePosterList); //calling poster slider function
 
@@ -146,7 +150,7 @@ public class fragment_home extends Fragment {
                  fragmentTransaction.setCustomAnimations(R.anim.slide_in,R.anim.fade_out);
                  fragmentTransaction.replace(ParentFrameLayout.getId(),new fragment_book());
                  fragmentTransaction.commit();
-                 //todo:bottom nav indicator to course
+                 BottomBar.selectTabById(R.id.courses,true);
 
              }
          });
