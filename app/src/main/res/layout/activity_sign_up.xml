@@ -152,6 +152,7 @@
         android:layout_marginRight="36dp"
         android:padding="8dp"
         android:clickable="true"
+        android:focusable="true"
         android:text="GET STARTED"
         android:textSize="18sp"
         android:textColor="@color/white"
@@ -162,6 +163,7 @@
         android:fontFamily="@font/noto_sans"
         android:paddingStart="8dp"
         android:elevation="10dp"
+        android:foreground="?selectableItemBackground"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -171,9 +173,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        android:paddingStart="8dp"
-        android:layout_marginLeft="38dp"
-        android:layout_marginRight="38dp"
+        android:gravity="center_horizontal"
+
         >
 
         <TextView
@@ -184,7 +185,6 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:paddingLeft="8dp"
             android:textStyle="normal"
             android:fontFamily="@font/noto_sans"
             />
@@ -193,9 +193,11 @@
             android:id="@+id/LogInTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
             android:text="LOG IN"
             android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
             android:textAlignment="center"
             android:textColor="@color/primary"
             android:textSize="16sp"
