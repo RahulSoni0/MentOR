@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -77,6 +78,8 @@ public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHol
                 public void onClick(View view) {
 
                     Intent course=new Intent(itemView.getContext(), TabedActivity.class);
+
+                    Toast.makeText(itemView.getContext(), ""+ getLayoutPosition(), Toast.LENGTH_SHORT).show();
 
                     //todo:to pass required data's
 

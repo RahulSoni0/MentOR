@@ -80,33 +80,37 @@
 
             >
 
-                <TextView
-                    android:id="@+id/userAcctName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="User Name"
-                    android:textColor="@color/dark_grey_primary"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/noto_sans"
-                    android:textSize="20sp"
-                    android:layout_marginTop="10dp"
+
+                    <TextView
+                        android:id="@+id/userAcctName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading..."
+                        android:textColor="@color/dark_grey_primary"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/userAcctEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="loading..."
+                        android:textColor="@color/dark_grey_primary"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/noto_sans"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        />
 
 
-                    />
-                <TextView
-                    android:id="@+id/userAcctEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email ID"
-                    android:textColor="@color/dark_grey_primary"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/noto_sans"
-                    android:textSize="16sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    />
+
 
 
 
