@@ -36,7 +36,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:paddingBottom="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="10dp"
+                >
 
                 <TextView
                     android:id="@+id/textView2"
@@ -120,6 +122,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="24dp"
                 android:paddingTop="12dp"
+                android:elevation="10dp"
                 android:background="@drawable/round_bottom"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

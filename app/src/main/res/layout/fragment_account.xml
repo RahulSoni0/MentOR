@@ -48,20 +48,15 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/dp"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                android:translationZ="8dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/profileee"
-                android:scaleType="fitXY"
-                />
+           <ImageView
+               android:layout_width="64dp"
+               android:layout_height="64dp"
+               android:src="@drawable/new_dp"
+               app:tint="@color/dark_grey_primary"
+               android:layout_marginTop="8dp"
+
+
+               />
 
         </LinearLayout>
 
@@ -124,9 +119,10 @@
     android:layout_height="wrap_content"
     app:layout_constraintTop_toBottomOf="@id/linear1"
     app:layout_constraintLeft_toLeftOf="parent"
-    android:layout_marginTop="52dp"
+    android:layout_marginTop="96dp"
     android:layout_marginLeft="32dp"
-    android:layout_margin="32dp"
+    android:layout_marginRight="32dp"
+    android:paddingBottom="32dp"
     android:elevation="10dp"
     android:orientation="vertical"
 
@@ -275,6 +271,7 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:background="@color/white"
+
 
             >
                 <TextView
