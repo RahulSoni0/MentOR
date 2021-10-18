@@ -106,33 +106,84 @@
                     app:layout_constraintTop_toBottomOf="@id/chatBot"
                     />
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/homeVp"
-                    android:layout_width="match_parent"
-                    android:layout_height="216dp"
-                    app:layout_constraintTop_toBottomOf="@id/topic"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginRight="32dp"
-                    android:layout_marginTop="24dp"
-                    android:padding="2dp"
-                    />
+
 
 
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!--todo:Page Slider Banners-->
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/c2"
                 android:layout_width="match_parent"
-                android:layout_height="96dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="24dp"
+                android:paddingTop="12dp"
                 android:background="@drawable/round_bottom"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/c" />
+                app:layout_constraintTop_toBottomOf="@+id/c" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="If you were confused about how to start and what to start then you are in the right place!"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/noto_sans"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/slidingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/c2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="abcd"
+                android:fontFamily="@font/noto_sans"
+                android:textSize="14sp"
+                android:textColor="#EA0F59"
+                android:textStyle="bold"
+                android:ellipsize="marquee"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="4dp"
+                />
+
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/homeVp"
+                android:layout_width="match_parent"
+                android:layout_height="196dp"
+                app:layout_constraintTop_toBottomOf="@id/slidingText"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:clipToPadding="false"
+                android:elevation="10dp"
+                android:layout_marginTop="8dp"
+
+                />
 
 
             <!--For bottom section = TV + RV-->
@@ -148,7 +199,7 @@
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/c2"
+                app:layout_constraintTop_toBottomOf="@+id/homeVp"
                 android:layout_marginTop="16dp"
                 />
             <View

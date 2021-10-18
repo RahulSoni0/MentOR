@@ -141,6 +141,8 @@
             android:layout_margin="8dp"
             android:clickable="true"
             android:focusable="true"
+            android:foreground="?selectableItemBackground"
+
 
             >
 
@@ -173,6 +175,7 @@
             android:layout_margin="8dp"
             android:clickable="true"
             android:focusable="true"
+            android:foreground="?selectableItemBackground"
             >
 
                 <TextView
@@ -205,6 +208,7 @@
             android:layout_margin="8dp"
             android:clickable="true"
             android:focusable="true"
+            android:foreground="?selectableItemBackground"
 
             >
 
@@ -240,6 +244,7 @@
         android:elevation="10dp"
         android:focusable="true"
         android:padding="10dp"
+        android:foreground="?selectableItemBackground"
 
         >
 
