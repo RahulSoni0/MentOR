@@ -117,6 +117,7 @@ public class fragment_book extends Fragment {
                      booksRV.setAdapter(booksAdapter);
                      booksAdapter.notifyDataSetChanged();
                      d1.dismiss(); //dismissing dialog
+                     //todo:not getting fully scrolled
 
 
                  }else{

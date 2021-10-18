@@ -84,7 +84,7 @@
                     android:focusable="true"
                     android:foreground="?selectableItemBackground"
                     android:scaleType="fitXY"
-                   app:layout_constraintLeft_toLeftOf="@id/text"
+                    app:layout_constraintLeft_toLeftOf="@id/text"
                     app:layout_constraintRight_toRightOf="@id/text"
                     app:layout_constraintTop_toBottomOf="@id/text"
                     app:lottie_autoPlay="true"
