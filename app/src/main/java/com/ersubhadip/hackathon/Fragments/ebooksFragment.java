@@ -11,9 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
+import com.ersubhadip.hackathon.Classes.booksRvAdapter;
 import com.ersubhadip.hackathon.Classes.ebooksAdapter;
 import com.ersubhadip.hackathon.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +33,8 @@ public class ebooksFragment extends Fragment {
     private RecyclerView ebooksRv;
     private ebooksAdapter ebooksAdapter;
     int t;
+    FirebaseFirestore store;
+
 
 
 
@@ -47,6 +56,7 @@ public class ebooksFragment extends Fragment {
         //initialisation
 
         ebooksRv=view.findViewById(R.id.ebooksRv);
+        t= booksRvAdapter.type;
         //end
         return view;
     }
@@ -55,49 +65,49 @@ public class ebooksFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //todo:fetch from db and link setting
-        //junk code
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        ebooksTitle.add("This is the E-Book which is downloadable");
-        //end
+        //fetch from db
+        //todo:link setting
+        store=FirebaseFirestore.getInstance();
+        store.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-        //setting Linear layout manager to rv
-        LinearLayoutManager manager=new LinearLayoutManager(getContext());
-        manager.setOrientation(RecyclerView.VERTICAL);
-        ebooksRv.setLayoutManager(manager);
-        //end
+                for(DocumentSnapshot snapshot:task.getResult()){
 
-        //setting Adapter
-        ebooksAdapter=new ebooksAdapter(ebooksTitle,ebooksLink);
-        ebooksRv.setAdapter(ebooksAdapter);
-        ebooksAdapter.notifyDataSetChanged();
-        //end
+                    if((Long)snapshot.get("orderNumber")==Long.valueOf(t+1)){
+
+                        ebooksTitle=(ArrayList<String>)snapshot.get("ebookTitle");
+
+                        if(ebooksTitle.get(0).equals("")){
+
+                            ebooksTitle.clear();
+
+                        }
+                        //setting Linear layout manager to rv
+                        LinearLayoutManager manager=new LinearLayoutManager(getContext());
+                        manager.setOrientation(RecyclerView.VERTICAL);
+                        ebooksRv.setLayoutManager(manager);
+                        //end
+
+                        //setting Adapter
+                        ebooksAdapter=new ebooksAdapter(ebooksTitle,ebooksLink);
+                        ebooksRv.setAdapter(ebooksAdapter);
+                        ebooksAdapter.notifyDataSetChanged();
+                        //end
+
+
+
+                    }
+
+
+                }
+
+            }
+        });
+
+
+
+
 
 
     }
