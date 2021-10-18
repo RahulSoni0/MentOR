@@ -14,6 +14,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:theme="@style/tab"
+
         >
 
         <androidx.appcompat.widget.Toolbar
@@ -21,6 +22,9 @@
             android:layout_height="?actionBarSize"
             android:id="@+id/tabToolBar"
             app:titleTextColor="@color/dark_grey_primary"
+            app:titleTextAppearance="@style/tab"
+
+
             />
 
         <com.google.android.material.tabs.TabLayout

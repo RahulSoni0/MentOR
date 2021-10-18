@@ -9,12 +9,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.ersubhadip.hackathon.Classes.ViewpagerAdapter;
+import com.ersubhadip.hackathon.Classes.booksRvAdapter;
 import com.ersubhadip.hackathon.Fragments.ebooksFragment;
 import com.ersubhadip.hackathon.Fragments.overViewFragment;
 import com.ersubhadip.hackathon.Fragments.videoFragment;
 import com.ersubhadip.hackathon.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class TabedActivity extends AppCompatActivity {
 
@@ -22,6 +28,9 @@ public class TabedActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
     private ViewpagerAdapter adapter;
     private Toolbar toolbar;
+    int t= booksRvAdapter.type;
+    FirebaseFirestore s;
+    String title;
 
 
     @Override
@@ -46,8 +55,32 @@ public class TabedActivity extends AppCompatActivity {
         //setting Action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("Open Source");
+
+        s=FirebaseFirestore.getInstance();
+        s.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                for (DocumentSnapshot snapshot:task.getResult()) {
+
+
+
+                    if((Long)snapshot.get("orderNumber")==Long.valueOf(t+1)){
+
+                        //fetch name from that particular snap
+                        title=(String) snapshot.get("name");
+                        getSupportActionBar().setTitle(title);
+
+                        //end
+
+                        break;
+                    }
+                }
+            }
+        });
         //end
+
+        //todo:doubt related to oop java public static int and int related to fetching data
 
         //setting ViewPagerAdapter
         viewPager.setAdapter(adapter);

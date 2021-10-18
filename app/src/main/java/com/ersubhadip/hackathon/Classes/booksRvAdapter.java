@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHolder>{
 
-
+    public static int type;
     ArrayList<String> bannerUrlList=new ArrayList<>();
 
     public booksRvAdapter(ArrayList<String> bannerUrlList) {
@@ -78,13 +78,8 @@ public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHol
                 public void onClick(View view) {
 
                     Intent course=new Intent(itemView.getContext(), TabedActivity.class);
-
-                    Toast.makeText(itemView.getContext(), ""+ getLayoutPosition(), Toast.LENGTH_SHORT).show();
-
-                    //todo:to pass required data's
-
+                    type=getLayoutPosition();
                     itemView.getContext().startActivity(course);
-
                 }
             });
 

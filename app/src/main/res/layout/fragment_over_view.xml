@@ -28,9 +28,8 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="26dp"
                 android:layout_marginRight="26dp"
-                android:elevation="10dp"
                 android:scaleType="fitXY"
-                android:background="@drawable/rec3"
+                android:background="@color/white"
                 android:src="@drawable/open_source"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -48,17 +47,17 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="32dp"
                 android:orientation="vertical"
+                android:paddingBottom="160dp"
                 >
 
                 <TextView
                     android:id="@+id/titleCourse"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Open Source"
+                    android:text="Network error"
                     android:fontFamily="@font/noto_sans"
-                    android:textAlignment="center"
                     android:textColor="@color/dark_grey_primary"
-                    android:textSize="28sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:padding="2dp"
 
@@ -72,19 +71,19 @@
                     android:layout_marginLeft="4dp"
                     />
 
+<!--                todo:bottom problem-->
+
                 <TextView
                     android:id="@+id/courseDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="In this course there will be a beginner level discussion about how to start with open source and how to find best repositories ob github which perfectly matches your skills. With this awesome course you will be provided with some git command and step by step ebook guides and video hands-on. Our course instructor is highly experienced and have years of experience to guide beginner level candidates in Open Source."
+                    android:text="Network error"
                     android:fontFamily="@font/noto_sans"
-                    android:textAlignment="viewStart"
                     android:textColor="@color/dark_grey_primary"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="normal"
                     android:layout_marginTop="32dp"
-
                     />
 
                 <TextView
@@ -98,7 +97,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:padding="2dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="16dp"
 
                     />
 
@@ -129,7 +128,7 @@
                             android:id="@+id/nameCoach"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rahul Kumar Soni"
+                            android:text="Network error"
                             android:fontFamily="@font/noto_sans"
                             android:textAlignment="center"
                             android:textColor="@color/black"
@@ -141,7 +140,7 @@
                             android:id="@+id/aboutCoach"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Android Developer\nOpen Source Contributor"
+                            android:text="Network error"
                             android:fontFamily="@font/noto_sans"
                             android:textAlignment="center"
                             android:textColor="@color/dark_grey_primary"
@@ -160,11 +159,6 @@
 
                 </LinearLayout>
 
-
-
-
-
-
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -173,6 +167,19 @@
 
 
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:indeterminateTint="#FD3CAC"
+        android:elevation="10dp"
+        android:visibility="gone"
+        />
 
 
 

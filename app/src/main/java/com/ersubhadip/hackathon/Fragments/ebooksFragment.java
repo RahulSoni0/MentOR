@@ -25,6 +25,7 @@ public class ebooksFragment extends Fragment {
     private List<String> ebooksLink=new ArrayList<>();
     private RecyclerView ebooksRv;
     private ebooksAdapter ebooksAdapter;
+    int t;
 
 
 
@@ -35,9 +36,7 @@ public class ebooksFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
 
-        }
     }
 
     @Override
