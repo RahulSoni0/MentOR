@@ -81,7 +81,6 @@
         android:layout_marginLeft="36dp"
         android:layout_marginRight="36dp"
         android:padding="8dp"
-        android:clickable="true"
         android:text="SIGN UP"
         android:textSize="18sp"
         android:textColor="@color/white"
@@ -92,6 +91,9 @@
         android:fontFamily="@font/noto_sans"
         android:paddingStart="8dp"
         android:elevation="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
         />
 
     <LinearLayout
@@ -129,12 +131,15 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:text="LOG IN"
-            android:clickable="true"
             android:textAlignment="center"
             android:textColor="@color/primary"
             android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/noto_sans"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+
 
             />
 
