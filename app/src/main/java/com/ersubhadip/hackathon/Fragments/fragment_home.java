@@ -14,14 +14,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.ersubhadip.hackathon.Classes.homeAdapter;
 import com.ersubhadip.hackathon.Classes.homePosterAdapter;
+import com.ersubhadip.hackathon.Classes.home_adapter;
 import com.ersubhadip.hackathon.R;
 
 import org.jetbrains.annotations.Nullable;
@@ -37,12 +34,13 @@ public class fragment_home extends Fragment {
 
     private FrameLayout ParentFrameLayout;
     private TextView explore;
-    private homeAdapter homeAdapter;
+    private home_adapter homeAdapter;
     private AnimatedBottomBar BottomBar;
     private RecyclerView homeRv;
     private ViewPager slider;
-    ArrayList<String> homeCourseTitle=new ArrayList<>();
+    ArrayList<String> homeCourseurl=new ArrayList<>();
     ArrayList<String> homePosterList=new ArrayList<>();
+    ArrayList<Integer> id=new ArrayList<>();
     private homePosterAdapter posterAdapter;
     ArrayList<String> arrangedPosterList=new ArrayList<>();
     int currentPage;
@@ -93,8 +91,9 @@ public class fragment_home extends Fragment {
          //end
         
         //operational statements
-         homeCourseTitle.clear();  //to avoid duplicate items
+         homeCourseurl.clear();  //to avoid duplicate items
          homePosterList.clear();  //to avoid duplicate items
+         id.clear();  //to avoid duplicate items
 
 
 
@@ -107,12 +106,12 @@ public class fragment_home extends Fragment {
          //todo:Realtime Database
 
          //Junk Code
-         homeCourseTitle.add("Introduction to Kotlin");
-         homeCourseTitle.add("Starting with Open Source");
-         homeCourseTitle.add("DSA with JAVA");
-         homeCourseTitle.add("Introduction to Python");
-         homeCourseTitle.add("Master Course on Flutter and Dart");
-         homeCourseTitle.add("Introduction to HTML5 and CSS3");
+         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
+         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
+         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
+         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
+         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
+         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
          //end Junk Code
 
          //hardcoded url's for sliders
@@ -125,8 +124,8 @@ public class fragment_home extends Fragment {
 
 
          //Setting Adapter and Grid Layout
-         homeAdapter=new homeAdapter(homeCourseTitle);
-         GridLayoutManager manager=new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
+         homeAdapter=new home_adapter(homeCourseurl,id);
+         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
          manager.setOrientation(RecyclerView.VERTICAL);
          homeRv.setLayoutManager(manager);
          homeRv.setAdapter(homeAdapter);

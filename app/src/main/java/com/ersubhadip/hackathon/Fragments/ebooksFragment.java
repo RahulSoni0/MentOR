@@ -8,10 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.ersubhadip.hackathon.Classes.booksRvAdapter;
 import com.ersubhadip.hackathon.Classes.ebooksAdapter;
@@ -78,7 +80,8 @@ public class ebooksFragment extends Fragment {
 
                         ebooksTitle=(ArrayList<String>)snapshot.get("ebookTitle");
 
-                        if(ebooksTitle.get(0).equals("")){
+
+                        if(ebooksTitle.size()==1 && ebooksTitle.get(0).equals("")){
 
                             ebooksTitle.clear();
 

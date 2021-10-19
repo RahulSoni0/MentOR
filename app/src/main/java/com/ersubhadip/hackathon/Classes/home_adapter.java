@@ -1,39 +1,51 @@
 package com.ersubhadip.hackathon.Classes;
 
 import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.ersubhadip.hackathon.Activity.TabedActivity;
 import com.ersubhadip.hackathon.R;
 
 import java.util.ArrayList;
 
-public class homeAdapter  extends RecyclerView.Adapter<homeAdapter.ViewHolder>{
 
-    ArrayList<String> list = new ArrayList<>();
 
-    public homeAdapter(ArrayList<String> list) {
+public class home_adapter extends RecyclerView.Adapter<home_adapter.ViewHolder>{
+
+    ArrayList<String> list=new ArrayList<>();
+    ArrayList<Integer> id=new ArrayList<>();
+
+    public home_adapter(ArrayList<String> list,ArrayList<Integer> id) {
         this.list = list;
+        this.id = id;
     }
+
+
 
     @NonNull
     @Override
-    public homeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_grid_layout,parent,false);
+    public home_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.home_grid_layout, parent, false);
+
+
 
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull homeAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull home_adapter.ViewHolder holder, int position) {
 
-        holder.setData(list.get(position));
+        holder.setImage(list.get(position));
+
     }
 
     @Override
@@ -43,34 +55,31 @@ public class homeAdapter  extends RecyclerView.Adapter<homeAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView homeTitle;
+        ImageView imageView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            homeTitle=itemView.findViewById(R.id.homeCoursetitle);
-
+            imageView=itemView.findViewById(R.id.home_rv_image);
 
 
         }
 
-        private void setData(String s){
+        private void  setImage(String url){
 
-            homeTitle.setText(s);
-
+            Glide.with(itemView.getContext()).load(url).into(imageView);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    //todo:send essential data
                     Intent it=new Intent(itemView.getContext(), TabedActivity.class);
+                    //todo:pass id
+                    //--> id.get(pos)==getLayoutPosition();
                     itemView.getContext().startActivity(it);
+
 
                 }
             });
 
         }
-
-
-
     }
 }
