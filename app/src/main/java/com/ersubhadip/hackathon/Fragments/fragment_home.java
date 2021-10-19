@@ -18,12 +18,14 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ersubhadip.hackathon.Classes.homePosterAdapter;
 import com.ersubhadip.hackathon.Classes.home_adapter;
 import com.ersubhadip.hackathon.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -59,6 +61,7 @@ public class fragment_home extends Fragment {
     private  TextView slidingText;
     String t="Welcome to the best application ever which is here to provide best courses with fully experienced instructors. Here we also provide chatBots and various other best support systems which will help user to communicate with us.";
     private TypeWriterView name;
+    private FloatingActionButton fabBtn;
 
     FirebaseAuth auth;
     FirebaseFirestore store;
@@ -89,6 +92,7 @@ public class fragment_home extends Fragment {
         name=view.findViewById(R.id.userName);
         auth=FirebaseAuth.getInstance();
         store=FirebaseFirestore.getInstance();
+        fabBtn=view.findViewById(R.id.chatBot);
         return view;
 
     }
@@ -158,18 +162,18 @@ public class fragment_home extends Fragment {
          });
          //end
 
+         fabBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
 
+                 //todo:chatBot
+                 Toast.makeText(getContext(), "Under development", Toast.LENGTH_SHORT).show();
 
-
-
-
-
-
-
+             }
+         });
 
 
          //todo:Realtime Database
-
          //Junk Code
          homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
          homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");

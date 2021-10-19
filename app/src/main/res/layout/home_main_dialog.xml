@@ -58,18 +58,18 @@
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="32dp"
+            android:id="@+id/chatBot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:clickable="false"
-            android:focusable="false"
+            android:elevation="20dp"
             android:src="@drawable/chat_icon"
-            app:fabCustomSize="60dp"
-            app:maxImageSize="30dp"
-            android:backgroundTint="@color/primary"
-            android:background="@color/primary"
-            android:foregroundTint="@color/primary"
-
+            android:tint="@color/black"
+            android:layout_marginTop="32dp"
+            app:fabSize="normal"
+            android:backgroundTint="#FD3CAC"
+            app:maxImageSize="24dp"
+            android:background="#FD3CAC"
             />
 
         <TextView

@@ -252,4 +252,23 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/chatBot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:src="@drawable/chat_icon"
+        android:tint="@color/black"
+        app:fabSize="normal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#FD3CAC"
+        app:maxImageSize="24dp"
+        app:elevation="20dp"
+        android:background="#FD3CAC"
+
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
