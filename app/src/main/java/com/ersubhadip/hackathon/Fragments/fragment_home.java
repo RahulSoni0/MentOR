@@ -1,5 +1,6 @@
 package com.ersubhadip.hackathon.Fragments;
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ersubhadip.hackathon.Classes.homePosterAdapter;
@@ -98,6 +100,25 @@ public class fragment_home extends Fragment {
          ParentFrameLayout=getActivity().findViewById(R.id.fragment_container);
          BottomBar=getActivity().findViewById(R.id.animatedBottomBar);
 
+         //setting up dialog for home popup
+         Dialog dialog=new Dialog(getContext());
+         dialog.setCancelable(false);
+         dialog.setContentView(R.layout.home_main_dialog);
+         dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.main_dialog_bg));
+         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+         ImageView i=dialog.findViewById(R.id.close_dialog);
+
+         dialog.show();
+         i.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+
+                 dialog.dismiss();
+
+             }
+         });
+         //end
+
 
          //text sliding implementation
          slidingText.setText(t);
@@ -122,10 +143,20 @@ public class fragment_home extends Fragment {
                  //setting up typeWriterText
                  name.setDelay(2);
                  name.setWithMusic(false);
-                 name.animateText("Hello, "+fetchedName.substring(0,fetchedName.indexOf(" ")));
-                 //end
+                 if(fetchedName.indexOf(" ")!=-1){
+
+                     name.animateText("Hello, "+fetchedName.substring(0,fetchedName.indexOf(" ")));
+
+                 }else{
+
+                     name.animateText("Hello, "+fetchedName);
+
+                 }
+
+
              }
          });
+         //end
 
 
 
@@ -319,6 +350,8 @@ public class fragment_home extends Fragment {
         timer.cancel();
 
     }
+
+
 
 
 }
