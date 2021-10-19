@@ -17,7 +17,8 @@ public class homePosterAdapter extends PagerAdapter {
 
     private ArrayList<String> list=new ArrayList<>();
 
-    public homePosterAdapter(ArrayList<String> list) {
+    public homePosterAdapter(ArrayList<String> list)
+    {
         this.list = list;
     }
 

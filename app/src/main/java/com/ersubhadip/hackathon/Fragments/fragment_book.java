@@ -33,7 +33,7 @@ public class fragment_book extends Fragment {
     private RecyclerView booksRV;
     private booksRvAdapter booksAdapter;
     private FirebaseFirestore firebaseFirestore;
-    public  static String CourseTitle,CourseDescription,InstructorName,InstructorBio,BannerUrl;
+    public  static String CourseTitle, CourseDescription, InstructorName, InstructorBio, BannerUrl;
     public static ArrayList<String> ebookTitle = new ArrayList<>();
     public static ArrayList<String> videoTitle = new ArrayList<>();
     public static ArrayList<String> ebookUrl = new ArrayList<>();

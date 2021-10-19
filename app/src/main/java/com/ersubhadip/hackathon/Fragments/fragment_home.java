@@ -20,6 +20,11 @@ import android.widget.TextView;
 import com.ersubhadip.hackathon.Classes.homePosterAdapter;
 import com.ersubhadip.hackathon.Classes.home_adapter;
 import com.ersubhadip.hackathon.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -27,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import in.codeshuffle.typewriterview.TypeWriterView;
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 
@@ -37,10 +43,11 @@ public class fragment_home extends Fragment {
     private home_adapter homeAdapter;
     private AnimatedBottomBar BottomBar;
     private RecyclerView homeRv;
-    private ViewPager slider;
     ArrayList<String> homeCourseurl=new ArrayList<>();
-    ArrayList<String> homePosterList=new ArrayList<>();
     ArrayList<Integer> id=new ArrayList<>();
+
+    private ViewPager slider;
+    ArrayList<String> homePosterList=new ArrayList<>();
     private homePosterAdapter posterAdapter;
     ArrayList<String> arrangedPosterList=new ArrayList<>();
     int currentPage;
@@ -49,6 +56,10 @@ public class fragment_home extends Fragment {
     Timer timer;
     private  TextView slidingText;
     String t="Welcome to the best application ever which is here to provide best courses with fully experienced instructors. Here we also provide chatBots and various other best support systems which will help user to communicate with us.";
+    private TypeWriterView name;
+
+    FirebaseAuth auth;
+    FirebaseFirestore store;
 
    
     public fragment_home() {
@@ -73,7 +84,11 @@ public class fragment_home extends Fragment {
         explore=view.findViewById(R.id.exploreTv);
         slider=view.findViewById(R.id.homeVp);
         slidingText=view.findViewById(R.id.slidingText);
+        name=view.findViewById(R.id.userName);
+        auth=FirebaseAuth.getInstance();
+        store=FirebaseFirestore.getInstance();
         return view;
+
     }
      @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -94,6 +109,25 @@ public class fragment_home extends Fragment {
          homeCourseurl.clear();  //to avoid duplicate items
          homePosterList.clear();  //to avoid duplicate items
          id.clear();  //to avoid duplicate items
+
+
+
+         //Fetching user name
+         store.collection("users").document(auth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+             @Override
+             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                   DocumentSnapshot snapshot = task.getResult();
+                   String fetchedName=(String)snapshot.get("name");
+                   fetchedName=fetchedName.trim();
+                 //setting up typeWriterText
+                 name.setDelay(2);
+                 name.setWithMusic(false);
+                 name.animateText("Hello, "+fetchedName.substring(0,fetchedName.indexOf(" ")));
+                 //end
+             }
+         });
+
+
 
 
 
@@ -131,6 +165,18 @@ public class fragment_home extends Fragment {
          homeRv.setAdapter(homeAdapter);
          homeAdapter.notifyDataSetChanged();
          //end
+//         homePosterList.add("xSCa");
+//
+//       homePosterList.add("xSCa");
+//       homePosterList.add("xSCa");
+//       homePosterList.add("xSCa");
+//
+//         homePosterList.add("xSCa");
+//
+//         posterAdapter=new homePosterAdapter(homePosterList);
+//         slider.setPageMargin(20);
+//         slider.setAdapter(posterAdapter);
+//
 
 
 
@@ -232,10 +278,8 @@ public class fragment_home extends Fragment {
             slider.setCurrentItem(currentPage,false);
 
         }else if(currentPage==0){
-
             currentPage=l.size()-2;
             slider.setCurrentItem(currentPage,false);
-
         }
 
     }
