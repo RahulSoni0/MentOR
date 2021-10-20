@@ -186,66 +186,95 @@ public class fragment_home extends Fragment {
              @Override
              public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                 for(DataSnapshot snap:snapshot.getChildren()){
-
-                     id.add((String)snap.child("first").getValue(String.class));
-                     id.add((String)snap.child("second").getValue(String.class));
-                     id.add((String)snap.child("third").getValue(String.class));
-                     id.add((String)snap.child("forth").getValue(String.class));
-                     id.add((String)snap.child("fifth").getValue(String.class));
-                     id.add((String)snap.child("sixth").getValue(String.class));
-
-                 }
-
-                 Toast.makeText(getContext(), ""+id.toString(), Toast.LENGTH_SHORT).show();
-
-                 store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                     @Override
-                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                         int i=0;
-
-                         for (DocumentSnapshot snap:task.getResult()){
 
 
 
-                             if(id.get(i).equals(snap.get("courseId"))){
-                                 homeCourseurl.add((String)snap.get("homeLink"));
-                                 i++;
-
-                             }
-
-                             if(i>6){
-
-
-                                 break;
-                             }
-
-
-
-                         }
-
-
-                         //Setting Adapter and Grid Layout
-                         homeAdapter=new home_adapter(homeCourseurl,id);
-                         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
-                         manager.setOrientation(RecyclerView.VERTICAL);
-                         homeRv.setLayoutManager(manager);
-                         homeRv.setAdapter(homeAdapter);
-                         homeAdapter.notifyDataSetChanged();
-                         //end
-
-                     }
-                 });
-
-
+//                 for(DataSnapshot snap:snapshot.getChildren()){
+//
+//                     id.add(snap.child("first").getValue(String.class));
+//                     id.add(snap.child("second").getValue(String.class));
+//                     id.add(snap.child("third").getValue(String.class));
+//                     id.add(snap.child("forth").getValue(String.class));
+//                     id.add(snap.child("fifth").getValue(String.class));
+//                     id.add(snap.child("sixth").getValue(String.class));
+//
+//                 }
+//
+//
+//
+//                 store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                     @Override
+//                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//
+//
+//                         for (int i = 0; i <snapshot.getChildrenCount(); i++) {
+//
+//                             for (DocumentSnapshot snap:task.getResult()){
+//
+//
+//
+//                                 if(id.get(i).equals(snap.get("courseId"))){
+//                                     homeCourseurl.add((String)snap.get("homeLink"));
+//
+//
+//                                 }
+//
+//
+//
+//                             }
+//
+//                         }
+//
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//
+//
+//
+//
+//
+//                         //Setting Adapter and Grid Layout
+//                         homeAdapter=new home_adapter(homeCourseurl,id);
+//                         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
+//                         manager.setOrientation(RecyclerView.VERTICAL);
+//                         homeRv.setLayoutManager(manager);
+//                         homeRv.setAdapter(homeAdapter);
+//                         homeAdapter.notifyDataSetChanged();
+//                         //end
+//                     }
+//                 });
 
              }
-
              @Override
              public void onCancelled(@NonNull DatabaseError error) {
 
              }
          });
+
+
+
+         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+
+
+
+
+
+         //Setting Adapter and Grid Layout
+         homeAdapter=new home_adapter(homeCourseurl,id);
+         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
+         manager.setOrientation(RecyclerView.VERTICAL);
+         homeRv.setLayoutManager(manager);
+         homeRv.setAdapter(homeAdapter);
+         homeAdapter.notifyDataSetChanged();
+         //end
 
 
 
