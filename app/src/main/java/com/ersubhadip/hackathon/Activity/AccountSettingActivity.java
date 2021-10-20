@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,6 +140,8 @@ public class AccountSettingActivity extends AppCompatActivity {
 
                                                             if (task.isSuccessful()) {
                                                                 Toast.makeText(AccountSettingActivity.this, "Account Updated Successfully!", Toast.LENGTH_SHORT).show();
+                                                                Intent it=new Intent(AccountSettingActivity.this,MainActivity.class);
+                                                                startActivity(it);
                                                                 finish();
 
 

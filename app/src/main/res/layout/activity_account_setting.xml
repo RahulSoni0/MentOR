@@ -14,6 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+
         >
 
 
@@ -23,7 +24,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="32dp"
             >
 
             <TextView
@@ -189,8 +193,11 @@
                 android:textAllCaps="false"
                 android:background="@drawable/button"
                 android:fontFamily="@font/noto_sans"
-                android:paddingStart="8dp"
+
                 android:elevation="4dp"
+                android:focusable="true"
+                android:foreground="?selectableItemBackground"
+
                 />
 
 
