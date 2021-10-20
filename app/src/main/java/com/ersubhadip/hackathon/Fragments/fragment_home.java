@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,8 +28,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -48,7 +55,7 @@ public class fragment_home extends Fragment {
     private AnimatedBottomBar BottomBar;
     private RecyclerView homeRv;
     ArrayList<String> homeCourseurl=new ArrayList<>();
-    ArrayList<Integer> id=new ArrayList<>();
+    ArrayList<String> id=new ArrayList<>();
 
     private ViewPager slider;
     ArrayList<String> homePosterList=new ArrayList<>();
@@ -62,6 +69,7 @@ public class fragment_home extends Fragment {
     String t="Welcome to the best application ever which is here to provide best courses with fully experienced instructors. Here we also provide chatBots and various other best support systems which will help user to communicate with us.";
     private TypeWriterView name;
     private FloatingActionButton fabBtn;
+    DatabaseReference realTime;
 
     FirebaseAuth auth;
     FirebaseFirestore store;
@@ -91,6 +99,7 @@ public class fragment_home extends Fragment {
         slidingText=view.findViewById(R.id.slidingText);
         name=view.findViewById(R.id.userName);
         auth=FirebaseAuth.getInstance();
+        realTime=FirebaseDatabase.getInstance().getReference();
         store=FirebaseFirestore.getInstance();
         fabBtn=view.findViewById(R.id.chatBot);
         return view;
@@ -98,9 +107,9 @@ public class fragment_home extends Fragment {
     }
      @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        
-        super.onViewCreated(view, savedInstanceState);
-        //initialising the main Activity Frame
+
+         super.onViewCreated(view, savedInstanceState);
+         //initialising the main Activity Frame
          ParentFrameLayout=getActivity().findViewById(R.id.fragment_container);
          BottomBar=getActivity().findViewById(R.id.animatedBottomBar);
 
@@ -111,7 +120,6 @@ public class fragment_home extends Fragment {
          dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.main_dialog_bg));
          dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
          ImageView i=dialog.findViewById(R.id.close_dialog);
-
          dialog.show();
          i.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -129,8 +137,8 @@ public class fragment_home extends Fragment {
          slidingText.setSelected(true);
 
          //end
-        
-        //operational statements
+
+         //operational statements
          homeCourseurl.clear();  //to avoid duplicate items
          homePosterList.clear();  //to avoid duplicate items
          id.clear();  //to avoid duplicate items
@@ -174,14 +182,72 @@ public class fragment_home extends Fragment {
 
 
          //todo:Realtime Database
-         //Junk Code
-         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
-         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
-         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
-         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
-         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
-         homeCourseurl.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/course_banner%2Fjs.jpg?alt=media&token=b41d2292-36d5-4df7-93f3-d898c08cda5d");
-         //end Junk Code
+         realTime.child("trending").addValueEventListener(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                 for(DataSnapshot snap:snapshot.getChildren()){
+
+                     id.add((String)snap.child("first").getValue(String.class));
+                     id.add((String)snap.child("second").getValue(String.class));
+                     id.add((String)snap.child("third").getValue(String.class));
+                     id.add((String)snap.child("forth").getValue(String.class));
+                     id.add((String)snap.child("fifth").getValue(String.class));
+                     id.add((String)snap.child("sixth").getValue(String.class));
+
+                 }
+
+                 Toast.makeText(getContext(), ""+id.toString(), Toast.LENGTH_SHORT).show();
+
+                 store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                     @Override
+                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                         int i=0;
+
+                         for (DocumentSnapshot snap:task.getResult()){
+
+
+
+                             if(id.get(i).equals(snap.get("courseId"))){
+                                 homeCourseurl.add((String)snap.get("homeLink"));
+                                 i++;
+
+                             }
+
+                             if(i>6){
+
+
+                                 break;
+                             }
+
+
+
+                         }
+
+
+                         //Setting Adapter and Grid Layout
+                         homeAdapter=new home_adapter(homeCourseurl,id);
+                         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
+                         manager.setOrientation(RecyclerView.VERTICAL);
+                         homeRv.setLayoutManager(manager);
+                         homeRv.setAdapter(homeAdapter);
+                         homeAdapter.notifyDataSetChanged();
+                         //end
+
+                     }
+                 });
+
+
+
+             }
+
+             @Override
+             public void onCancelled(@NonNull DatabaseError error) {
+
+             }
+         });
+
+
 
          //hardcoded url's for sliders
          homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/Sliders%2Ffirst.jpg?alt=media&token=2dd49e53-e09a-49d3-8023-718c875abfdc");
@@ -190,36 +256,6 @@ public class fragment_home extends Fragment {
          //end
 
          setPosters(homePosterList); //calling poster slider function
-
-
-         //Setting Adapter and Grid Layout
-         homeAdapter=new home_adapter(homeCourseurl,id);
-         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
-         manager.setOrientation(RecyclerView.VERTICAL);
-         homeRv.setLayoutManager(manager);
-         homeRv.setAdapter(homeAdapter);
-         homeAdapter.notifyDataSetChanged();
-         //end
-//         homePosterList.add("xSCa");
-//
-//       homePosterList.add("xSCa");
-//       homePosterList.add("xSCa");
-//       homePosterList.add("xSCa");
-//
-//         homePosterList.add("xSCa");
-//
-//         posterAdapter=new homePosterAdapter(homePosterList);
-//         slider.setPageMargin(20);
-//         slider.setAdapter(posterAdapter);
-//
-
-
-
-
-
-
-
-
 
          //explore Button Onclick Changing Fragment
          explore.setOnClickListener(new View.OnClickListener() {

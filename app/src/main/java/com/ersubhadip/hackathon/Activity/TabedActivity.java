@@ -28,7 +28,7 @@ public class TabedActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
     private ViewpagerAdapter adapter;
     private Toolbar toolbar;
-    int t= booksRvAdapter.type;
+    public static String t;
     FirebaseFirestore s;
     String title;
 
@@ -40,6 +40,12 @@ public class TabedActivity extends AppCompatActivity {
         tab=findViewById(R.id.tabMain);
         viewPager=findViewById(R.id.vp2);
         toolbar=findViewById(R.id.tabToolBar);
+        if(getIntent()!=null){
+
+            t=getIntent().getStringExtra("type");
+
+
+        }
         adapter=new ViewpagerAdapter(getSupportFragmentManager(),getLifecycle());
         setSupportActionBar(toolbar);
 
@@ -57,25 +63,29 @@ public class TabedActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         s=FirebaseFirestore.getInstance();
-        s.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        s.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                for (DocumentSnapshot snapshot:task.getResult()) {
+                if(task.getResult()!=null){
+
+                    for (DocumentSnapshot snapshot:task.getResult()) {
 
 
 
-                    if((Long)snapshot.get("orderNumber")==Long.valueOf(t+1)){
+                        if(t.equals((String)snapshot.get("courseId"))){
 
-                        //fetch name from that particular snap
-                        title=(String) snapshot.get("name");
-                        getSupportActionBar().setTitle(title);
+                            //fetch name from that particular snap
+                            title=(String) snapshot.get("name");
+                            getSupportActionBar().setTitle(title);
 
-                        //end
+                            //end
 
-                        break;
+                            break;
+                        }
                     }
                 }
+
             }
         });
         //end

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.ersubhadip.hackathon.Activity.TabedActivity;
 import com.ersubhadip.hackathon.Classes.booksRvAdapter;
 import com.ersubhadip.hackathon.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,7 +29,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class overViewFragment extends Fragment {
 
-    int t;
+    String t;
     FirebaseFirestore store;
     String url, courseName, description, instructorName, instructorBio;
     private ImageView banner;
@@ -60,7 +61,7 @@ public class overViewFragment extends Fragment {
         instructorb=view.findViewById(R.id.aboutCoach);
         instructorn=view.findViewById(R.id.nameCoach);
         loadingBar=view.findViewById(R.id.loading);
-        t= booksRvAdapter.type;
+        t= TabedActivity.t;
         //end
         return view;
     }
@@ -90,7 +91,7 @@ public class overViewFragment extends Fragment {
     private void fetchData(){
 
 
-        store.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
@@ -98,10 +99,9 @@ public class overViewFragment extends Fragment {
 
 
 
-                        if((Long)snapshot.get("orderNumber")==Long.valueOf(t+1)){
+                        if(t.equals((String) snapshot.get("courseId"))){
 
                             //fetch now from that particular snap
-                            //to fetch-->banner url, course name, description, instructorName, InstructorBio
                             instructorName=(String)snapshot.get("InstructorName");
                             instructorBio=(String)snapshot.get("InstructorBio");
                             courseName=(String)snapshot.get("name");

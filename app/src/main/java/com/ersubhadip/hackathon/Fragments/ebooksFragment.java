@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.ersubhadip.hackathon.Activity.TabedActivity;
 import com.ersubhadip.hackathon.Classes.booksRvAdapter;
 import com.ersubhadip.hackathon.Classes.ebooksAdapter;
 import com.ersubhadip.hackathon.R;
@@ -34,7 +35,7 @@ public class ebooksFragment extends Fragment {
     private List<String> ebooksLink=new ArrayList<>();
     private RecyclerView ebooksRv;
     private ebooksAdapter ebooksAdapter;
-    int t;
+    String t;
     FirebaseFirestore store;
 
 
@@ -58,7 +59,7 @@ public class ebooksFragment extends Fragment {
         //initialisation
 
         ebooksRv=view.findViewById(R.id.ebooksRv);
-        t= booksRvAdapter.type;
+        t= TabedActivity.t;
         //end
         return view;
     }
@@ -76,7 +77,7 @@ public class ebooksFragment extends Fragment {
 
                 for(DocumentSnapshot snapshot:task.getResult()){
 
-                    if((Long)snapshot.get("orderNumber")==Long.valueOf(t+1)){
+                    if(t.equals((String) snapshot.get("courseId"))){
 
                         ebooksTitle=(ArrayList<String>)snapshot.get("ebookTitle");
 

@@ -30,6 +30,7 @@ import java.util.List;
 public class fragment_book extends Fragment {
 
     ArrayList<String> bannerList= new ArrayList<>();
+    ArrayList<String> courseId= new ArrayList<>();
     private RecyclerView booksRV;
     private booksRvAdapter booksAdapter;
     private FirebaseFirestore firebaseFirestore;
@@ -95,29 +96,23 @@ public class fragment_book extends Fragment {
                      //to fetch banners and other keys and adding banner url to bannerList
                      for (DocumentSnapshot snap : task.getResult()){
                          BannerUrl=(String)snap.get("imageUrl");
+                         courseId.add((String)snap.get("courseId"));
                          bannerList.add(BannerUrl);
 
-//                         CourseTitle=(String)snap.get("name");
 
-//                         CourseDescription=(String)snap.get("description");
-//                         InstructorName=(String)snap.get("InstructorName");
-//                         InstructorBio=(String)snap.get("InstructorBio");
-//                         ebookTitle=(List)snap.get("ebookTitle");
-//                         videoTitle=(List)snap.get("videoTitle");
-//                         ebookUrl=(List)snap.get("ebookTitle");
-//                         videoUrl=(List)snap.get("ebookTitle");
-                         //todo:fetch urls
+
+
                      }
                      //end
                      //setting up adapter and Gridlayout
-                     booksAdapter=new booksRvAdapter(bannerList);
+                     booksAdapter=new booksRvAdapter(bannerList,courseId);
                      GridLayoutManager manager=new GridLayoutManager(getContext(),1,GridLayoutManager.VERTICAL,false);
                      manager.setOrientation(RecyclerView.VERTICAL);
                      booksRV.setLayoutManager(manager);
                      booksRV.setAdapter(booksAdapter);
                      booksAdapter.notifyDataSetChanged();
                      d1.dismiss(); //dismissing dialog
-                     //todo:not getting fully scrolled
+
 
 
                  }else{

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.ersubhadip.hackathon.Activity.TabedActivity;
 import com.ersubhadip.hackathon.Classes.VideoAdapter;
 import com.ersubhadip.hackathon.Classes.booksRvAdapter;
 import com.ersubhadip.hackathon.Classes.ebooksAdapter;
@@ -36,7 +37,7 @@ public class videoFragment extends Fragment {
     private VideoAdapter videoAdapter;
     private ImageView courseBanner;
     FirebaseFirestore store;
-    int t;
+    String t;
 
 
 
@@ -64,7 +65,7 @@ public class videoFragment extends Fragment {
         //initialisation
         VideoRv=view.findViewById(R.id.VideoTabRecyclerView);
         courseBanner=view.findViewById(R.id.courseImage);
-        t=booksRvAdapter.type;
+        t= TabedActivity.t;
         //end
 
         return view;
@@ -85,7 +86,7 @@ public class videoFragment extends Fragment {
 
                 for(DocumentSnapshot snapshot:task.getResult()){
 
-                    if((Long)snapshot.get("orderNumber")==Long.valueOf(t+1)){
+                    if(t.equals((String) snapshot.get("courseId"))){
 
                         videoList=(ArrayList<String>)snapshot.get("videoTitle");
                         String url=(String)snapshot.get("imageUrl");

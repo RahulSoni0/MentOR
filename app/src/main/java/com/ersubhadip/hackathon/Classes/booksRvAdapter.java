@@ -26,10 +26,14 @@ import java.util.Random;
 public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHolder>{
 
     public static int type;
-    ArrayList<String> bannerUrlList=new ArrayList<>();
+    ArrayList<String> bannerUrlList= new ArrayList<>();
+    ArrayList<String> courseId=new ArrayList<>();
+    String s;
 
-    public booksRvAdapter(ArrayList<String> bannerUrlList) {
+    public booksRvAdapter(ArrayList<String> bannerUrlList, ArrayList<String> courseId) {
+
         this.bannerUrlList = bannerUrlList;
+        this.courseId=courseId;
     }
 
     @NonNull
@@ -78,7 +82,8 @@ public class booksRvAdapter  extends RecyclerView.Adapter<booksRvAdapter.ViewHol
                 public void onClick(View view) {
 
                     Intent course=new Intent(itemView.getContext(), TabedActivity.class);
-                    type=getLayoutPosition();
+                    s=courseId.get(getLayoutPosition());
+                    course.putExtra("type",s);
                     itemView.getContext().startActivity(course);
                 }
             });

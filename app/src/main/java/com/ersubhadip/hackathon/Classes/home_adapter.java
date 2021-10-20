@@ -21,9 +21,10 @@ import java.util.ArrayList;
 public class home_adapter extends RecyclerView.Adapter<home_adapter.ViewHolder>{
 
     ArrayList<String> list=new ArrayList<>();
-    ArrayList<Integer> id=new ArrayList<>();
+    ArrayList<String> id=new ArrayList<>();
 
-    public home_adapter(ArrayList<String> list,ArrayList<Integer> id) {
+
+    public home_adapter(ArrayList<String> list,ArrayList<String> id) {
         this.list = list;
         this.id = id;
     }
@@ -71,10 +72,10 @@ public class home_adapter extends RecyclerView.Adapter<home_adapter.ViewHolder>{
                 @Override
                 public void onClick(View view) {
 
-                    Intent it=new Intent(itemView.getContext(), TabedActivity.class);
-                    //todo:pass id
-                    //--> id.get(pos)==getLayoutPosition();
-                    itemView.getContext().startActivity(it);
+//                    Intent it=new Intent(itemView.getContext(), TabedActivity.class);
+//                    //todo:pass id
+//                    //--> id.get(pos)==getLayoutPosition();
+//                    itemView.getContext().startActivity(it);
 
 
                 }
