@@ -183,6 +183,7 @@ public class SignUpActivity extends AppCompatActivity {
                                             }else{
 
                                                 d.dismiss();
+                                                Log.d("####","task failed"+task.getException());
                                                 Toast.makeText(SignUpActivity.this, "Some Error Occurred"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                 signUp.setEnabled(true);
                                             }
@@ -191,6 +192,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                 }
                                 else{
+                                    Log.d("####","bhaar wala "+task.getException());
                                     d.dismiss();
                                     Toast.makeText(SignUpActivity.this, "Some Error Occurred"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     signUp.setEnabled(true);
