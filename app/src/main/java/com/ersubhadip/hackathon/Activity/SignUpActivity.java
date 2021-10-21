@@ -31,7 +31,7 @@ import java.util.Map;
 public class SignUpActivity extends AppCompatActivity {
     private TextView loginPage;
     private EditText name,email,password,confirmPassword;
-    private FirebaseAuth auth;
+    private  FirebaseAuth auth;
     private AppCompatButton signUp;
     private FirebaseFirestore firebaseFirestore;
     String emailPattern= "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";

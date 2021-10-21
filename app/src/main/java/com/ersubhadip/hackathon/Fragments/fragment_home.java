@@ -113,29 +113,28 @@ public class fragment_home extends Fragment {
          ParentFrameLayout=getActivity().findViewById(R.id.fragment_container);
          BottomBar=getActivity().findViewById(R.id.animatedBottomBar);
 
-         //setting up dialog for home popup
-         Dialog dialog=new Dialog(getContext());
-         dialog.setCancelable(false);
-         dialog.setContentView(R.layout.home_main_dialog);
-         dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.main_dialog_bg));
-         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-         ImageView i=dialog.findViewById(R.id.close_dialog);
-         dialog.show();
-         i.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-
-                 dialog.dismiss();
-
-             }
-         });
-         //end
+//         //setting up dialog for home popup
+//         Dialog dialog=new Dialog(getContext());
+//         dialog.setCancelable(false);
+//         dialog.setContentView(R.layout.home_main_dialog);
+//         dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.main_dialog_bg));
+//         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+//         ImageView i=dialog.findViewById(R.id.close_dialog);
+//         dialog.show();
+//         i.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View view) {
+//
+//                 dialog.dismiss();
+//
+//             }
+//         });
+//         //end
 
 
          //text sliding implementation
          slidingText.setText(t);
          slidingText.setSelected(true);
-
          //end
 
          //operational statements
@@ -180,102 +179,100 @@ public class fragment_home extends Fragment {
              }
          });
 
-
          //todo:Realtime Database
-         realTime.child("trending").addValueEventListener(new ValueEventListener() {
-             @Override
+         realTime.child("trending").addListenerForSingleValueEvent(new ValueEventListener() {
+                 @Override
              public void onDataChange(@NonNull DataSnapshot snapshot) {
+                 for(DataSnapshot snap:snapshot.getChildren()){
+
+                     id.add(snap.child("a").getValue(String.class));
+                     id.add(snap.child("b").getValue(String.class));
+                     id.add(snap.child("c").getValue(String.class));
+                     id.add(snap.child("d").getValue(String.class));
+                     id.add(snap.child("e").getValue(String.class));
+                     id.add(snap.child("f").getValue(String.class));
+
+                 }
+
+                 store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                     @Override
+                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+
+                         for (int i = 0; i <6; i++) {
+
+                             for (DocumentSnapshot snap:task.getResult()){
+
+
+
+                                 if(id.get(i).equals(snap.get("courseId"))){
+                                     homeCourseurl.add((String)snap.get("homeLink"));
+
+
+                                 }
+                             }
+                         }
+
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
 
 
 
 
-//                 for(DataSnapshot snap:snapshot.getChildren()){
-//
-//                     id.add(snap.child("first").getValue(String.class));
-//                     id.add(snap.child("second").getValue(String.class));
-//                     id.add(snap.child("third").getValue(String.class));
-//                     id.add(snap.child("forth").getValue(String.class));
-//                     id.add(snap.child("fifth").getValue(String.class));
-//                     id.add(snap.child("sixth").getValue(String.class));
-//
-//                 }
-//
-//
-//
-//                 store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                     @Override
-//                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//
-//
-//                         for (int i = 0; i <snapshot.getChildrenCount(); i++) {
-//
-//                             for (DocumentSnapshot snap:task.getResult()){
-//
-//
-//
-//                                 if(id.get(i).equals(snap.get("courseId"))){
-//                                     homeCourseurl.add((String)snap.get("homeLink"));
-//
-//
-//                                 }
-//
-//
-//
-//                             }
-//
-//                         }
-//
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//
-//
-//
-//
-//
-//                         //Setting Adapter and Grid Layout
-//                         homeAdapter=new home_adapter(homeCourseurl,id);
-//                         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
-//                         manager.setOrientation(RecyclerView.VERTICAL);
-//                         homeRv.setLayoutManager(manager);
-//                         homeRv.setAdapter(homeAdapter);
-//                         homeAdapter.notifyDataSetChanged();
-//                         //end
-//                     }
-//                 });
+
+                         //Setting Adapter and Grid Layout
+                         homeAdapter=new home_adapter(homeCourseurl,id);
+                         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
+                         manager.setOrientation(RecyclerView.VERTICAL);
+                         homeRv.setLayoutManager(manager);
+                         homeRv.setAdapter(homeAdapter);
+                         homeAdapter.notifyDataSetChanged();
+                         //end
+                     }
+                 });
 
              }
+
              @Override
              public void onCancelled(@NonNull DatabaseError error) {
+
+                 Toast.makeText(getContext(), ""+error.getMessage(), Toast.LENGTH_SHORT).show();
 
              }
          });
 
 
 
-         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
 
 
 
 
 
-         //Setting Adapter and Grid Layout
-         homeAdapter=new home_adapter(homeCourseurl,id);
-         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
-         manager.setOrientation(RecyclerView.VERTICAL);
-         homeRv.setLayoutManager(manager);
-         homeRv.setAdapter(homeAdapter);
-         homeAdapter.notifyDataSetChanged();
-         //end
 
+//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
+//
+//
+//
+//
+//
+//         //Setting Adapter and Grid Layout
+//         homeAdapter=new home_adapter(homeCourseurl,id);
+//         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
+//         manager.setOrientation(RecyclerView.VERTICAL);
+//         homeRv.setLayoutManager(manager);
+//         homeRv.setAdapter(homeAdapter);
+//         homeAdapter.notifyDataSetChanged();
+//         //end
+//
 
 
          //hardcoded url's for sliders
