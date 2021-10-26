@@ -166,20 +166,52 @@ public class fragment_home extends Fragment {
          realTime.child("trending").addListenerForSingleValueEvent(new ValueEventListener() {
                  @Override
              public void onDataChange(@NonNull DataSnapshot snapshot) {
-                 for(DataSnapshot snap:snapshot.getChildren()){
-
-                     id.add(snap.child("a").getValue(String.class));
-                     id.add(snap.child("b").getValue(String.class));
-                     id.add(snap.child("c").getValue(String.class));
-                     id.add(snap.child("d").getValue(String.class));
-                     id.add(snap.child("e").getValue(String.class));
-                     id.add(snap.child("f").getValue(String.class));
 
 
-                 }
+                     id.add(snapshot.child("a").getValue(String.class));
+                     id.add(snapshot.child("b").getValue(String.class));
+                     id.add(snapshot.child("c").getValue(String.class));
+                     id.add(snapshot.child("d").getValue(String.class));
+                     id.add(snapshot.child("e").getValue(String.class));
+                     id.add(snapshot.child("f").getValue(String.class));
 
-                 Log.d("####",id.toString());
-                 Log.d("@@@",String.valueOf(id.size()));
+
+
+
+                 Log.d("@@",id.toString());  //perfect
+
+                     store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                         @Override
+                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+
+
+                             for (int i = 0; i <id.size(); i++) {
+
+                                 for (DocumentSnapshot snap:task.getResult()){
+
+
+
+                                     if(id.get(i).equals(snap.get("courseId"))){
+                                         homeCourseurl.add((String)snap.get("homeLink"));
+
+
+                                     }
+                                 }
+                             }
+
+
+                             //Setting Adapter and Grid Layout
+                             homeAdapter=new home_adapter(homeCourseurl,id);
+                             GridLayoutManager manager=new GridLayoutManager(getContext(),2);
+                             manager.setOrientation(RecyclerView.VERTICAL);
+                             homeRv.setLayoutManager(manager);
+                             homeRv.setAdapter(homeAdapter);
+                             homeAdapter.notifyDataSetChanged();
+                             //end
+                         }
+                     });
+
 
 
 
@@ -193,37 +225,7 @@ public class fragment_home extends Fragment {
              }
          });
 
-         store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-             @Override
-             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                 Log.d("###",id.toString());
-
-                 for (int i = 0; i <id.size(); i++) {
-
-                     for (DocumentSnapshot snap:task.getResult()){
-
-
-
-                         if(id.get(i).equals(snap.get("courseId"))){
-                             homeCourseurl.add((String)snap.get("homeLink"));
-
-
-                         }
-                     }
-                 }
-
-
-                 //Setting Adapter and Grid Layout
-                 homeAdapter=new home_adapter(homeCourseurl,id);
-                 GridLayoutManager manager=new GridLayoutManager(getContext(),2);
-                 manager.setOrientation(RecyclerView.VERTICAL);
-                 homeRv.setLayoutManager(manager);
-                 homeRv.setAdapter(homeAdapter);
-                 homeAdapter.notifyDataSetChanged();
-                 //end
-             }
-         });
 
 
 

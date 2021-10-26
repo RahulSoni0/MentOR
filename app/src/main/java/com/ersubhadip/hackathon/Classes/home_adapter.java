@@ -37,7 +37,7 @@ public class home_adapter extends RecyclerView.Adapter<home_adapter.ViewHolder>{
     @Override
     public home_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.home_grid_layout, parent, false);
+                .inflate(R.layout.home_course_items, parent, false);
 
 
 
