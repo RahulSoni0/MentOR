@@ -176,7 +176,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 d.dismiss();     //Removing loading dialog after online process Completes
 
                                                 Toast.makeText(SignUpActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
-                                                Intent in = new Intent(SignUpActivity.this,MainActivity.class);
+                                                Intent in = new Intent(SignUpActivity.this,MainDialogActivity.class);
                                                 startActivity(in);
                                                 finish();
 

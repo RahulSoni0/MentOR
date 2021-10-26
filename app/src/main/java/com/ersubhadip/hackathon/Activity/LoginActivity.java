@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if(task.isSuccessful()){
                                     d.dismiss();
-                                    Intent log=new Intent(LoginActivity.this, MainActivity.class);
+                                    Intent log=new Intent(LoginActivity.this, MainDialogActivity.class);
                                     startActivity(log);
                                     finish();
 

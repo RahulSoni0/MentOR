@@ -64,7 +64,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(firebaseAuth.getCurrentUser()!=null){
-                    Intent it=new Intent(SplashActivity.this,MainActivity.class);
+                    Intent it=new Intent(SplashActivity.this,MainDialogActivity.class);
                     startActivity(it);
                     finish();
 
