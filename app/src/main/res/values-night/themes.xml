@@ -25,4 +25,8 @@
 
 
     </style>
+
+    <style name="bottomNavText" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="fontFamily">@font/noto_sans</item>
+    </style>
 </resources>
