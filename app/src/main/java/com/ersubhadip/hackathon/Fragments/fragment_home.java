@@ -112,24 +112,7 @@ public class fragment_home extends Fragment {
          //initialising the main Activity Frame
          ParentFrameLayout=getActivity().findViewById(R.id.fragment_container);
          BottomBar=getActivity().findViewById(R.id.animatedBottomBar);
-
-//         //setting up dialog for home popup
-//         Dialog dialog=new Dialog(getContext());
-//         dialog.setCancelable(false);
-//         dialog.setContentView(R.layout.home_main_dialog);
-//         dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.main_dialog_bg));
-//         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-//         ImageView i=dialog.findViewById(R.id.close_dialog);
-//         dialog.show();
-//         i.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View view) {
-//
-//                 dialog.dismiss();
-//
-//             }
-//         });
-//         //end
+//todo:dialog activity pops up only once after user enters the app
 
 
          //text sliding implementation
@@ -242,35 +225,6 @@ public class fragment_home extends Fragment {
              }
          });
 
-
-
-
-
-
-
-
-
-
-//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//
-//
-//
-//
-//
-//         //Setting Adapter and Grid Layout
-//         homeAdapter=new home_adapter(homeCourseurl,id);
-//         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
-//         manager.setOrientation(RecyclerView.VERTICAL);
-//         homeRv.setLayoutManager(manager);
-//         homeRv.setAdapter(homeAdapter);
-//         homeAdapter.notifyDataSetChanged();
-//         //end
-//
 
 
          //hardcoded url's for sliders

@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
 
         //setting up typeWriterText
         text.setDelay(2);
-        text.setWithMusic(true);
+        text.setWithMusic(false);
         text.animateText("Want to learn new Skills?");
         //end
 
