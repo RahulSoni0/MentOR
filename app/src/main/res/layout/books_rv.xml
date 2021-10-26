@@ -13,20 +13,13 @@
 
     >
    <ImageView
-       android:id="@+id/courseBanner"
+
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        app:layout_constraintTop_toTopOf="parent"
        app:layout_constraintLeft_toLeftOf="parent"
        app:layout_constraintRight_toRightOf="parent"
-       android:padding="2dp"
-       android:src="@drawable/open_source"
-       android:scaleType="fitXY"
-       android:layout_marginLeft="16dp"
-       android:layout_marginRight="16dp"
-       android:clickable="true"
-       android:focusable="true"
-       android:foreground="?selectableItemBackground"
+
 
        />
 
