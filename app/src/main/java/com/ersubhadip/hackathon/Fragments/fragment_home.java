@@ -70,7 +70,7 @@ public class fragment_home extends Fragment {
     private TypeWriterView name;
     private FloatingActionButton fabBtn;
     DatabaseReference realTime;
-
+    ArrayList<String> duplicateId=new ArrayList<>();
     FirebaseAuth auth;
     FirebaseFirestore store;
 
@@ -192,48 +192,13 @@ public class fragment_home extends Fragment {
                      id.add(snap.child("e").getValue(String.class));
                      id.add(snap.child("f").getValue(String.class));
 
+
                  }
 
-                 store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                     @Override
-                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                 Log.d("####",id.toString());
+                 Log.d("@@@",String.valueOf(id.size()));
 
 
-                         for (int i = 0; i <6; i++) {
-
-                             for (DocumentSnapshot snap:task.getResult()){
-
-
-
-                                 if(id.get(i).equals(snap.get("courseId"))){
-                                     homeCourseurl.add((String)snap.get("homeLink"));
-
-
-                                 }
-                             }
-                         }
-
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-//                         homeCourseurl.add("https://st.depositphotos.com/1000647/3476/i/600/depositphotos_34768281-stock-photo-fire-alphabet-number-6-six.jpg");
-
-
-
-
-
-                         //Setting Adapter and Grid Layout
-                         homeAdapter=new home_adapter(homeCourseurl,id);
-                         GridLayoutManager manager=new GridLayoutManager(getContext(),2);
-                         manager.setOrientation(RecyclerView.VERTICAL);
-                         homeRv.setLayoutManager(manager);
-                         homeRv.setAdapter(homeAdapter);
-                         homeAdapter.notifyDataSetChanged();
-                         //end
-                     }
-                 });
 
              }
 
@@ -244,6 +209,39 @@ public class fragment_home extends Fragment {
 
              }
          });
+
+         store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+             @Override
+             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                 Log.d("###",id.toString());
+
+                 for (int i = 0; i <id.size(); i++) {
+
+                     for (DocumentSnapshot snap:task.getResult()){
+
+
+
+                         if(id.get(i).equals(snap.get("courseId"))){
+                             homeCourseurl.add((String)snap.get("homeLink"));
+
+
+                         }
+                     }
+                 }
+
+
+                 //Setting Adapter and Grid Layout
+                 homeAdapter=new home_adapter(homeCourseurl,id);
+                 GridLayoutManager manager=new GridLayoutManager(getContext(),2);
+                 manager.setOrientation(RecyclerView.VERTICAL);
+                 homeRv.setLayoutManager(manager);
+                 homeRv.setAdapter(homeAdapter);
+                 homeAdapter.notifyDataSetChanged();
+                 //end
+             }
+         });
+
 
 
 
@@ -276,9 +274,9 @@ public class fragment_home extends Fragment {
 
 
          //hardcoded url's for sliders
-         homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/Sliders%2Ffirst.jpg?alt=media&token=2dd49e53-e09a-49d3-8023-718c875abfdc");
-         homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/Sliders%2Fsecond.jpg?alt=media&token=629caf42-d2f3-43f2-a025-f7469fe29be8");
-         homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-a446b.appspot.com/o/Sliders%2Fthird.jpg?alt=media&token=69c350dd-58d7-47b3-ae72-ac583288ded2");
+         homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-3505e.appspot.com/o/sliders%2Ffirst.jpg?alt=media&token=62c577bd-355f-4620-8ca1-2aa8b877b4ae");
+         homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-3505e.appspot.com/o/sliders%2Fsecond.jpg?alt=media&token=3011b7ee-f4fd-49f3-ac04-2432df3e9240");
+         homePosterList.add("https://firebasestorage.googleapis.com/v0/b/hackathon-3505e.appspot.com/o/sliders%2Fthird.jpg?alt=media&token=ec64d677-a963-4fa7-bb1f-cb9bf610601c");
          //end
 
          setPosters(homePosterList); //calling poster slider function
