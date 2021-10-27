@@ -74,13 +74,15 @@ public class fragment_book extends Fragment {
        //operational statements
          bannerList.clear();   //to avoid duplicate elements due to multiple clicks
 
+         bar.setVisibility(View.VISIBLE);
+
 
          //fetch Starts
          firebaseFirestore.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
              @Override
              public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                 bar.setVisibility(View.VISIBLE);
+
 
                  if(task.isSuccessful()){
                      //to fetch banners and other keys and adding banner url to bannerList
