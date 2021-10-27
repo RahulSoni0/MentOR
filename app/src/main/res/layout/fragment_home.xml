@@ -480,6 +480,7 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="12dp"
                     android:padding="8dp"
+                    android:layout_marginTop="12dp"
 
                     >
 
@@ -552,39 +553,6 @@
 
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/linear_why_we"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="5: Add some best point why to choose mentOR"
-                    android:textStyle="normal"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/noto_sans"
-                    />
-
-
-
-            </LinearLayout>
-
-
-
-
-
-
-
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
