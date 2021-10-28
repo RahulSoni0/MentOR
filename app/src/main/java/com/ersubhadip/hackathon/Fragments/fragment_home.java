@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +57,7 @@ public class fragment_home extends Fragment {
     private RecyclerView homeRv;
     ArrayList<String> homeCourseurl=new ArrayList<>();
     ArrayList<String> id=new ArrayList<>();
-
+    private ProgressBar bar;
     private ViewPager slider;
     ArrayList<String> homePosterList=new ArrayList<>();
     private homePosterAdapter posterAdapter;
@@ -102,6 +103,7 @@ public class fragment_home extends Fragment {
         realTime=FirebaseDatabase.getInstance().getReference();
         store=FirebaseFirestore.getInstance();
         fabBtn=view.findViewById(R.id.chatBot);
+        bar=view.findViewById(R.id.home_load);
         return view;
 
     }
@@ -113,6 +115,7 @@ public class fragment_home extends Fragment {
          ParentFrameLayout=getActivity().findViewById(R.id.fragment_container);
          BottomBar=getActivity().findViewById(R.id.animatedBottomBar);
 //todo:dialog activity pops up only once after user enters the app
+
 
 
          //text sliding implementation
@@ -166,6 +169,7 @@ public class fragment_home extends Fragment {
          realTime.child("trending").addListenerForSingleValueEvent(new ValueEventListener() {
                  @Override
              public void onDataChange(@NonNull DataSnapshot snapshot) {
+                     bar.setVisibility(View.VISIBLE);
 
 
                      id.add(snapshot.child("a").getValue(String.class));
@@ -209,6 +213,7 @@ public class fragment_home extends Fragment {
                              homeRv.setAdapter(homeAdapter);
                              homeAdapter.notifyDataSetChanged();
                              //end
+                             bar.setVisibility(View.GONE);
                          }
                      });
 
@@ -251,6 +256,7 @@ public class fragment_home extends Fragment {
              }
          });
         //end
+
     }
 
     private  void setPosters(ArrayList<String> l){

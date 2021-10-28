@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ersubhadip.hackathon.Activity.SignUpActivity;
@@ -34,11 +35,9 @@ public class fragment_book extends Fragment {
     private RecyclerView booksRV;
     private booksRvAdapter booksAdapter;
     private FirebaseFirestore firebaseFirestore;
-    public  static String CourseTitle, CourseDescription, InstructorName, InstructorBio, BannerUrl;
-    public static ArrayList<String> ebookTitle = new ArrayList<>();
-    public static ArrayList<String> videoTitle = new ArrayList<>();
-    public static ArrayList<String> ebookUrl = new ArrayList<>();
-    public static ArrayList<String> videoUrl = new ArrayList<>();
+    public  static String  BannerUrl;
+
+    private ProgressBar bar;
 
 
 
@@ -64,6 +63,7 @@ public class fragment_book extends Fragment {
         //initialisation
         booksRV=view.findViewById(R.id.booksRecyclerView);
         firebaseFirestore=FirebaseFirestore.getInstance();
+        bar=view.findViewById(R.id.books_load);
         //end
         return view;
     }
@@ -74,23 +74,15 @@ public class fragment_book extends Fragment {
        //operational statements
          bannerList.clear();   //to avoid duplicate elements due to multiple clicks
 
+         bar.setVisibility(View.VISIBLE);
 
-
-
-
-         //Loading Dialog Creation
-         Dialog d1=new Dialog(getContext());
-         d1.setContentView(R.layout.loading_dialogs);
-         d1.getWindow().setBackgroundDrawable(getContext().getDrawable(R.drawable.round_bg)); //todo:remove suppressLint function not applied for bg
-         d1.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-         d1.setCancelable(false);
-         //end
-         d1.show();
 
          //fetch Starts
          firebaseFirestore.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
              @Override
              public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+
 
                  if(task.isSuccessful()){
                      //to fetch banners and other keys and adding banner url to bannerList
@@ -111,33 +103,15 @@ public class fragment_book extends Fragment {
                      booksRV.setLayoutManager(manager);
                      booksRV.setAdapter(booksAdapter);
                      booksAdapter.notifyDataSetChanged();
-                     d1.dismiss(); //dismissing dialog
-
-
+                     bar.setVisibility(View.GONE);
 
                  }else{
-                     d1.dismiss();
+                     bar.setVisibility(View.GONE);
                      Toast.makeText(getContext(), "Something Went Wrong! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                  }
 
-
-
-
              }
          });
-
-
-
-
-
-
-
-
-
-
-
-
-        
     }
 }
