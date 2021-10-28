@@ -128,7 +128,7 @@
                 android:text="abcd"
                 android:fontFamily="@font/noto_sans"
                 android:textSize="14sp"
-                android:textColor="#EA07F1"
+                android:textColor="#FD407E"
                 android:textStyle="bold"
                 android:ellipsize="marquee"
                 android:scrollHorizontally="true"
@@ -141,21 +141,20 @@
                 />
 
 
-
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/homeVp"
                 android:layout_width="match_parent"
                 android:layout_height="196dp"
-                app:layout_constraintTop_toBottomOf="@id/slidingText"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:layout_marginTop="8dp"
                 android:clipToPadding="false"
                 android:elevation="10dp"
-                android:layout_marginTop="8dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/slidingText"
 
-                />
+                tools:ignore="SpeakableTextPresentCheck" />
 
 
             <!--For bottom section = TV + RV-->
@@ -595,23 +594,24 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/chatBot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="12dp"
+        android:background="#FD407E"
+        android:backgroundTint="#FD407E"
         android:clickable="true"
         android:elevation="20dp"
         android:src="@drawable/chat_icon"
         android:tint="@color/black"
-        app:fabSize="normal"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#FD3CAC"
-        app:maxImageSize="24dp"
         app:elevation="20dp"
-        android:background="#FD3CAC"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:maxImageSize="24dp"
 
-        />
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

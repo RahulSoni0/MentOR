@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".Activity.MainDialogActivity">
 
     <ImageView
@@ -14,7 +15,6 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="8dp"
         android:src="@drawable/close"
-        app:tint="@color/black"
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:foreground="?selectableItemBackground"
@@ -22,23 +22,149 @@
         />
 
 
+    <TextView
+        android:id="@+id/well"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Welcome to  "
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginTop="24dp"
+        android:textSize="24dp"
 
+
+        />
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintRight_toLeftOf="@id/logotxt1"
+        app:layout_constraintTop_toBottomOf="@id/well"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/logo"
+        >
+
+    </ImageView>
+    <ImageView
+        android:id="@+id/logotxt1"
+        android:layout_width="196dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+       android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@id/well"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/logotxt"
+        >
+
+    </ImageView>
 
 
 <!--    Junk XML-->
     <TextView
+        android:id="@+id/maintxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/close_dialog_main"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="ISme jitna accha ho utna accha design krna - Rahul Soni Sir"
+        android:text="One Stop Solution for all \n your Skill Development \n problems"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginTop="84dp"
         android:textSize="24dp"
 
 
         />
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/maintxt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="> learn at your own pace"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginTop="36dp"
+        android:textSize="24dp"
+
+
+        />
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="> Explore different carrer oppurtunities related to \n any skill you learn"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginTop="8dp"
+        android:textSize="24dp"
+
+
+        />
+
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:text="Need any new course or have \nany suggesition for  exsisting one ?"
+        android:textStyle="bold"
+        android:layout_marginLeft="12dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginTop="36dp"
+        android:textSize="28dp"
+
+
+        />
+    <TextView
+        android:id="@+id/txt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Try asking Bot ⏚ "
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"
+        android:padding="8dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginTop="36dp"
+        android:textSize="24dp"
+
+
+        />
+    <ImageView
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        app:layout_constraintTop_toBottomOf="@id/txt4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bawtlogo"
+        >
+
+    </ImageView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
