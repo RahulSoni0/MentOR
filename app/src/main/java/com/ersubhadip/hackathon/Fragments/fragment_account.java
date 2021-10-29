@@ -99,7 +99,12 @@ public class fragment_account extends Fragment {
              @Override
              public void onClick(View view) {
 
-                 //todo:share intent
+                 Intent sendIntent = new Intent();
+                 sendIntent.setAction(Intent.ACTION_SEND);
+                 sendIntent.putExtra(Intent.EXTRA_TEXT,
+                         "Hey check out my app at: https://github.com/RahulSoni0/practicerepo");
+                 sendIntent.setType("text/plain");
+                 startActivity(sendIntent);
 
 
              }

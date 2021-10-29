@@ -134,6 +134,7 @@ public class fragment_home extends Fragment {
          store.collection("users").document(auth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
              @Override
              public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                 bar.setVisibility(View.VISIBLE);
                    DocumentSnapshot snapshot = task.getResult();
                    String fetchedName=(String)snapshot.get("name");
                    fetchedName=fetchedName.trim();
@@ -148,7 +149,10 @@ public class fragment_home extends Fragment {
 
                      name.animateText("Hello, "+fetchedName);
 
+
                  }
+
+                 bar.setVisibility(View.GONE);
 
 
              }
@@ -261,6 +265,8 @@ public class fragment_home extends Fragment {
 
     private  void setPosters(ArrayList<String> l){
 
+        bar.setVisibility(View.VISIBLE);
+
         if(timer!=null){
             timer.cancel();
 
@@ -309,6 +315,7 @@ public class fragment_home extends Fragment {
         };
 
         slider.addOnPageChangeListener(listener);
+        bar.setVisibility(View.GONE);
 
         slider.setOnTouchListener(new View.OnTouchListener() {
             @Override
