@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,10 @@ public class DownloadPopupActivity extends AppCompatActivity {
         backTv=findViewById(R.id.complete_download);
         errorTv=findViewById(R.id.error_download);
         registerReceiver(onCompleteDownload,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
+
+        errorTv.setText(Html.fromHtml("<pre>Download has not started?<span style=\"color: #3598db;\"> Click here</span></pre>"));
+
         if (getIntent()!=null){
 
             title=getIntent().getStringExtra("Title");
