@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.ersubhadip.hackathon.Activity.TabedActivity;
@@ -38,6 +40,7 @@ public class videoFragment extends Fragment {
     private ImageView courseBanner;
     FirebaseFirestore store;
     String t;
+    private ProgressBar bar;
 
 
 
@@ -65,7 +68,8 @@ public class videoFragment extends Fragment {
         //initialisation
         VideoRv=view.findViewById(R.id.VideoTabRecyclerView);
         courseBanner=view.findViewById(R.id.courseImage);
-        t= TabedActivity.t;
+        bar=view.findViewById(R.id.loading);
+        t = TabedActivity.t;
         //end
 
         return view;
@@ -80,43 +84,49 @@ public class videoFragment extends Fragment {
         //todo:link setting
         store=FirebaseFirestore.getInstance();
 
-        store.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        store.collection("courses").document(t).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                for(DocumentSnapshot snapshot:task.getResult()){
-
-                    if(t.equals((String) snapshot.get("courseId"))){
-
-                        videoList=(ArrayList<String>)snapshot.get("videoTitle");
-                        String url=(String)snapshot.get("imageUrl");
-                        Glide.with(getContext()).load(url).into(courseBanner);
-
-                        if(videoList.get(0).equals("")){
-
-                            videoList.clear();
-
-                        }
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                bar.setVisibility(View.VISIBLE);
+                DocumentSnapshot snapshot=task.getResult();
+                if(task.isSuccessful()){
 
 
-                        //setting LinearLayoutManager
-                        LinearLayoutManager manager=new LinearLayoutManager(getContext());
-                        manager.setOrientation(RecyclerView.VERTICAL);
-                        VideoRv.setLayoutManager(manager);
 
-                        //end
+                    videoList=(ArrayList<String>)snapshot.get("videoTitle");
+                    String url=(String)snapshot.get("imageUrl");
+                    Glide.with(getContext()).load(url).into(courseBanner);
 
-                        //setting the adapter
-                        videoAdapter=new VideoAdapter(VideoUrlList,videoList);
-                        VideoRv.setAdapter(videoAdapter);
-                        videoAdapter.notifyDataSetChanged();
-                        //end
+                    if(videoList.get(0).equals("")){
+
+                        videoList.clear();
 
                     }
 
+
+                    //setting LinearLayoutManager
+                    LinearLayoutManager manager=new LinearLayoutManager(getContext());
+                    manager.setOrientation(RecyclerView.VERTICAL);
+                    VideoRv.setLayoutManager(manager);
+
+                    //end
+
+                    //setting the adapter
+                    videoAdapter=new VideoAdapter(VideoUrlList,videoList);
+                    VideoRv.setAdapter(videoAdapter);
+                    videoAdapter.notifyDataSetChanged();
+                    //end
+                    bar.setVisibility(View.GONE);
+
+                }else{
+
+                    Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    bar.setVisibility(View.GONE);
                 }
+
+
+
             }
         });
-
     }
 }

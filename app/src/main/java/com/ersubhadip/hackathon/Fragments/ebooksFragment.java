@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ersubhadip.hackathon.Activity.TabedActivity;
@@ -37,6 +38,7 @@ public class ebooksFragment extends Fragment {
     private ebooksAdapter ebooksAdapter;
     String t;
     FirebaseFirestore store;
+    private ProgressBar bar;
 
 
 
@@ -57,7 +59,7 @@ public class ebooksFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_ebooks, container, false);
         //initialisation
-
+        bar=view.findViewById(R.id.loading);
         ebooksRv=view.findViewById(R.id.ebooksRv);
         t= TabedActivity.t;
         //end
@@ -71,45 +73,43 @@ public class ebooksFragment extends Fragment {
         //fetch from db
         //todo:link setting
         store=FirebaseFirestore.getInstance();
-        store.collection("courses").orderBy("orderNumber").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        store.collection("courses").document(t).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                bar.setVisibility(View.VISIBLE);
+                DocumentSnapshot snapshot=task.getResult();
 
-                for(DocumentSnapshot snapshot:task.getResult()){
-
-                    if(t.equals((String) snapshot.get("courseId"))){
-
-                        ebooksTitle=(ArrayList<String>)snapshot.get("ebookTitle");
+                if(task.isSuccessful()){
 
 
-                        if(ebooksTitle.size()==1 && ebooksTitle.get(0).equals("")){
-
-                            ebooksTitle.clear();
-
-                        }
-                        //setting Linear layout manager to rv
-                        LinearLayoutManager manager=new LinearLayoutManager(getContext());
-                        manager.setOrientation(RecyclerView.VERTICAL);
-                        ebooksRv.setLayoutManager(manager);
-                        //end
-
-                        //setting Adapter
-                        ebooksAdapter=new ebooksAdapter(ebooksTitle,ebooksLink);
-                        ebooksRv.setAdapter(ebooksAdapter);
-                        ebooksAdapter.notifyDataSetChanged();
-                        //end
+                    ebooksTitle=(ArrayList<String>)snapshot.get("ebookTitle");
 
 
+                    if(ebooksTitle.size()==1 && ebooksTitle.get(0).equals("")){
+
+                        ebooksTitle.clear();
 
                     }
+                    //setting Linear layout manager to rv
+                    LinearLayoutManager manager=new LinearLayoutManager(getContext());
+                    manager.setOrientation(RecyclerView.VERTICAL);
+                    ebooksRv.setLayoutManager(manager);
+                    //end
 
+                    //setting Adapter
+                    ebooksAdapter=new ebooksAdapter(ebooksTitle,ebooksLink);
+                    ebooksRv.setAdapter(ebooksAdapter);
+                    ebooksAdapter.notifyDataSetChanged();
+                    //end
+                    bar.setVisibility(View.GONE);
 
+                }else{
+
+                    Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    bar.setVisibility(View.GONE);
                 }
-
             }
         });
-
-
 
 
 

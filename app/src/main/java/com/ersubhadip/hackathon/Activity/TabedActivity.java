@@ -8,8 +8,9 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+
 import com.ersubhadip.hackathon.Classes.ViewpagerAdapter;
-import com.ersubhadip.hackathon.Classes.booksRvAdapter;
+
 import com.ersubhadip.hackathon.Fragments.ebooksFragment;
 import com.ersubhadip.hackathon.Fragments.overViewFragment;
 import com.ersubhadip.hackathon.Fragments.videoFragment;
@@ -40,6 +41,7 @@ public class TabedActivity extends AppCompatActivity {
         tab=findViewById(R.id.tabMain);
         viewPager=findViewById(R.id.vp2);
         toolbar=findViewById(R.id.tabToolBar);
+
         if(getIntent()!=null){
 
             t=getIntent().getStringExtra("type");

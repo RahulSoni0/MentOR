@@ -73,58 +73,37 @@ public class overViewFragment extends Fragment {
         //functional statements
         store=FirebaseFirestore.getInstance();
 
-        //todo:network handling
-
-
-
-            loadingBar.setVisibility(View.VISIBLE);
-
             fetchData();
-
-            loadingBar.setVisibility(View.GONE);
-
-
-
 
     }
 
     private void fetchData(){
 
+       loadingBar.setVisibility(View.VISIBLE);
+       store.collection("courses").document(t).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+           @Override
+           public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-        store.collection("courses").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+               DocumentSnapshot snapshot=task.getResult();
 
-                for (DocumentSnapshot snapshot:task.getResult()) {
+               if(task.isSuccessful()){
+                   //fetch now from that particular snap
+                   instructorName=(String)snapshot.get("InstructorName");
+                   instructorBio=(String)snapshot.get("InstructorBio");
+                   courseName=(String)snapshot.get("name");
+                   url=(String)snapshot.get("imageUrl");
+                   description=(String)snapshot.get("description");
+                   //fetched all
 
+                   setData();
+                   loadingBar.setVisibility(View.GONE);
 
-
-                        if(t.equals((String) snapshot.get("courseId"))){
-
-                            //fetch now from that particular snap
-                            instructorName=(String)snapshot.get("InstructorName");
-                            instructorBio=(String)snapshot.get("InstructorBio");
-                            courseName=(String)snapshot.get("name");
-                            url=(String)snapshot.get("imageUrl");
-                            description=(String)snapshot.get("description");
-                            //fetched all
-
-                            setData();
-                            break;
-
-
-
-                        }
-
-
-                    }
-
-
-
-                }
-
-
-        });
+               }else{
+                   Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                   loadingBar.setVisibility(View.GONE);
+               }
+           }
+       });
 
 
 
