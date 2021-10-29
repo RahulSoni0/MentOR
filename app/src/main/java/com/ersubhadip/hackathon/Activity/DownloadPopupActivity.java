@@ -37,7 +37,7 @@ public class DownloadPopupActivity extends AppCompatActivity {
 
 
 
-
+        //Beginning Download jut after activity is called
         beginDownload();
 
         backTv.setOnClickListener(new View.OnClickListener() {
@@ -76,9 +76,9 @@ public class DownloadPopupActivity extends AppCompatActivity {
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED).setDestinationUri(Uri.fromFile(file))
                     .setRequiresCharging(false).setAllowedOverMetered(true).setAllowedOverRoaming(true);
         }else{
-            request=new DownloadManager.Request(Uri.parse(""))
-                    .setTitle("title").setDescription("Downloading...")
-                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE).setDestinationUri(Uri.fromFile(file))
+            request=new DownloadManager.Request(Uri.parse("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"))
+                    .setTitle(title).setDescription("Created By MentOR")
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED).setDestinationUri(Uri.fromFile(file))
                     .setAllowedOverMetered(true).setAllowedOverRoaming(true);
 
 
