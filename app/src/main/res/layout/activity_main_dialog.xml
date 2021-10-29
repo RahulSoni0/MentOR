@@ -19,6 +19,7 @@
         android:clickable="true"
         android:foreground="?selectableItemBackground"
         android:focusable="true"
+        android:translationZ="10dp"
         />
 
     <ScrollView
@@ -46,6 +47,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:text="Welcome to  "
+        android:fontFamily="@font/noto_sans"
         android:textStyle="bold"
         android:gravity="center"
         android:textColor="#FFFFFFFF"
@@ -101,6 +103,7 @@
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="16dp"
         android:textSize="24dp"
+        android:fontFamily="@font/noto_sans"
         android:textAlignment="center"
 
 
@@ -117,9 +120,11 @@
         android:textStyle="bold"
         android:gravity="center"
         android:padding="8dp"
+        android:fontFamily="@font/noto_sans"
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="36dp"
         android:textSize="24dp"
+
 
 
         />
@@ -137,6 +142,7 @@
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="12dp"
         android:textSize="24dp"
+        android:fontFamily="@font/noto_sans"
 
 
         />
@@ -156,6 +162,7 @@
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="36dp"
         android:textSize="28dp"
+        android:fontFamily="@font/noto_sans"
 
 
         />
@@ -163,6 +170,7 @@
         android:id="@+id/txt4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
         app:layout_constraintTop_toBottomOf="@id/txt3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -173,6 +181,7 @@
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="36dp"
         android:textSize="24dp"
+
 
 
         />
