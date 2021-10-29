@@ -37,6 +37,7 @@ public class DownloadPopupActivity extends AppCompatActivity {
         if (getIntent()!=null){
 
             title=getIntent().getStringExtra("Title");
+            link=getIntent().getStringExtra("Link");
 
         }
 
@@ -66,22 +67,18 @@ public class DownloadPopupActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
-
     private void beginDownload(){
 
         DownloadManager.Request request;
         File file=new File(getExternalFilesDir(null),title);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            request=new DownloadManager.Request(Uri.parse("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"))
+            request=new DownloadManager.Request(Uri.parse(link))
                     .setTitle(title).setDescription("Created By MentOR")
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED).setDestinationUri(Uri.fromFile(file))
                     .setRequiresCharging(false).setAllowedOverMetered(true).setAllowedOverRoaming(true);
         }else{
-            request=new DownloadManager.Request(Uri.parse("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"))
+            request=new DownloadManager.Request(Uri.parse(link))
                     .setTitle(title).setDescription("Created By MentOR")
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED).setDestinationUri(Uri.fromFile(file))
                     .setAllowedOverMetered(true).setAllowedOverRoaming(true);
