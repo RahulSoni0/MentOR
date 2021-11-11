@@ -22,7 +22,7 @@ import java.io.IOException;
 
 public class WhatsappActivity extends AppCompatActivity {
     private Button apiSubmitBtn;
-    private TextView t1,t2,t3,t4;
+    private TextView t1,t2,t3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ public class WhatsappActivity extends AppCompatActivity {
         t1=findViewById(R.id.textView3);
         t2=findViewById(R.id.textView4);
         t3=findViewById(R.id.textView5);
-        t4=findViewById(R.id.textView6);
+
         //end
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
         apiSubmitBtn.setOnClickListener(new View.OnClickListener() {
@@ -148,32 +148,6 @@ public class WhatsappActivity extends AppCompatActivity {
                 });
             }
         });
-
-        t4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                RequestBody body = RequestBody.create(mediaType,"{\"phone\":\"+918306948359\",\"text\":\"Hi there. We understand Relationship troubles youth face. Our counsellor Rahul Soni would like to speak to you on phone call if you type YES\"}");
-                Request request = new Request.Builder().url(sessionURL).method("POST",body).addHeader("Content-Type", "application/json").addHeader("Authorization", "617bf1ff245383001100f811").build();
-                client.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Request request, IOException e) {
-                        e.printStackTrace();
-                        Log.d("####",""+e+"  --> "+e.getMessage());
-                    }
-
-                    @Override
-                    public void onResponse(Response response) throws IOException {
-                        if(response.isSuccessful()){
-                            Log.d("####","response was a success");
-                        }
-                        else{
-                            Log.d("####","response was a failure  "+response.toString());
-                        }
-                    }
-                });
-            }
-        });
-
 
     }
 }

@@ -97,8 +97,6 @@ public class TabedActivity extends AppCompatActivity {
         });
         //end
 
-        //todo:doubt related to oop java public static int and int related to fetching data
-
         //setting ViewPagerAdapter
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(3);

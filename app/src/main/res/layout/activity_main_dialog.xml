@@ -31,7 +31,9 @@
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+
+            >
 
 
 
@@ -79,8 +81,7 @@
                     android:id="@+id/logotxt1"
                     android:layout_width="196dp"
                     android:layout_height="56dp"
-                    android:layout_marginTop="12dp"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/logotxt"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="8dp"
@@ -102,7 +103,7 @@
         android:padding="8dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="16dp"
-        android:textSize="24dp"
+        android:textSize="16sp"
         android:fontFamily="@font/noto_sans"
         android:textAlignment="center"
 
@@ -116,14 +117,14 @@
         app:layout_constraintTop_toBottomOf="@id/maintxt"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="> learn at your own pace"
+        android:text="learn at your own pace"
         android:textStyle="bold"
         android:gravity="center"
         android:padding="8dp"
         android:fontFamily="@font/noto_sans"
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="36dp"
-        android:textSize="24dp"
+        android:textSize="16sp"
 
 
 
@@ -135,13 +136,13 @@
         app:layout_constraintTop_toBottomOf="@id/txt1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="> Explore different career opportunities related to any skill you learn"
+        android:text="Explore different career opportunities related to any skill you learn"
         android:textStyle="bold"
         android:textAlignment="center"
         android:padding="8dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="12dp"
-        android:textSize="24dp"
+        android:textSize="16sp"
         android:fontFamily="@font/noto_sans"
 
 
@@ -161,7 +162,7 @@
         android:padding="8dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="36dp"
-        android:textSize="28dp"
+        android:textSize="16sp"
         android:fontFamily="@font/noto_sans"
 
 
@@ -174,13 +175,13 @@
         app:layout_constraintTop_toBottomOf="@id/txt3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Try asking Bot ⏚ "
+        android:text="Try asking Bot"
         android:textStyle="bold"
         android:layout_marginLeft="8dp"
         android:padding="8dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginTop="36dp"
-        android:textSize="24dp"
+        android:textSize="18sp"
 
 
 

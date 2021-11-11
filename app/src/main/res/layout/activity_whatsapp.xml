@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".Activity.WhatsappActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="210dp"
+        android:layout_height="300dp"
+        android:id="@+id/animation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="32dp"
+        android:visibility="visible"
+        app:lottie_rawRes="@raw/helpanim"
+        app:lottie_loop="false"
+        app:lottie_speed="0.4"
+        app:lottie_autoPlay="true"
+        />
+
     <EditText
         android:id="@+id/mera_phoneET"
         android:layout_width="wrap_content"
@@ -21,19 +36,23 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:textColor="@color/black" android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textSize="24sp"
         android:paddingStart="40dp"
         android:paddingEnd="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="16dp"
         android:textAlignment="center"
+        android:fontFamily="@font/noto_sans"
         android:text="What Type of help do you want?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/animation"
         tools:ignore="HardcodedText" />
+
+<!--    todo:scrollView-->
 
     <Button
         android:id="@+id/apiSubmitBtn"
@@ -49,15 +68,18 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:clickable="true"
         android:focusable="true"
-        android:text="Acad"
+        android:textAlignment="center"
+        android:foreground="?selectableItemBackground"
+        android:fontFamily="@font/noto_sans"
+        android:text="Academics"
         android:textColor="@color/ic_launcher_background"
-        android:textIsSelectable="true"
-        android:textSize="30sp"
+
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,15 +88,18 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:clickable="true"
         android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        android:fontFamily="@font/noto_sans"
         android:text="Family"
         android:textColor="#E91E63"
-        android:textIsSelectable="true"
-        android:textSize="30sp"
+
+        android:textSize="16sp"
+        android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -82,31 +107,19 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:clickable="true"
         android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        android:fontFamily="@font/noto_sans"
+        android:textAlignment="center"
         android:text="Financial"
         android:textColor="#FF9800"
-        android:textIsSelectable="true"
-        android:textSize="30sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="Relationship"
-        android:textColor="#2196F3"
-        android:layout_marginTop="24dp"
-        android:textIsSelectable="true"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

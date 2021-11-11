@@ -23,9 +23,6 @@ public class home_adapter extends RecyclerView.Adapter<home_adapter.ViewHolder>{
     ArrayList<String> list;
     ArrayList<String> id;
 
-    //todo:doesn't give null pointer on Non-Initialized arrayList
-
-
     public home_adapter(ArrayList<String> list,ArrayList<String> id) {
         this.list = list;
         this.id = id;
