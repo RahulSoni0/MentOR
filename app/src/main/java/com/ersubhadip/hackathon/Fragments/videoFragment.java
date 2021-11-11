@@ -79,9 +79,9 @@ public class videoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        videoList.clear(); //to avoid duplicate items
+        videoList.clear();     //to avoid duplicate items
 
-        //todo:link setting
+        VideoUrlList.clear(); //to avoid duplicate items
         store=FirebaseFirestore.getInstance();
 
         store.collection("courses").document(t).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -94,12 +94,14 @@ public class videoFragment extends Fragment {
 
 
                     videoList=(ArrayList<String>)snapshot.get("videoTitle");
+                    VideoUrlList=(ArrayList<String>)snapshot.get("videoLink");
                     String url=(String)snapshot.get("imageUrl");
                     Glide.with(getContext()).load(url).into(courseBanner);
 
                     if(videoList.get(0).equals("")){
 
                         videoList.clear();
+                        VideoUrlList.clear();
 
                     }
 

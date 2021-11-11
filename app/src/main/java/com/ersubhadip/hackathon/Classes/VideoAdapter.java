@@ -21,6 +21,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
     List<String> urlList;
     List<String> TitleList;
 
+
+
     public VideoAdapter(List<String> urlList, List<String> titleList) {
         this.urlList = urlList;
         TitleList = titleList;
@@ -57,22 +59,25 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
             img=itemView.findViewById(R.id.videoIcon);
             t=itemView.findViewById(R.id.videoTitle);
 
+
             //Listeners to rv items
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
                     Intent it=new Intent(itemView.getContext(), VideoPlayerActivity.class);
-                    it.putExtra("Title",TitleList.get(getLayoutPosition()));
-//                    it.putExtra("Link",urlList.get(getLayoutPosition()));
+
                     //todo:dialog to ask user download or watch online
                     Dialog dialog=new Dialog(itemView.getContext());
-                    dialog.setCancelable(true);
                     dialog.setContentView(R.layout.option_dialog_layout);
                     dialog.getWindow().setBackgroundDrawable(itemView.getContext().getDrawable(R.drawable.round_bg));
                     dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    AppCompatButton downloadNow=itemView.findViewById(R.id.download_now);
-                    AppCompatButton watchNow=itemView.findViewById(R.id.watch_now);
+                    AppCompatButton downloadNow=dialog.findViewById(R.id.download_now);
+                    AppCompatButton watchNow=dialog.findViewById(R.id.watch_now);
+                    dialog.setCancelable(true);
+                    dialog.show();
+
+
                     downloadNow.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

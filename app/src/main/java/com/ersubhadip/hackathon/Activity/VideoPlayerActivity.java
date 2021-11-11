@@ -29,6 +29,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
         webView.setWebChromeClient(new ChromeClient());
+        //todo:handle physical button
 
         //Preventing screenshot and Screen Recording to ensure content safety
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
@@ -37,34 +38,29 @@ public class VideoPlayerActivity extends AppCompatActivity {
 
 
         if(getIntent()!=null){
-//            url=getIntent().getStringExtra("Link");
+            url=getIntent().getStringExtra("Link");
             title=getIntent().getStringExtra("Title");
             playVideo();
 
-
+        }else{
+            Toast.makeText(this, "Something Went Wrong!", Toast.LENGTH_LONG).show();
         }
-
-
     }
-
     private void playVideo(){
+        if(url.length()==9){
 
-        //todo:video from vimeo
-
-
-//        if(url.length()>1){
-
-            String videoiframe="<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/ERHPw_OaVI4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; picture-in-picture\" allowfullscreen></iframe>";
+            String videoiframe="<iframe width=\"100%\" height=\"100%\" src=\"https://player.vimeo.com/video/"+url+"\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; picture-in-picture\" allowfullscreen></iframe>";
             webView.loadData(videoiframe,"text/html","utf-8");
 
 
-//        }else {
-//
-//            Toast.makeText(this, "Something Went Wrong!", Toast.LENGTH_SHORT).show();
-//
-//        }
+        }else {
+
+            Toast.makeText(this, "Something Went Wrong!", Toast.LENGTH_LONG).show();
+
+        }
     }
 
+    //Writing chrome client code to apply video player settings for webView
     private class ChromeClient extends WebChromeClient {
         private View mCustomView;
         private WebChromeClient.CustomViewCallback mCustomViewCallback;

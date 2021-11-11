@@ -84,9 +84,10 @@ public class overViewFragment extends Fragment {
            @Override
            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-               DocumentSnapshot snapshot=task.getResult();
 
-               if(task.isSuccessful()){
+
+               if (task.isSuccessful()){
+                   DocumentSnapshot snapshot=task.getResult();
                    //fetch now from that particular snap
                    instructorName=(String)snapshot.get("InstructorName");
                    instructorBio=(String)snapshot.get("InstructorBio");
