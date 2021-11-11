@@ -43,7 +43,7 @@ public class DownloadPopupActivity extends AppCompatActivity {
 
 
 
-        //Beginning Download jut after activity is called
+        //Beginning Download just after activity is called
         beginDownload();
 
         backTv.setOnClickListener(new View.OnClickListener() {

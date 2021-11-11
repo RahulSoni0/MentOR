@@ -19,8 +19,8 @@ import java.util.List;
 
 public class ebooksAdapter extends RecyclerView.Adapter<ebooksAdapter.ViewHolder> {
 
-    private List<String> titleList=new ArrayList<>();
-    private List<String> linkList=new ArrayList<>();
+    private List<String> titleList,linkList;
+
 
     public ebooksAdapter(List<String> titleList, List<String> linkList) {
         this.titleList = titleList;
@@ -62,8 +62,8 @@ public class ebooksAdapter extends RecyclerView.Adapter<ebooksAdapter.ViewHolder
                 @Override
                 public void onClick(View view) {
                     Intent download=new Intent(itemView.getContext(), DownloadPopupActivity.class);
-//                    download.putExtra("Link",linkList.get(getLayoutPosition()));
                     download.putExtra("Title",titleList.get(getLayoutPosition()));
+                    download.putExtra("Link",linkList.get(getLayoutPosition()));
                     itemView.getContext().startActivity(download);
                 }
             });

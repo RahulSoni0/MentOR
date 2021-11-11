@@ -83,11 +83,14 @@ public class ebooksFragment extends Fragment {
 
 
                     ebooksTitle=(ArrayList<String>)snapshot.get("ebookTitle");
+                    ebooksLink=(ArrayList<String>)snapshot.get("ebookLink");
+
 
 
                     if(ebooksTitle.size()==1 && ebooksTitle.get(0).equals("")){
 
                         ebooksTitle.clear();
+                        ebooksLink.clear();
 
                     }
                     //setting Linear layout manager to rv

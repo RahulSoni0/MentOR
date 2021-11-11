@@ -16,6 +16,8 @@ import com.ersubhadip.hackathon.Fragments.fragment_home;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+
 import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         frameLayout=findViewById(R.id.fragment_container);
         animatedBottomBar = findViewById(R.id.animatedBottomBar);
          //end
+
+
 
 
         //setting default Fragment

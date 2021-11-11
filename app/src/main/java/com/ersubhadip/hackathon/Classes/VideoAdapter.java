@@ -1,5 +1,6 @@
 package com.ersubhadip.hackathon.Classes;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ersubhadip.hackathon.Activity.VideoPlayerActivity;
@@ -63,7 +65,31 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
                     Intent it=new Intent(itemView.getContext(), VideoPlayerActivity.class);
                     it.putExtra("Title",TitleList.get(getLayoutPosition()));
 //                    it.putExtra("Link",urlList.get(getLayoutPosition()));
-                    itemView.getContext().startActivity(it);
+                    //todo:dialog to ask user download or watch online
+                    Dialog dialog=new Dialog(itemView.getContext());
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.option_dialog_layout);
+                    dialog.getWindow().setBackgroundDrawable(itemView.getContext().getDrawable(R.drawable.round_bg));
+                    dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    AppCompatButton downloadNow=itemView.findViewById(R.id.download_now);
+                    AppCompatButton watchNow=itemView.findViewById(R.id.watch_now);
+                    downloadNow.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                        }
+                    });
+
+                    watchNow.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            it.putExtra("Title",TitleList.get(getLayoutPosition()));
+                            it.putExtra("Link",urlList.get(getLayoutPosition()));
+                            itemView.getContext().startActivity(it);
+
+                        }
+                    });
+
                 }
             });
 
@@ -71,7 +97,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
 
         private void setData(String title,int icon){
             t.setText(title);
-            //todo:Glide
             img.setImageDrawable(itemView.getResources().getDrawable(icon));
 
 

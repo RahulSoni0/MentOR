@@ -49,6 +49,9 @@ public class VideoPlayerActivity extends AppCompatActivity {
 
     private void playVideo(){
 
+        //todo:video from vimeo
+
+
 //        if(url.length()>1){
 
             String videoiframe="<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/ERHPw_OaVI4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; picture-in-picture\" allowfullscreen></iframe>";
