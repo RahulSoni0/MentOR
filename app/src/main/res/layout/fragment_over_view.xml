@@ -72,7 +72,6 @@
                     android:layout_marginLeft="4dp"
                     />
 
-<!--                todo:bottom problem-->
 
                 <TextView
                     android:id="@+id/courseDescription"

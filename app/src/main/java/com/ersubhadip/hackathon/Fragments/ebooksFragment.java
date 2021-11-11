@@ -73,7 +73,7 @@ public class ebooksFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //fetch from db
-        //todo:link setting
+
         store=FirebaseFirestore.getInstance();
         store.collection("courses").document(t).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

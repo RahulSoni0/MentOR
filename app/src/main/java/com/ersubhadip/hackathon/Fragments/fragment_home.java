@@ -117,9 +117,6 @@ public class fragment_home extends Fragment {
          //initialising the main Activity Frame
          ParentFrameLayout=getActivity().findViewById(R.id.fragment_container);
          BottomBar=getActivity().findViewById(R.id.animatedBottomBar);
-//todo:dialog activity pops up only once after user enters the app
-
-
 
          //text sliding implementation
          slidingText.setText(t);
@@ -172,7 +169,6 @@ public class fragment_home extends Fragment {
              }
          });
 
-         //todo:Realtime Database
          realTime.child("trending").addListenerForSingleValueEvent(new ValueEventListener() {
                  @Override
              public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -236,9 +232,6 @@ public class fragment_home extends Fragment {
 
              }
          });
-
-
-
 
 
          //hardcoded url's for sliders

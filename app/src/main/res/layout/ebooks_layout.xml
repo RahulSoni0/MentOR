@@ -23,7 +23,6 @@
 
         />
 
-<!--    todo:Layout of video and ebook extending text-->
     <TextView
         android:id="@+id/titleTv"
         android:layout_width="wrap_content"
