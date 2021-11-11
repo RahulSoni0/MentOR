@@ -68,7 +68,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
-        //todo:status bar color and physical key functions
+        //todo:physical key functions
 
 
 

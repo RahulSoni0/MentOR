@@ -81,7 +81,6 @@ public class videoFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         videoList.clear();     //to avoid duplicate items
-
         VideoUrlList.clear(); //to avoid duplicate items
         store=FirebaseFirestore.getInstance();
 
