@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ersubhadip.hackathon.Activity.DownloadPopupActivity;
 import com.ersubhadip.hackathon.Activity.VideoPlayerActivity;
 import com.ersubhadip.hackathon.R;
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
                 @Override
                 public void onClick(View view) {
 
-                    Intent it=new Intent(itemView.getContext(), VideoPlayerActivity.class);
+
 
                     //todo:dialog to ask user download or watch online
                     Dialog dialog=new Dialog(itemView.getContext());
@@ -81,13 +82,18 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
                     downloadNow.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            Intent dIntent=new Intent(itemView.getContext(), DownloadPopupActivity.class);
+                            dIntent.putExtra("Title", TitleList.get(getLayoutPosition()));
+                            dIntent.putExtra("Link", "https://firebasestorage.googleapis.com/v0/b/hackathon-3505e.appspot.com/o/MentOR.mp4?alt=media&token=9d26b97c-7bcf-48ec-95e4-851d700a3b2f");
+                            itemView.getContext().startActivity(dIntent);
                         }
+
                     });
 
                     watchNow.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            Intent it=new Intent(itemView.getContext(), VideoPlayerActivity.class);
                             it.putExtra("Title",TitleList.get(getLayoutPosition()));
                             it.putExtra("Link",urlList.get(getLayoutPosition()));
                             itemView.getContext().startActivity(it);

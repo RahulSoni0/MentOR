@@ -3,7 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingBottom="32dp">
+    android:paddingBottom="32dp"
+    android:paddingLeft="32dp"
+    android:paddingTop="0dp"
+    android:paddingRight="32dp"
+
+    >
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/watch_now"

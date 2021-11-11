@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Getting your Book Ready..."
+        android:text="Getting your Content Ready..."
         android:textAlignment="center"
         android:textColor="@color/dark_grey_primary"
         android:textSize="24sp"

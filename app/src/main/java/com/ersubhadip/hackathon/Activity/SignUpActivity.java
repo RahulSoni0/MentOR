@@ -149,6 +149,7 @@ public class SignUpActivity extends AppCompatActivity {
                 //end
                 d.show();
 
+                //todo:Debug statements and un-Professional comments
 
                 //final checks
                 if(email.getText().toString().trim().matches(emailPattern)){
