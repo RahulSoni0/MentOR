@@ -67,6 +67,108 @@ public class WhatsappActivity extends AppCompatActivity {
             }
         });
 
+        OkHttpClient client = new OkHttpClient();
+        MediaType mediaType= MediaType.parse("application/json");
+        String sessionURL = "https://rapidapi.rmlconnect.net/wbm/v1/message";
+        t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RequestBody body = RequestBody.create(mediaType,"{\"phone\":\"+918306948359\",\"text\":\"Hi there. We are sorry that you are facing academic troubles. Could you please elaborate ?\"}");
+                Request request = new Request.Builder().url(sessionURL).method("POST",body).addHeader("Content-Type", "application/json").addHeader("Authorization", "617bf1ff245383001100f811").build();
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Request request, IOException e) {
+                        e.printStackTrace();
+                        Log.d("####",""+e+"  --> "+e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(Response response) throws IOException {
+                        if(response.isSuccessful()){
+                            Log.d("####","response was a success");
+                        }
+                        else{
+                            Log.d("####","response was a failure  "+response.toString());
+                        }
+                    }
+                });
+            }
+        });
+
+        t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RequestBody body = RequestBody.create(mediaType,"{\"phone\":\"+918306948359\",\"text\":\"Hi there. Family problems are common to everyone who has family. Could you please elaborate ?\"}");
+                Request request = new Request.Builder().url(sessionURL).method("POST",body).addHeader("Content-Type", "application/json").addHeader("Authorization", "617bf1ff245383001100f811").build();
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Request request, IOException e) {
+                        e.printStackTrace();
+                        Log.d("####",""+e+"  --> "+e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(Response response) throws IOException {
+                        if(response.isSuccessful()){
+                            Log.d("####","response was a success");
+                        }
+                        else{
+                            Log.d("####","response was a failure  "+response.toString());
+                        }
+                    }
+                });
+            }
+        });
+
+        t3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RequestBody body = RequestBody.create(mediaType,"{\"phone\":\"+918306948359\",\"text\":\"Hi there. Would you like to apply for scholarship at EducateIndia.com\"}");
+                Request request = new Request.Builder().url(sessionURL).method("POST",body).addHeader("Content-Type", "application/json").addHeader("Authorization", "617bf1ff245383001100f811").build();
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Request request, IOException e) {
+                        e.printStackTrace();
+                        Log.d("####",""+e+"  --> "+e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(Response response) throws IOException {
+                        if(response.isSuccessful()){
+                            Log.d("####","response was a success");
+                        }
+                        else{
+                            Log.d("####","response was a failure  "+response.toString());
+                        }
+                    }
+                });
+            }
+        });
+
+        t4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RequestBody body = RequestBody.create(mediaType,"{\"phone\":\"+918306948359\",\"text\":\"Hi there. We understand Relationship troubles youth face. Our counsellor Rahul Soni would like to speak to you on phone call if you type YES\"}");
+                Request request = new Request.Builder().url(sessionURL).method("POST",body).addHeader("Content-Type", "application/json").addHeader("Authorization", "617bf1ff245383001100f811").build();
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Request request, IOException e) {
+                        e.printStackTrace();
+                        Log.d("####",""+e+"  --> "+e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(Response response) throws IOException {
+                        if(response.isSuccessful()){
+                            Log.d("####","response was a success");
+                        }
+                        else{
+                            Log.d("####","response was a failure  "+response.toString());
+                        }
+                    }
+                });
+            }
+        });
 
 
     }
