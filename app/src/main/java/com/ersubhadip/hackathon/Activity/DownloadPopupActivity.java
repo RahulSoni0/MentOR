@@ -1,6 +1,7 @@
 package com.ersubhadip.hackathon.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
@@ -29,6 +30,7 @@ public class DownloadPopupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_download_popup);
         backTv=findViewById(R.id.complete_download);
         errorTv=findViewById(R.id.error_download);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
         registerReceiver(onCompleteDownload,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
 

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -104,6 +105,8 @@ public class fragment_home extends Fragment {
         store=FirebaseFirestore.getInstance();
         fabBtn=view.findViewById(R.id.chatBot);
         bar=view.findViewById(R.id.home_load);
+        //end
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
         return view;
 
     }

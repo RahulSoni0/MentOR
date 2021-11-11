@@ -2,6 +2,7 @@ package com.ersubhadip.hackathon.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -38,9 +39,13 @@ public class TabedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabed);
+        //initialisation
         tab=findViewById(R.id.tabMain);
         viewPager=findViewById(R.id.vp2);
         toolbar=findViewById(R.id.tabToolBar);
+        //end
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
 
         if(getIntent()!=null){
 

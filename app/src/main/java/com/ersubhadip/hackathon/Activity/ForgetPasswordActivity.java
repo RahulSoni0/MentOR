@@ -2,6 +2,7 @@ package com.ersubhadip.hackathon.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
@@ -34,6 +35,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         oldEmailEt=findViewById(R.id.emailEt);
         auth=FirebaseAuth.getInstance();
         //end
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
 
 
         //Reset by sending mail

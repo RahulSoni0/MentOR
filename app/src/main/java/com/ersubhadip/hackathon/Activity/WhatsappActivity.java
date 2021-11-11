@@ -1,6 +1,7 @@
 package com.ersubhadip.hackathon.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -26,11 +27,14 @@ public class WhatsappActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_whatsapp);
+        //initialisation
         apiSubmitBtn=findViewById(R.id.apiSubmitBtn);
         t1=findViewById(R.id.textView3);
         t2=findViewById(R.id.textView4);
         t3=findViewById(R.id.textView5);
         t4=findViewById(R.id.textView6);
+        //end
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
         apiSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

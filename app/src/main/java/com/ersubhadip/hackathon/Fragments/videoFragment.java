@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -71,7 +72,7 @@ public class videoFragment extends Fragment {
         bar=view.findViewById(R.id.loading);
         t = TabedActivity.t;
         //end
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
         return view;
     }
 
@@ -90,8 +91,6 @@ public class videoFragment extends Fragment {
                 bar.setVisibility(View.VISIBLE);
                 DocumentSnapshot snapshot=task.getResult();
                 if(task.isSuccessful()){
-
-
 
                     videoList=(ArrayList<String>)snapshot.get("videoTitle");
                     VideoUrlList=(ArrayList<String>)snapshot.get("videoLink");
@@ -118,14 +117,12 @@ public class videoFragment extends Fragment {
                     VideoRv.setAdapter(videoAdapter);
                     videoAdapter.notifyDataSetChanged();
                     //end
-                    bar.setVisibility(View.GONE);
 
                 }else{
 
                     Toast.makeText(getContext(), ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    bar.setVisibility(View.GONE);
                 }
-
+                bar.setVisibility(View.GONE);
 
 
             }

@@ -2,6 +2,7 @@ package com.ersubhadip.hackathon.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.Dialog;
@@ -41,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
         signUp=findViewById(R.id.signUpTv);
         auth=FirebaseAuth.getInstance();
         //end
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
 
         //Setting click listeners
 

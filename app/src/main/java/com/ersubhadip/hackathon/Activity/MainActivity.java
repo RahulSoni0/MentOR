@@ -1,6 +1,7 @@
 package com.ersubhadip.hackathon.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         frameLayout=findViewById(R.id.fragment_container);
         animatedBottomBar = findViewById(R.id.animatedBottomBar);
          //end
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
 
 
 

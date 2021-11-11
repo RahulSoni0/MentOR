@@ -1,6 +1,7 @@
 package com.ersubhadip.hackathon.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
@@ -33,6 +34,7 @@ public class SplashActivity extends AppCompatActivity {
         login=findViewById(R.id.SplashLogIn);
         text=findViewById(R.id.Splashtitle);
         firebaseAuth=FirebaseAuth.getInstance();
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
 
 
 
@@ -67,7 +69,7 @@ public class SplashActivity extends AppCompatActivity {
         });
 
         //todo:status bar color and physical key functions
-        //todo:force light theme
+
 
 
         login.setOnClickListener(new View.OnClickListener() {

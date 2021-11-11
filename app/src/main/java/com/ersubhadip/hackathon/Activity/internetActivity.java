@@ -1,6 +1,7 @@
 package com.ersubhadip.hackathon.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -22,6 +23,8 @@ public class internetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internet);
         retry=findViewById(R.id.retryTv);
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
 
         retry.setOnClickListener(new View.OnClickListener() {
             @Override
