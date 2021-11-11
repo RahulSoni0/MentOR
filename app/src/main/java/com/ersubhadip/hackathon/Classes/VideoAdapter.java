@@ -65,10 +65,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
-
-                    //todo:dialog to ask user download or watch online
                     Dialog dialog=new Dialog(itemView.getContext());
                     dialog.setContentView(R.layout.option_dialog_layout);
                     dialog.getWindow().setBackgroundDrawable(itemView.getContext().getDrawable(R.drawable.round_bg));
@@ -77,8 +73,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
                     AppCompatButton watchNow=dialog.findViewById(R.id.watch_now);
                     dialog.setCancelable(true);
                     dialog.show();
-
-
+                    //click listeners on dialog options
                     downloadNow.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -99,7 +94,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
                             itemView.getContext().startActivity(it);
 
                         }
-                    });
+                    });   //end
 
                 }
             });
