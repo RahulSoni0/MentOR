@@ -200,9 +200,11 @@ public class SignUpActivity extends AppCompatActivity {
                             }
                         });
 
+                        //$$$$ TO DO : Email API use karke user ko email bhejo
+                        
 
-
-                    }else{
+                    }
+                    else{
                         d.dismiss();
                         confirmPassword.setError("Please Enter Same Password");
                         signUp.setEnabled(true);

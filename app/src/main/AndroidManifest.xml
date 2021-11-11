@@ -12,11 +12,10 @@
         android:roundIcon="@mipmap/latest_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hackathon">
-        <activity android:name=".Activity.VideoPlayerActivity"
-
-            android:screenOrientation="landscape">
-
-        </activity>
+        <activity android:name=".Activity.WhatsappActivity"></activity>
+        <activity
+            android:name=".Activity.VideoPlayerActivity"
+            android:screenOrientation="landscape"></activity>
         <activity android:name=".Activity.DownloadPopupActivity" />
         <activity android:name=".Activity.MainDialogActivity" />
         <activity
