@@ -306,54 +306,60 @@
                        android:paddingLeft="8dp"
                        android:paddingRight="8dp"
                        >
+
                        <TextView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="1: Add some best point why to choose mentOR"
-                           android:textStyle="normal"
-                           android:textColor="@color/white"
-                           android:textSize="14sp"
-                           android:fontFamily="@font/noto_sans"
-                           />
-                       <TextView
-                           android:layout_width="wrap_content"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:layout_marginTop="8dp"
-                           android:text="2: Add some best point why to choose mentOR"
+                           android:text="1: Top Notch courses for free"
                            android:textStyle="normal"
                            android:textColor="@color/white"
-                           android:textSize="14sp"
+                           android:textSize="16sp"
                            android:fontFamily="@font/noto_sans"
-                           />
+                           android:textAlignment="textStart" />
                        <TextView
-                           android:layout_width="wrap_content"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:layout_marginTop="8dp"
-                           android:text="3: Add some best point why to choose mentOR"
+                           android:text="2: Structured courses and cool UI"
                            android:textStyle="normal"
                            android:textColor="@color/white"
-                           android:textSize="14sp"
+                           android:textSize="16sp"
                            android:fontFamily="@font/noto_sans"
+                           android:textAlignment="textStart"
                            />
                        <TextView
-                           android:layout_width="wrap_content"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:layout_marginTop="8dp"
-                           android:text="4: Add some best point why to choose mentOR"
+                           android:text="3: Easy Downloadable Pdf's"
                            android:textStyle="normal"
                            android:textColor="@color/white"
-                           android:textSize="14sp"
+                           android:textSize="16sp"
                            android:fontFamily="@font/noto_sans"
+                           android:textAlignment="textStart"
                            />
                        <TextView
-                           android:layout_width="wrap_content"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:layout_marginTop="8dp"
-                           android:text="5: Add some best point why to choose mentOR"
+                           android:text="4: Hands-on Tutorials with online and offline options"
                            android:textStyle="normal"
                            android:textColor="@color/white"
-                           android:textSize="14sp"
+                           android:textSize="16sp"
                            android:fontFamily="@font/noto_sans"
+                           android:textAlignment="textStart"
+                           />
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="8dp"
+                           android:text="5: Best quality contact system and support bots"
+                           android:textStyle="normal"
+                           android:textColor="@color/white"
+                           android:textSize="16sp"
+                           android:fontFamily="@font/noto_sans"
+                           android:textAlignment="textStart"
                            />
                    </LinearLayout>
 
