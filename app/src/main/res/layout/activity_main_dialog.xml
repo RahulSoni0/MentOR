@@ -199,7 +199,7 @@
                 android:layout_marginRight="12dp"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="false"
-                app:lottie_speed="0.8"
+                app:lottie_speed="0.6"
                 android:padding="2dp"
 
                     />
