@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -30,6 +31,16 @@ public class MainDialogActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //Automatic remove if not cancelled
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent it=new Intent(MainDialogActivity.this,MainActivity.class);
+                startActivity(it);
+                finish();
+            }
+        },5500);
 
 
 

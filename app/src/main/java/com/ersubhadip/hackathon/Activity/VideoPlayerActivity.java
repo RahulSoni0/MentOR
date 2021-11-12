@@ -29,11 +29,14 @@ public class VideoPlayerActivity extends AppCompatActivity {
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
         webView.setWebChromeClient(new ChromeClient());
-        //todo:handle physical button
+
 
         //Preventing screenshot and Screen Recording to ensure content safety
+
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
 //                WindowManager.LayoutParams.FLAG_SECURE);
+
+
         //end
 
 

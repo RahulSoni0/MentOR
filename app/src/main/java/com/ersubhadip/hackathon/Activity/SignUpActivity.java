@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
     private TextView loginPage;
-    private EditText name,email,password,confirmPassword;
+    private EditText name,email,password,confirmPassword,phone;
     private  FirebaseAuth auth;
     private AppCompatButton signUp;
     private FirebaseFirestore firebaseFirestore;
@@ -50,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         email=findViewById(R.id.emailEt);
         password=findViewById(R.id.passwordEt);
         confirmPassword=findViewById(R.id.confirmPasswordEt);
+        phone=findViewById(R.id.phoneEt);
         signUp=findViewById(R.id.SignUpBtn);
         auth=FirebaseAuth.getInstance();
         firebaseFirestore=FirebaseFirestore.getInstance();
@@ -170,15 +171,18 @@ public class SignUpActivity extends AppCompatActivity {
 
                                                 //sending userData to fireStore
                                                 String userName=name.getText().toString().trim();
+                                                String phoneNumber=phone.getText().toString().trim();
                                                 Map<String,Object> userData=new HashMap<>();
                                                 userData.put("name",userName);
                                                 userData.put("email",emailData);
+                                                userData.put("phone",phoneNumber);
                                                 firebaseFirestore.collection("users").document(auth.getUid()).set(userData);
                                                 //end
+                                                //todo:todo:sms api with phoneNumber
 
                                                 d.dismiss();     //Removing loading dialog after online process Completes
 
-                                                Toast.makeText(SignUpActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
+
                                                 Intent in = new Intent(SignUpActivity.this,MainDialogActivity.class);
                                                 startActivity(in);
                                                 finish();
@@ -226,16 +230,6 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-
-
-
         //end
 
         //setting click listeners
@@ -266,8 +260,16 @@ public class SignUpActivity extends AppCompatActivity {
                     if (!confirmPassword.getText().toString().trim().equals("")){
 
                         if(password.getText().toString().trim().length()>=6){
+                            if(!phone.getText().toString().trim().equals("") && phone.getText().toString().trim().length()==10){
 
-                            signUp.setEnabled(true);
+                                  signUp.setEnabled(true);
+
+                            }else{
+
+                                phone.setError("Please enter a valid number");
+                                signUp.setEnabled(false);
+                            }
+
 
                         }else{
                             password.setError("Please Enter Valid Password!");
