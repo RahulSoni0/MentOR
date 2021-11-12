@@ -32,8 +32,8 @@ public class VideoPlayerActivity extends AppCompatActivity {
         //todo:handle physical button
 
         //Preventing screenshot and Screen Recording to ensure content safety
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                WindowManager.LayoutParams.FLAG_SECURE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+//                WindowManager.LayoutParams.FLAG_SECURE);
         //end
 
 
