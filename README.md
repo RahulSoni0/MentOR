@@ -64,5 +64,5 @@ Our team will design a mobile application, that will contain a proper guidance i
 
 
 <div align="center">
-<h6>Copyright Free </h6>
+<h6>©-All rights reserved-MentOR</h6>
 </div>
