@@ -11,25 +11,38 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.ersubhadip.hackathon.R;
 
 import java.io.File;
 
 public class DownloadPopupActivity extends AppCompatActivity {
-    private TextView errorTv, backTv;
+    private TextView errorTv, backTv,status;
     private Long downloadId;
     String title, link;
+    LottieAnimationView downloading,done;
+    private Animation backIcon;
+    private Animation errorIcon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download_popup);
-        backTv=findViewById(R.id.complete_download);
+        backTv=findViewById(R.id.on_complete_download);
+        downloading=findViewById(R.id.download_animation);
+        done=findViewById(R.id.done_animation);
+        status=findViewById(R.id.download_status);
         errorTv=findViewById(R.id.error_download);
+        backIcon=AnimationUtils.loadAnimation(this,R.anim.shake);
+        errorIcon=AnimationUtils.loadAnimation(this,R.anim.shake);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
         registerReceiver(onCompleteDownload,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
@@ -52,10 +65,9 @@ public class DownloadPopupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent it=new Intent(DownloadPopupActivity.this,TabedActivity.class);
-                startActivity(it);
+//                Intent it=new Intent(DownloadPopupActivity.this,TabedActivity.class);
+//                startActivity(it);
                 finish();
-
 
             }
         });
@@ -100,7 +112,27 @@ public class DownloadPopupActivity extends AppCompatActivity {
 
             Long currentId=intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID,-1);
             if(currentId==downloadId){
+
+                Log.d("$$$$$","Download Failed");
+                done.setVisibility(View.GONE);
+                downloading.setVisibility(View.VISIBLE);
+                downloading.cancelAnimation();
+                status.setText("Something Went Wrong !");
+                errorTv.setVisibility(View.VISIBLE);
+                errorTv.setAnimation(errorIcon);
+
+            }else{
+                Log.d("$$$$$$","Download Done");
+                downloading.setVisibility(View.INVISIBLE);
+                done.setVisibility(View.VISIBLE);
+                status.setText("Downloaded Successfully");
+                errorTv.setVisibility(View.GONE);
+                backTv.setAnimation(backIcon);
                 Toast.makeText(DownloadPopupActivity.this, "Download Successful", Toast.LENGTH_SHORT).show();
+
+
+
+
             }
         }
     };

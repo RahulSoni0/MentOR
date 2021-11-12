@@ -118,10 +118,7 @@ public class fragment_account extends Fragment {
              @Override
              public void onClick(View view) {
                  Intent intent = new Intent(getContext(), WhatsappActivity.class);
-                 startActivity(intent);
-                 getActivity().finish();
-
-
+                 getActivity().startActivity(intent);
              }
          });
 
@@ -136,8 +133,5 @@ public class fragment_account extends Fragment {
              }
          });
          //End
-
-
-
      }
 }

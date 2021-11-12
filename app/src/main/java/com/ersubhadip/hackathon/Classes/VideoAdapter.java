@@ -22,8 +22,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
     List<String> urlList;
     List<String> TitleList;
 
-
-
     public VideoAdapter(List<String> urlList, List<String> titleList) {
         this.urlList = urlList;
         TitleList = titleList;
@@ -81,6 +79,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
                             dIntent.putExtra("Title", TitleList.get(getLayoutPosition()));
                             dIntent.putExtra("Link", "https://firebasestorage.googleapis.com/v0/b/hackathon-3505e.appspot.com/o/MentOR.mp4?alt=media&token=9d26b97c-7bcf-48ec-95e4-851d700a3b2f");
                             itemView.getContext().startActivity(dIntent);
+                            dialog.dismiss();
                         }
 
                     });
@@ -92,6 +91,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder>{
                             it.putExtra("Title",TitleList.get(getLayoutPosition()));
                             it.putExtra("Link",urlList.get(getLayoutPosition()));
                             itemView.getContext().startActivity(it);
+                            dialog.dismiss();
 
                         }
                     });   //end

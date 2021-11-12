@@ -75,7 +75,6 @@ public class fragment_home extends Fragment {
     ArrayList<String> duplicateId=new ArrayList<>();
     FirebaseAuth auth;
     FirebaseFirestore store;
-
    
     public fragment_home() {
         // Required empty public constructor
