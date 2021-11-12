@@ -68,10 +68,6 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
-        //todo:physical key functions
-
-
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
