@@ -24,7 +24,7 @@ import java.io.IOException;
 
 public class WhatsappActivity extends AppCompatActivity {
     private AppCompatButton apiSubmitBtn;
-    private TextView t1,t2,t3;
+    private TextView t1,t3;
     private LinearLayout layoutFields;
     private EditText phoneEt;
     private int option=0;
@@ -35,7 +35,7 @@ public class WhatsappActivity extends AppCompatActivity {
         //initialisation
         apiSubmitBtn=findViewById(R.id.apiSubmitBtn);
         t1=findViewById(R.id.textView3);
-        t2=findViewById(R.id.textView4);
+
         t3=findViewById(R.id.textView5);
         layoutFields=findViewById(R.id.linear_fields);
         phoneEt=findViewById(R.id.mera_phoneET);
@@ -108,32 +108,6 @@ public class WhatsappActivity extends AppCompatActivity {
                 });
             }
         });
-
-//        t2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                layoutFields.setVisibility(View.VISIBLE);
-//                RequestBody body = RequestBody.create(mediaType,"{\"phone\":\"+918306948359\",\"text\":\"Hi there. Family problems are common to everyone who has family. Could you please elaborate ?\"}");
-//                Request request = new Request.Builder().url(sessionURL).method("POST",body).addHeader("Content-Type", "application/json").addHeader("Authorization", "617bf1ff245383001100f811").build();
-//                client.newCall(request).enqueue(new Callback() {
-//                    @Override
-//                    public void onFailure(Request request, IOException e) {
-//                        e.printStackTrace();
-//                        Log.d("####",""+e+"  --> "+e.getMessage());
-//                    }
-//
-//                    @Override
-//                    public void onResponse(Response response) throws IOException {
-//                        if(response.isSuccessful()){
-//                            Log.d("####","response was a success");
-//                        }
-//                        else{
-//                            Log.d("####","response was a failure  "+response.toString());
-//                        }
-//                    }
-//                });
-//            }
-//        });
 
         t3.setOnClickListener(new View.OnClickListener() {
             @Override
