@@ -87,13 +87,13 @@ public class WhatsappActivity extends AppCompatActivity {
 
                         }
                         else{
-                            Log.d("####","response was a failure  "+response.toString());
+                            Toast.makeText(WhatsappActivity.this, "Request cannot be initiated", Toast.LENGTH_LONG).show();
                         }
                     }
                     @Override
                     public void onFailure(Request request, IOException e) {
                         e.printStackTrace();
-                        Log.d("####",""+e+"  --> "+e.getMessage());
+                        Toast.makeText(WhatsappActivity.this, "Request cannot be initiated"+e.getMessage(), Toast.LENGTH_LONG).show();
                     }
 
                 });
@@ -110,11 +110,12 @@ public class WhatsappActivity extends AppCompatActivity {
             String url = "https://api.whatsapp.com/send?phone="+"+918928894215"+"&text=" + URLEncoder.encode("", "UTF-8");
             i.setPackage("com.whatsapp");
             i.setData(Uri.parse(url));
-            if (i.resolveActivity(packageManager) != null) {
+            if (i.resolveActivity(packageManager)!= null) {
                 startActivity(i);
             }
         } catch (Exception e){
             e.printStackTrace();
+            Toast.makeText(this, "Whatsapp Not Found", LENGTH_SHORT).show();
         }
 
     }
