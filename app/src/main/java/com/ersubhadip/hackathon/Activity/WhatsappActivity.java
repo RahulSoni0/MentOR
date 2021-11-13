@@ -34,10 +34,30 @@ public class WhatsappActivity extends AppCompatActivity {
         setContentView(R.layout.activity_whatsapp);
         //initialisation
         apiSubmitBtn=findViewById(R.id.apiSubmitBtn);
-        t1=findViewById(R.id.textView3);
+        t1=findViewById(R.id.textView3);//--> Academic
 
         t3=findViewById(R.id.textView5);
-        layoutFields=findViewById(R.id.linear_fields);
+        layoutFields=findViewById(R.id.linear_fields);// --> financial
+        t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                option = 1;
+                layoutFields.setVisibility(View.VISIBLE);
+            }
+        });
+        t3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                option = 5;
+                layoutFields.setVisibility(View.VISIBLE);
+            }
+        });
+        if(option!=0){
+            phoneEt.setVisibility(View.VISIBLE);
+            apiSubmitBtn.setVisibility(View.VISIBLE);
+            layoutFields.setVisibility(View.VISIBLE);
+            option=0;
+        }
         phoneEt=findViewById(R.id.mera_phoneET);
         //end
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
@@ -48,13 +68,14 @@ public class WhatsappActivity extends AppCompatActivity {
                 String usr_phn= phoneEt.getText().toString().trim();
                 usr_phn="+91"+usr_phn;
                 Log.d("####","user ne phone ye dala :- "+usr_phn);
-                //Rapid wala aadha galat diya hai
+
                 OkHttpClient client = new OkHttpClient();
                 MediaType mediaType = MediaType.parse("application/json");
-                //RequestBody body = RequestBody.create(mediaType, "{\n\t\"phone\": \"{usr_phn}\",\n    \"extra\": \"{your value}\",\n\t\"media\": {\n\t\t\"type\": \"media_template\",\n\t\t\"template_name\": \"{your template}\",\n\t\t\"lang_code\": \"{lang_code}\",\n\t\t\"body\": [\n\t\t\t{\n        \t\t\"text\": \"{variable}\"\n        \t},\n        \t{\n        \t\t\"text\": \"{variable}\"\n        \t}\n\t\t],\n        \"button\": [\n        \t{\n        \t\t\"button_no\": \"0/1\",\n                \"url\": \"{dynamic_url variable}\"\n        \t}\n        ]\n\t}\n}");
-                RequestBody body = RequestBody.create(mediaType, "{\n\t\"phone\": \"{usr_phn}\",\n\t\"media\": {\n\t\t\"type\": \"media_template\",\n\t\t\"template_name\": \"{welcome}\",\n\t\t\"lang_code\": \"{en}\"");//lang_code nahi diya gaya hai I guess it to be en-us.
+                String s1="Hi We came to know you need academic help. We are always ready to help you. Tell us more about it.";
+                String s2="Hi We came to know you need financial help. Money matters a lot in one's life. We suggest you to take our free scholarship test on Andorid Development by Vibhu Pandey- Microsoft SDE3.";
+                RequestBody body=RequestBody.create(mediaType, "{\"phone\":\""+usr_phn+"\",\"text\":\""+(option==1?s1:s2)+"\"}");
                 String BASE_URL = "https://rapidapi.rmlconnect.net/wbm/v1/message";
-                Request request = new Request.Builder().url(BASE_URL).method("POST", body).get().build();
+                Request request = new Request.Builder().url(BASE_URL).method("POST", body).addHeader("Content-Type", "application/json").addHeader("Authorization", "618fc5f20fcc5f0012911573").build();
                 client.newCall(request).enqueue(new Callback() {
                     @Override
                     public void onFailure(Request request, IOException e) {
@@ -81,6 +102,8 @@ public class WhatsappActivity extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType= MediaType.parse("application/json");
         String sessionURL = "https://rapidapi.rmlconnect.net/wbm/v1/message";
+
+        /****** -------------------------------------------
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,6 +158,7 @@ public class WhatsappActivity extends AppCompatActivity {
                 });
             }
         });
+         -----------------------------                      */
 
     }
 }

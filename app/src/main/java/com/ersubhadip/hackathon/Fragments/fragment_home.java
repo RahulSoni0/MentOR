@@ -1,6 +1,7 @@
 package com.ersubhadip.hackathon.Fragments;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ersubhadip.hackathon.Activity.RCSActivity;
 import com.ersubhadip.hackathon.Classes.homePosterAdapter;
 import com.ersubhadip.hackathon.Classes.home_adapter;
 import com.ersubhadip.hackathon.R;
@@ -128,7 +130,6 @@ public class fragment_home extends Fragment {
          id.clear();  //to avoid duplicate items
 
 
-
          //Fetching user name
          store.collection("users").document(auth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
              @Override
@@ -164,7 +165,8 @@ public class fragment_home extends Fragment {
 
                  //todo:chatBot
                  Toast.makeText(getContext(), "Under development", Toast.LENGTH_SHORT).show();
-
+                 Intent intent = new Intent(getContext(),RCSActivity.class);
+                 startActivity(intent);
              }
          });
 
