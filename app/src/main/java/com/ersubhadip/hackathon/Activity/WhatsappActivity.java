@@ -27,6 +27,7 @@ public class WhatsappActivity extends AppCompatActivity {
     private TextView t1,t2,t3;
     private LinearLayout layoutFields;
     private EditText phoneEt;
+    private int option=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +85,7 @@ public class WhatsappActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 layoutFields.setVisibility(View.VISIBLE);
+                option=0;
                 String number = "+91"+phoneEt.getText().toString().trim();
                 RequestBody body = RequestBody.create(mediaType,"{\"phone\":\""+number+"\",\"text\":\"Hi there. We are sorry that you are facing academic troubles. Could you please elaborate ?\"}");
                 Request request = new Request.Builder().url(sessionURL).method("POST",body).addHeader("Content-Type", "application/json").addHeader("Authorization", "617bf1ff245383001100f811").build();
@@ -137,6 +139,7 @@ public class WhatsappActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 layoutFields.setVisibility(View.VISIBLE);
+                option=1;
                 RequestBody body = RequestBody.create(mediaType,"{\"phone\":\"+916299744625\",\"text\":\"Hi there. Would you like to apply for scholarship at EducateIndia.com\"}");
                 Request request = new Request.Builder().url(sessionURL).method("POST",body).addHeader("Content-Type", "application/json").addHeader("Authorization", "617bf1ff245383001100f811").build();
                 client.newCall(request).enqueue(new Callback() {
