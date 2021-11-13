@@ -70,7 +70,7 @@ public class WhatsappActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String usr_phn= phoneEt.getText().toString().trim();
                 usr_phn="+91"+usr_phn;
-                Log.d("####","user ne phone ye dala :- "+usr_phn);
+
                 OkHttpClient client = new OkHttpClient();
                 MediaType mediaType = MediaType.parse("application/json");
                 String s1="Hi We came to know you need academic help. We are always ready to help you. Tell us more about it.";
@@ -84,7 +84,6 @@ public class WhatsappActivity extends AppCompatActivity {
                         if(response.isSuccessful()){
                             Log.d("####","response was a success");
                             onWhatsApp();
-
                         }
                         else{
                             Toast.makeText(WhatsappActivity.this, "Request cannot be initiated", Toast.LENGTH_LONG).show();

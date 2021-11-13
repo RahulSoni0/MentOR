@@ -25,7 +25,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -178,19 +183,29 @@ public class SignUpActivity extends AppCompatActivity {
                                                 userData.put("phone",phoneNumber);
                                                 firebaseFirestore.collection("users").document(auth.getUid()).set(userData);
                                                 //end
-                                                //todo:todo:sms api with phoneNumber
+                                                //sms api with phoneNumber
+                                                OkHttpClient client = new OkHttpClient();
+                                                Request request = new Request.Builder()
+                                                        .url("https://rapidapi.rmlconnect.net:9443/bulksms/bulksms?username=rapid-AsIh7525310000&password=618fc5f20fcc5f0012911573&type=0&dlr=0&destination=+91"+phoneNumber+"&source=RMLPRD&message=Hello there, thanks for choosing MentOR. Here you will get top notch benefits and we hope you will definitely like our courses and services. Have a nice day :)")
+                                                        .method("GET", null)
+                                                        .build();
+                                                client.newCall(request).enqueue(new Callback() {
+                                                    @Override
+                                                    public void onResponse(Response response) throws IOException {
+                                                        d.dismiss();     //Removing loading dialog after online process Completes
+                                                        Intent in = new Intent(SignUpActivity.this,MainDialogActivity.class);
+                                                        startActivity(in);
+                                                        finish();
+                                                    }
+                                                    @Override
+                                                    public void onFailure(Request request, IOException e) {
+                                                        //do nothing
+                                                    }
 
-                                                d.dismiss();     //Removing loading dialog after online process Completes
-
-
-                                                Intent in = new Intent(SignUpActivity.this,MainDialogActivity.class);
-                                                startActivity(in);
-                                                finish();
-
+                                                });
                                             }else{
 
                                                 d.dismiss();
-                                                Log.d("####","task failed"+task.getException());
                                                 Toast.makeText(SignUpActivity.this, "Some Error Occurred"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                 signUp.setEnabled(true);
                                             }
@@ -199,7 +214,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                 }
                                 else{
-                                    Log.d("####","bhaar wala "+task.getException());
+                                   
                                     d.dismiss();
                                     Toast.makeText(SignUpActivity.this, "Some Error Occurred"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     signUp.setEnabled(true);
@@ -207,8 +222,6 @@ public class SignUpActivity extends AppCompatActivity {
                             }
                         });
 
-                        //$$$$ TO DO : Email API use karke user ko email bhejo
-                        
 
                     }
                     else{
