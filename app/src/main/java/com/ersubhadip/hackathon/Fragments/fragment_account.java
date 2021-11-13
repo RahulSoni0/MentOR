@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.ersubhadip.hackathon.Activity.AccountSettingActivity;
 import com.ersubhadip.hackathon.Activity.LoginActivity;
+import com.ersubhadip.hackathon.Activity.RCSActivity;
 import com.ersubhadip.hackathon.Activity.SplashActivity;
 import com.ersubhadip.hackathon.Activity.WhatsappActivity;
 import com.ersubhadip.hackathon.R;

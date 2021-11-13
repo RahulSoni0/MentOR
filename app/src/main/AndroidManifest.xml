@@ -13,13 +13,14 @@
         android:roundIcon="@mipmap/latest_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hackathon">
-        <activity android:name=".Activity.internetActivity"></activity>
+        <activity android:name=".Activity.RCSActivity"></activity>
+        <activity android:name=".Activity.internetActivity" />
         <activity
             android:name=".Activity.WhatsappActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.VideoPlayerActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity android:name=".Activity.DownloadPopupActivity" />
         <activity android:name=".Activity.MainDialogActivity" />
         <activity
