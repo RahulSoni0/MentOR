@@ -1,7 +1,5 @@
 package com.ersubhadip.hackathon.Fragments;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,18 +17,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ersubhadip.hackathon.Activity.RCSActivity;
 import com.ersubhadip.hackathon.Classes.homePosterAdapter;
 import com.ersubhadip.hackathon.Classes.home_adapter;
 import com.ersubhadip.hackathon.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -72,7 +67,7 @@ public class fragment_home extends Fragment {
     private  TextView slidingText;
     String t="Welcome to the best application ever which is here to provide best courses with fully experienced instructors. Here we also provide chatBots and various other best support systems which will help user to communicate with us.";
     private TypeWriterView name;
-    private FloatingActionButton fabBtn;
+//    private FloatingActionButton fabBtn;
     DatabaseReference realTime;
     ArrayList<String> duplicateId=new ArrayList<>();
     FirebaseAuth auth;
@@ -104,7 +99,7 @@ public class fragment_home extends Fragment {
         auth=FirebaseAuth.getInstance();
         realTime=FirebaseDatabase.getInstance().getReference();
         store=FirebaseFirestore.getInstance();
-        fabBtn=view.findViewById(R.id.chatBot);
+//        fabBtn=view.findViewById(R.id.chatBot);
         bar=view.findViewById(R.id.home_load);
         //end
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //forcing light theme
@@ -159,16 +154,16 @@ public class fragment_home extends Fragment {
          });
          //end
 
-         fabBtn.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-
-                 //todo:chatBot
-                 Toast.makeText(getContext(), "Under development", Toast.LENGTH_SHORT).show();
-                 Intent intent = new Intent(getContext(),RCSActivity.class);
-                 startActivity(intent);
-             }
-         });
+//         fabBtn.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View view) {
+//
+//                 //todo:chatBot
+//                 Toast.makeText(getContext(), "Under development", Toast.LENGTH_SHORT).show();
+//                 Intent intent = new Intent(getContext(),RCSActivity.class);
+//                 startActivity(intent);
+//             }
+//         });
 
          realTime.child("trending").addListenerForSingleValueEvent(new ValueEventListener() {
                  @Override

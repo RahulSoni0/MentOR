@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import com.ersubhadip.hackathon.Activity.AccountSettingActivity;
 import com.ersubhadip.hackathon.Activity.LoginActivity;
-import com.ersubhadip.hackathon.Activity.RCSActivity;
-import com.ersubhadip.hackathon.Activity.SplashActivity;
 import com.ersubhadip.hackathon.Activity.WhatsappActivity;
 import com.ersubhadip.hackathon.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +23,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.squareup.okhttp.OkHttpClient;
 
 import org.jetbrains.annotations.Nullable;
 

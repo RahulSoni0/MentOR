@@ -409,23 +409,23 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/chatBot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="12dp"
-        android:background="#FD407E"
-        android:backgroundTint="#FD407E"
-        android:clickable="true"
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/chatBot"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        android:layout_marginBottom="12dp"-->
+<!--        android:background="#FD407E"-->
+<!--        android:backgroundTint="#FD407E"-->
+<!--        android:clickable="true"-->
 
-        android:elevation="20dp"
-        android:src="@drawable/chat_icon"
-        android:tint="@color/black"
-        app:elevation="20dp"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:maxImageSize="24dp"
-        tools:ignore="SpeakableTextPresentCheck" />
+<!--        android:elevation="20dp"-->
+<!--        android:src="@drawable/chat_icon"-->
+<!--        android:tint="@color/black"-->
+<!--        app:elevation="20dp"-->
+<!--        app:fabSize="normal"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:maxImageSize="24dp"-->
+<!--        tools:ignore="SpeakableTextPresentCheck" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

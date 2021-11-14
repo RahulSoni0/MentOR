@@ -85,6 +85,7 @@
                 android:textColorHint="@color/grey_primary"
                 android:text="user@gmail.com"
                 android:textColor="@color/black"
+                android:backgroundTint="#DCD6D6"
                 android:maxLines="1"
                 android:padding="2dp"
                 android:layout_marginLeft="30dp"
