@@ -252,7 +252,7 @@
                 android:layout_marginRight="12dp"
                 android:orientation="vertical"
                 >
-<!--todo:why we section design-->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

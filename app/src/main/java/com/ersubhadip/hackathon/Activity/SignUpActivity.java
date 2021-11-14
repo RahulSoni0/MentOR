@@ -151,13 +151,13 @@ public class SignUpActivity extends AppCompatActivity {
                 //Loading Dialog Creation
                 Dialog d=new Dialog(SignUpActivity.this);
                 d.setContentView(R.layout.loading_dialogs);
-                d.getWindow().setBackgroundDrawable(getDrawable(R.drawable.round_bg)); //todo:remove suppressLint function not applied for bg
+                d.getWindow().setBackgroundDrawable(getDrawable(R.drawable.round_bg));
                 d.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
                 d.setCancelable(false);
                 //end
                 d.show();
 
-                //todo:Debug statements and un-Professional comments
+
 
                 //final checks
                 if(email.getText().toString().trim().matches(emailPattern)){

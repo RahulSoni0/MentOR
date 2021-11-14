@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@id/animation"
         tools:ignore="HardcodedText" />
 
-<!--    todo:scrollView-->
+
 
 
 
