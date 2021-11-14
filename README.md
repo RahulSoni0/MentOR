@@ -35,7 +35,7 @@ Our team will design a mobile application, that will contain a proper guidance i
 <br>
 
 <div align="center">
-<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/141685729-bf7ef439-dd45-4c4d-a939-6d448df8b255.gif" alt="cover" />
+<img width="20%" height = "50%" src="https://user-images.githubusercontent.com/89024718/141685925-45283dfb-c94a-462e-8169-93f14b89bb61.gif" alt="cover" />
 </div>
 <br>
 <br>
