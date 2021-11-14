@@ -199,14 +199,18 @@ public class SignUpActivity extends AppCompatActivity {
                                                     }
                                                     @Override
                                                     public void onFailure(Request request, IOException e) {
-                                                        //do nothing
+                                                        runOnUiThread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                Toast.makeText(SignUpActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
                                                     }
-
                                                 });
                                             }else{
 
                                                 d.dismiss();
-                                                Toast.makeText(SignUpActivity.this, "Some Error Occurred"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(SignUpActivity.this, "Some Error Occurred "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                                 signUp.setEnabled(true);
                                             }
                                         }
@@ -216,7 +220,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 else{
                                    
                                     d.dismiss();
-                                    Toast.makeText(SignUpActivity.this, "Some Error Occurred"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpActivity.this, "Some Error Occurred "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     signUp.setEnabled(true);
                                 }
                             }
@@ -257,8 +261,6 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     //Validating entered Information
