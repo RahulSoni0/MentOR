@@ -12,6 +12,7 @@
 ## TEAM NAME:
 <h4>Gradle D-SyNc</h4>
  <br><br>
+ 
 ## TEAM MEMBERS:
 
 - <a href="https://github.com/Subhadiptech" title="Click here" style="background-color:#FFFFFF;color:#000000;text-decoration:none">Subhadip Das</a>
@@ -38,6 +39,7 @@ Our team will design a mobile application, that will contain a proper guidance i
 </div>
 <br>
 <br>
+
 ## Credits:
 <h5>BottomNavigationLayout - https://github.com/Droppers/AnimatedBottomBar</h5>
 <h5>Glide Library - https://github.com/bumptech/glide</h5>
