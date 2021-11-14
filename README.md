@@ -25,10 +25,9 @@
 
 # What's the purpose of this application ?
 
-<div align="center">
 <h5>
 Our team will design a mobile application, that will contain a proper guidance in form of structured courses which are trending worldwide and has opportunities at its peak. We will also include all the possible (copywrite free content present on internet) course e-books and the best part of our idea is that, Students can easily download the e-books and save on their local system to access when there is no internet. Moreover, we are including best video lectures which students can follow for hands-on guide. Moreover there will be a bot to guide the students for basic navigation and contact support.</h5>
-</div>
+
 <br><br>
 
 # Application Overview
@@ -36,33 +35,17 @@ Our team will design a mobile application, that will contain a proper guidance i
 <br>
 
 <div align="center">
-<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136954159-cae54535-2c2b-4fa8-b16d-1a4de58706cc.jpg" alt="cover" />
+<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/141685729-bf7ef439-dd45-4c4d-a939-6d448df8b255.gif" alt="cover" />
 </div>
 <br>
-<div align="center">
-<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136954209-c96df317-eab8-42fb-a7c8-2e0f4aac9d05.jpg" alt="cover" />
-</div>
 <br>
-<div align="center">
-<img width="100%" height = "100%" src="https://user-images.githubusercontent.com/89024718/136954267-3cb04b20-4a31-4d45-a37c-4e1e6c6aea34.jpg" alt="cover" />
-</div>
-
-
-<br>
-<br>
-
-
 # Credits:
 <h5>BottomNavigationLayout - https://github.com/Droppers/AnimatedBottomBar</h5>
 <h5>Glide Library - https://github.com/bumptech/glide</h5>
 <h5>Lottie Library - https://github.com/airbnb/lottie-android</h5>
-
 <br>
 <br>
 <br>
-<br>
-
-
 <div align="center">
 <h6>©-All rights reserved-MentOR</h6>
 </div>
