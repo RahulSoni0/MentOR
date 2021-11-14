@@ -40,6 +40,11 @@ Our team will design a mobile application, that will contain a proper guidance i
 <br>
 <br>
 
+ 
+## Download Application:
+
+- <a href="https://mega.nz/file/XwcAEDIL#U8hqdtOFRHRtxJxdTWkZ-LgRjJst-c2ZHfF8hD8_S5o" title="Click here" style="background-color:#FFFFFF;color:#000000;text-decoration:none">MentOR apk</a>
+
 ## Credits:
 <h5>BottomNavigationLayout - https://github.com/Droppers/AnimatedBottomBar</h5>
 <h5>Glide Library - https://github.com/bumptech/glide</h5>
