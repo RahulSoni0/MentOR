@@ -1,5 +1,3 @@
-
-
 <div align="center">
 <h1>MentOR - Android App (Hackathon Project)</h1>
 </div>
@@ -11,9 +9,10 @@
 </div>
 <br><br>
 
-
-
-# TEAM MEMBERS:
+## TEAM NAME:
+<h4>Gradle D-SyNc</h4>
+ <br><br>
+## TEAM MEMBERS:
 
 - <a href="https://github.com/Subhadiptech" title="Click here" style="background-color:#FFFFFF;color:#000000;text-decoration:none">Subhadip Das</a>
  
@@ -23,14 +22,14 @@
 
 <br><br>
 
-# What's the purpose of this application ?
+## What's the purpose of this application ?
 
-<h5>
-Our team will design a mobile application, that will contain a proper guidance in form of structured courses which are trending worldwide and has opportunities at its peak. We will also include all the possible (copywrite free content present on internet) course e-books and the best part of our idea is that, Students can easily download the e-books and save on their local system to access when there is no internet. Moreover, we are including best video lectures which students can follow for hands-on guide. Moreover there will be a bot to guide the students for basic navigation and contact support.</h5>
+<h4>
+Our team will design a mobile application, that will contain a proper guidance in form of structured courses which are trending worldwide and has opportunities at its peak. We will also include all the possible (copywrite free content present on internet) course e-books and the best part of our idea is that, Students can easily download the e-books and save on their local system to access when there is no internet. Moreover, we are including best video lectures which students can follow for hands-on guide. Moreover there will be a bot to guide the students for basic navigation and contact support.</h4>
 
 <br><br>
 
-# Application Overview
+## Application Overview
 
 <br>
 
@@ -39,7 +38,7 @@ Our team will design a mobile application, that will contain a proper guidance i
 </div>
 <br>
 <br>
-# Credits:
+## Credits:
 <h5>BottomNavigationLayout - https://github.com/Droppers/AnimatedBottomBar</h5>
 <h5>Glide Library - https://github.com/bumptech/glide</h5>
 <h5>Lottie Library - https://github.com/airbnb/lottie-android</h5>
