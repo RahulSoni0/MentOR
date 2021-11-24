@@ -1,5 +1,5 @@
 <div align="center">
-<h1>MentOR - Android App (Hackathon Project)</h1>
+<h1>MentOR - Android App</h1>
 </div>
 
 <br>
