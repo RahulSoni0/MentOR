@@ -1,5 +1,5 @@
 <div align="center">
-<h1>MentOR - Android App (Hackathon Project)</h1>
+<h1>MentOR - Android App</h1>
 </div>
 
 <br>
@@ -39,6 +39,11 @@ Our team will design a mobile application, that will contain a proper guidance i
 </div>
 <br>
 <br>
+
+ 
+## Download Application:
+
+- <a href="https://mega.nz/file/XwcAEDIL#U8hqdtOFRHRtxJxdTWkZ-LgRjJst-c2ZHfF8hD8_S5o" title="Click here" style="background-color:#FFFFFF;color:#000000;text-decoration:none">MentOR apk</a>
 
 ## Credits:
 <h5>BottomNavigationLayout - https://github.com/Droppers/AnimatedBottomBar</h5>
